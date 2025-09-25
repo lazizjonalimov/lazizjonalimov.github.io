@@ -1,4 +1,4 @@
-# Laziz Jonalimov - Portfolio Website
+# Lazizjon Alimov - Portfolio Website
 
 A sophisticated, modern portfolio website with beautiful animations and interactive elements.
 
