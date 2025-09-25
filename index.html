@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lazizjon Alimov - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <!-- External Resources -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -13,7 +19,9 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <span class="logo-text">LAZIZJON</span>
+                <a href="#home" class="logo-link">
+                    <span class="logo-text">LAZIZJON</span>
+                </a>
             </div>
             <ul class="nav-menu">
                 <li class="nav-item">
@@ -114,9 +122,9 @@
                 </div>
                 <div class="about-image">
                     <div class="profile-image-container">
-                        <img src="images/profile-image.jpeg" alt="Lazizjon Alimov" class="profile-image" 
+                        <img src="assets/images/profile-image.jpeg" alt="Lazizjon Alimov" class="profile-image" 
                              onload="console.log('Image loaded successfully')" 
-                             onerror="console.log('Image failed to load, trying alternative path'); this.src='profile-image.jpg';">
+                             onerror="console.log('Image failed to load, trying alternative path'); this.src='assets/images/profile-image.jpg';">
                         <div class="image-placeholder" id="placeholder" style="display: none;">
                             <i class="fas fa-user"></i>
                         </div>
@@ -370,6 +378,16 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- JavaScript Files -->
+    <script src="assets/js/navigation.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/contact.js"></script>
+    <script src="assets/js/effects.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
