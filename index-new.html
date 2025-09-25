@@ -37,11 +37,37 @@
     <div id="footer"></div>
 
     <!-- JavaScript Files -->
-    <script src="assets/js/component-loader.js"></script>
     <script src="assets/js/navigation.js"></script>
     <script src="assets/js/animations.js"></script>
     <script src="assets/js/contact.js"></script>
     <script src="assets/js/effects.js"></script>
     <script src="assets/js/main.js"></script>
+
+    <!-- Component Loader Script -->
+    <script>
+        // Load components
+        async function loadComponent(componentPath, targetId) {
+            try {
+                const response = await fetch(componentPath);
+                const html = await response.text();
+                document.getElementById(targetId).innerHTML = html;
+            } catch (error) {
+                console.error(`Error loading component ${componentPath}:`, error);
+            }
+        }
+
+        // Load all components when DOM is ready
+        document.addEventListener('DOMContentLoaded', async function() {
+            await Promise.all([
+                loadComponent('components/partials/navigation.html', 'navigation'),
+                loadComponent('components/sections/hero.html', 'hero'),
+                loadComponent('components/sections/about.html', 'about'),
+                loadComponent('components/sections/skills.html', 'skills'),
+                loadComponent('components/sections/projects.html', 'projects'),
+                loadComponent('components/sections/contact.html', 'contact'),
+                loadComponent('components/partials/footer.html', 'footer')
+            ]);
+        });
+    </script>
 </body>
 </html>
