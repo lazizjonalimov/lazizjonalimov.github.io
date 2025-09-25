@@ -27,13 +27,11 @@
     color: inherit;
 }
 
-.nav-logo .logo-text {
-    font-size: 24px;
-    font-weight: 700;
-    background: #000;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.nav-logo .logo-image {
+    height: 60px;
+    width: auto;
+    max-width: 120px;
+    object-fit: contain;
 }
 
 .nav-menu {
