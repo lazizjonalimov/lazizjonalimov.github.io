@@ -1,32 +1,32 @@
 <!-- Navigation -->
-<nav class="navbar">
+<nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-container">
         <div class="nav-logo">
-            <a href="#home" class="logo-link">
+            <a href="#home" class="logo-link" aria-label="Lazizjon Alimov - Go to homepage">
                 <span class="logo-text">LAZIZJON</span>
             </a>
         </div>
-        <ul class="nav-menu">
-            <li class="nav-item">
-                <a href="#home" class="nav-link">Home</a>
+        <ul class="nav-menu" role="menubar">
+            <li class="nav-item" role="none">
+                <a href="#home" class="nav-link" role="menuitem" aria-label="Go to home section">Home</a>
             </li>
-            <li class="nav-item">
-                <a href="#about" class="nav-link">About</a>
+            <li class="nav-item" role="none">
+                <a href="#about" class="nav-link" role="menuitem" aria-label="Go to about section">About</a>
             </li>
-            <li class="nav-item">
-                <a href="#skills" class="nav-link">Skills</a>
+            <li class="nav-item" role="none">
+                <a href="#skills" class="nav-link" role="menuitem" aria-label="Go to skills section">Skills</a>
             </li>
-            <li class="nav-item">
-                <a href="#projects" class="nav-link">Projects</a>
+            <li class="nav-item" role="none">
+                <a href="#projects" class="nav-link" role="menuitem" aria-label="Go to projects section">Projects</a>
             </li>
         </ul>
         <div class="nav-actions">
-            <a href="#contact" class="nav-cta">Contact</a>
+            <a href="#contact" class="nav-cta" aria-label="Go to contact section">Contact</a>
         </div>
-        <div class="hamburger">
+        <button class="hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
-        </div>
+        </button>
     </div>
 </nav>

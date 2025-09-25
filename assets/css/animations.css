@@ -110,6 +110,7 @@
     font-size: 24px;
     color: white;
     animation: orbit 8s linear infinite;
+    z-index: 20;
 }
 
 .icon-1 {
@@ -134,6 +135,64 @@
     bottom: 20px;
     right: 20px;
     animation-delay: 6s;
+}
+
+.icon-5 {
+    top: 50%;
+    left: 20px;
+    animation-delay: 1s;
+}
+
+.icon-6 {
+    top: 50%;
+    right: 20px;
+    animation-delay: 3s;
+}
+
+/* Floating Profile Image */
+.floating-profile {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.floating-profile:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.profile-floating-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.floating-profile:hover .profile-floating-image {
+    transform: scale(1.1);
+}
+
+@keyframes heartbeat {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    14% { transform: translate(-50%, -50%) scale(1.1); }
+    28% { transform: translate(-50%, -50%) scale(1); }
+    42% { transform: translate(-50%, -50%) scale(1.1); }
+    70% { transform: translate(-50%, -50%) scale(1); }
+    100% { transform: translate(-50%, -50%) scale(1); }
 }
 
 @keyframes orbit {
