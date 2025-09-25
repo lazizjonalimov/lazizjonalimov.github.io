@@ -114,8 +114,10 @@
                 </div>
                 <div class="about-image">
                     <div class="profile-image-container">
-                        <img src="images/profile-image.jpeg" alt="Lazizjon Alimov" class="profile-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <div class="image-placeholder" style="display: none;">
+                        <img src="images/profile-image.jpeg" alt="Lazizjon Alimov" class="profile-image" 
+                             onload="console.log('Image loaded successfully')" 
+                             onerror="console.log('Image failed to load, trying alternative path'); this.src='profile-image.jpg';">
+                        <div class="image-placeholder" id="placeholder" style="display: none;">
                             <i class="fas fa-user"></i>
                         </div>
                     </div>
