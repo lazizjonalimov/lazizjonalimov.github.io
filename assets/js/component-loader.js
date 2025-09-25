@@ -57,6 +57,7 @@ class ComponentLoader {
             'navigation': 'navigation',
             'hero': 'hero',
             'about': 'about',
+            'experience': 'experience',
             'skills': 'skills',
             'projects': 'projects',
             'contact': 'contact',
@@ -67,6 +68,7 @@ class ComponentLoader {
         this.register('navigation', 'components/partials/navigation.html');
         this.register('hero', 'components/sections/hero.html');
         this.register('about', 'components/sections/about.html');
+        this.register('experience', 'components/sections/experience.html');
         this.register('skills', 'components/sections/skills.html');
         this.register('projects', 'components/sections/projects.html');
         this.register('contact', 'components/sections/contact.html');
