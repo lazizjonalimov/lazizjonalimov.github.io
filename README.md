@@ -202,9 +202,11 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 📞 Contact
 
-- **Email**: lazizjonalimov@gmail.com
-- **LinkedIn**: [linkedin.com/in/lazizjonalimov](https://linkedin.com/in/lazizjonalimov)
+- **Email**: lazalimov@gmail.com
+- **LinkedIn**: [linkedin.com/in/lazizjonalimov](https://linkedin.com/in/lazizjonalimov/)
 - **GitHub**: [github.com/lazizjonalimov](https://github.com/lazizjonalimov)
+- **X (Twitter)**: [x.com/lazizjonalimov](https://x.com/lazizjonalimov)
+- **Instagram**: [instagram.com/lazizjonalimov](https://instagram.com/lazizjonalimov)
 
 ---
 

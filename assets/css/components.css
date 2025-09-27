@@ -436,6 +436,22 @@
     transform: translateY(-3px);
 }
 
+/* Custom X Logo Styling */
+.x-logo .x-symbol {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.x-logo:hover .x-symbol {
+    color: white;
+}
+
 /* Education Section Styles */
 .education-section {
     margin-top: 40px;

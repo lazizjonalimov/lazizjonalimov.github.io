@@ -361,6 +361,16 @@
     color: #666;
 }
 
+.contact-link {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+    color: #667eea;
+}
+
 /* Footer Layout */
 .footer {
     background: #333;
