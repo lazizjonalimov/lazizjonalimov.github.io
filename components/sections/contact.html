@@ -13,7 +13,7 @@
                     </div>
                     <div class="contact-details">
                         <h3>Email</h3>
-                        <p>lazizjonalimov@gmail.com</p>
+                        <p>lazalimov@gmail.com</p>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -44,7 +44,7 @@
                     </div>
                 </div>
             </div>
-            <form class="contact-form">
+            <form class="contact-form" id="contact-form">
                 <div class="form-group">
                     <input type="text" id="name" name="name" placeholder="Your Name" required>
                 </div>
@@ -57,7 +57,13 @@
                 <div class="form-group">
                     <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
+                <button type="submit" class="btn btn-primary" id="submit-btn">
+                    <span class="btn-text">Send Message</span>
+                    <div class="btn-icon" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </div>
+                </button>
+                <div id="form-message" style="margin-top: 15px; padding: 10px; border-radius: 5px; display: none;"></div>
             </form>
         </div>
     </div>

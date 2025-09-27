@@ -1,6 +1,13 @@
-// Contact form functionality
+// Contact form functionality with EmailJS
 function initContactForm() {
-    const form = document.querySelector('.contact-form');
+    // Initialize EmailJS
+    emailjs.init("sChBorqqHVpsigVmf");
+    
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const btnText = submitBtn.querySelector('.btn-text');
+    const btnIcon = submitBtn.querySelector('.btn-icon');
+    const formMessage = document.getElementById('form-message');
     
     form.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -14,71 +21,75 @@ function initContactForm() {
         
         // Basic validation
         if (!name || !email || !subject || !message) {
-            showNotification('Please fill in all fields', 'error');
+            showMessage('Please fill in all fields', 'error');
             return;
         }
         
         if (!isValidEmail(email)) {
-            showNotification('Please enter a valid email address', 'error');
+            showMessage('Please enter a valid email address', 'error');
             return;
         }
         
-        // Simulate form submission
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Sending...';
-        submitBtn.disabled = true;
+        // Show loading state
+        showLoading();
         
-        setTimeout(() => {
-            showNotification('Message sent successfully!', 'success');
-            form.reset();
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-        }, 2000);
+        // EmailJS template parameters
+        const templateParams = {
+            from_name: name,
+            from_email: email,
+            subject: subject,
+            message: message,
+            to_email: 'lazalimov@gmail.com'
+        };
+        
+        // Send email using EmailJS
+        emailjs.send('service_lmw0q2h', 'template_m621noi', templateParams)
+            .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                showMessage('Message sent successfully! I\'ll get back to you soon.', 'success');
+                form.reset();
+                hideLoading();
+            }, function(error) {
+                console.log('FAILED...', error);
+                showMessage('Sorry, there was an error sending your message. Please try again or email me directly at lazalimov@gmail.com', 'error');
+                hideLoading();
+            });
     });
+    
+    function showLoading() {
+        btnText.style.display = 'none';
+        btnIcon.style.display = 'block';
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.7';
+    }
+    
+    function hideLoading() {
+        btnText.style.display = 'inline';
+        btnIcon.style.display = 'none';
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+    }
+    
+    function showMessage(message, type) {
+        formMessage.textContent = message;
+        formMessage.style.display = 'block';
+        formMessage.style.backgroundColor = type === 'success' ? '#d4edda' : '#f8d7da';
+        formMessage.style.color = type === 'success' ? '#155724' : '#721c24';
+        formMessage.style.border = type === 'success' ? '1px solid #c3e6cb' : '1px solid #f5c6cb';
+        
+        // Auto hide after 5 seconds
+        setTimeout(() => {
+            formMessage.style.display = 'none';
+        }, 5000);
+    }
     
     function isValidEmail(email) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     }
-    
-    function showNotification(message, type) {
-        // Remove existing notifications
-        const existing = document.querySelector('.notification');
-        if (existing) {
-            existing.remove();
-        }
-        
-        const notification = document.createElement('div');
-        notification.className = `notification ${type}`;
-        notification.textContent = message;
-        notification.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 15px 20px;
-            border-radius: 5px;
-            color: white;
-            font-weight: 500;
-            z-index: 10000;
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-            background: ${type === 'success' ? '#4CAF50' : '#f44336'};
-        `;
-        
-        document.body.appendChild(notification);
-        
-        // Animate in
-        setTimeout(() => {
-            notification.style.transform = 'translateX(0)';
-        }, 100);
-        
-        // Auto remove
-        setTimeout(() => {
-            notification.style.transform = 'translateX(100%)';
-            setTimeout(() => {
-                notification.remove();
-            }, 300);
-        }, 3000);
-    }
 }
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    initContactForm();
+});
