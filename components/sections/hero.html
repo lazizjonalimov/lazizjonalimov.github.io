@@ -91,7 +91,11 @@
                         <div class="profile-border"></div>
                         <img src="assets/images/profile-image.jpeg" alt="Lazizjon Alimov" class="profile-floating-image" 
                              onload="console.log('Floating profile image loaded successfully')" 
-                             onerror="console.log('Floating profile image failed to load, trying alternative path'); this.src='assets/images/profile-image.jpg';">
+                             onerror="console.log('Floating profile image failed to load, trying alternative path'); this.src='assets/images/profile-image.jpg';"
+                             draggable="false"
+                             oncontextmenu="return false;"
+                             onselectstart="return false;"
+                             onmousedown="return false;">
                     </div>
                 </div>
             </div>
