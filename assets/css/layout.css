@@ -199,12 +199,9 @@
     position: relative;
     z-index: 2;
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 80px;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
     align-items: center;
-    max-width: 95%;
-    margin: 0 auto;
-    padding: 0 20px;
 }
 
 .hero-text {
