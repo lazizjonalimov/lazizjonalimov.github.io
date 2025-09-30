@@ -195,6 +195,31 @@
     .contact-content {
         grid-template-columns: 1fr;
     }
+    
+    .contact {
+        padding-top: 100px;
+    }
+    
+    /* Fix all sections going under navbar on mobile */
+    .hero {
+        padding-top: 100px;
+    }
+    
+    .about {
+        padding-top: 100px;
+    }
+    
+    .experience {
+        padding-top: 100px;
+    }
+    
+    .skills {
+        padding-top: 100px;
+    }
+    
+    .projects {
+        padding-top: 100px;
+    }
 
     .footer-content {
         flex-direction: column;
