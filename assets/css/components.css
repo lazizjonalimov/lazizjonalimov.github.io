@@ -202,6 +202,20 @@
     box-shadow: 0 20px 40px rgba(255, 255, 255, 0.2);
 }
 
+.btn-resume {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(20px);
+}
+
+.btn-resume:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
 .btn-text {
     position: relative;
     z-index: 2;
