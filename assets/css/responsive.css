@@ -1,4 +1,32 @@
 /* Responsive Design */
+
+/* Hide scroll indicator for screens less than 900px */
+@media (max-width: 900px) {
+    .scroll-indicator {
+        display: none;
+    }
+}
+
+/* Tablet screens */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .hero-content {
+        gap: 40px;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile screens */
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
@@ -9,12 +37,14 @@
         left: -100%;
         top: 70px;
         flex-direction: column;
-        background-color: white;
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
         width: 100%;
         text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-        padding: 20px 0;
+        transition: 0.3s ease;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.1);
+        padding: 30px 0;
+        z-index: 1000;
     }
 
     .nav-menu.active {
@@ -24,6 +54,22 @@
     .nav-actions {
         display: none;
     }
+    
+    .nav-item {
+        margin: 10px 0;
+    }
+    
+    .nav-link {
+        font-size: 1.1rem;
+        padding: 10px 20px;
+        display: block;
+        transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover {
+        background: rgba(102, 126, 234, 0.1);
+        border-radius: 25px;
+    }
 
     .hero {
         padding: 100px 0 60px;
@@ -32,7 +78,7 @@
     .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 50px;
+        gap: 40px;
     }
 
     .hero-title {
@@ -62,8 +108,9 @@
 
     .hero-stats {
         justify-content: center;
-        gap: 30px;
-        margin-bottom: 40px;
+        gap: 25px;
+        margin-bottom: 35px;
+        flex-wrap: wrap;
     }
 
     .stat-number {
@@ -77,8 +124,9 @@
     }
 
     .btn {
-        padding: 14px 28px;
+        padding: 12px 24px;
         font-size: 0.9rem;
+        min-width: 140px;
     }
 
     .image-container {
@@ -136,7 +184,8 @@
     }
 
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+        line-height: 1.2;
     }
 
     .greeting {
@@ -156,7 +205,8 @@
     }
 
     .hero-description {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        line-height: 1.5;
     }
 
     .hero-stats {
@@ -181,8 +231,10 @@
 
     .btn {
         width: 100%;
-        max-width: 280px;
+        max-width: 260px;
         justify-content: center;
+        padding: 14px 20px;
+        font-size: 0.85rem;
     }
 
     .image-container {

@@ -33,6 +33,13 @@
     letter-spacing: -0.02em;
 }
 
+/* Responsive hero title */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+}
+
 .title-line {
     display: block;
     opacity: 0;
@@ -143,6 +150,14 @@
     overflow: hidden;
     border: none;
     cursor: pointer;
+}
+
+/* Responsive buttons */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .btn {
+        padding: 15px 28px;
+        font-size: 0.95rem;
+    }
 }
 
 .btn::before {
@@ -266,6 +281,17 @@
 .skill-item span {
     font-weight: 600;
     color: #333;
+}
+
+/* Responsive skill items */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .skill-item {
+        padding: 18px;
+    }
+    
+    .skill-item i {
+        font-size: 1.8rem;
+    }
 }
 
 /* Project Cards */
