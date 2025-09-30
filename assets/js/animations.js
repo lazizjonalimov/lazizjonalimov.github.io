@@ -95,6 +95,12 @@ function initCounterAnimations() {
             if (entry.isIntersecting) {
                 const counter = entry.target;
                 const target = parseInt(counter.getAttribute('data-target'));
+                
+                // Skip if no data-target attribute or invalid value
+                if (isNaN(target)) {
+                    return;
+                }
+                
                 const duration = 2000; // 2 seconds
                 const increment = target / (duration / 16); // 60fps
                 let current = 0;
@@ -106,6 +112,10 @@ function initCounterAnimations() {
                         requestAnimationFrame(updateCounter);
                     } else {
                         counter.textContent = target;
+                        // Add "+" suffix for hero stats
+                        if (counter.closest('.hero-stats')) {
+                            counter.textContent = target + '+';
+                        }
                     }
                 };
                 
