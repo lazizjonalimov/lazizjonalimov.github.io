@@ -67,4 +67,11 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollProgress();
     initKeyboardNavigation();
     initImageProtection();
+    
+    // Re-initialize counter animations after components are loaded
+    setTimeout(() => {
+        if (typeof initCounterAnimations === 'function') {
+            initCounterAnimations();
+        }
+    }, 1000);
 });

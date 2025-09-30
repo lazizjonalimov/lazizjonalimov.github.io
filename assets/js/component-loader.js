@@ -104,4 +104,11 @@ document.addEventListener('DOMContentLoaded', async function() {
     if (typeof initScrollToTop === 'function') {
         initScrollToTop();
     }
+    
+    // Re-initialize counter animations after components are loaded
+    setTimeout(() => {
+        if (typeof initCounterAnimations === 'function') {
+            initCounterAnimations();
+        }
+    }, 500);
 });
