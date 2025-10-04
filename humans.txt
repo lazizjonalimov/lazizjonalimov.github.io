@@ -1,0 +1,30 @@
+# Human-readable information about Lazizjon Alimov's website
+
+# TEAM
+    Developer: Lazizjon Alimov
+    Contact: lazalimov@gmail.com
+    From: Brooklyn, New York, USA
+
+# THANKS
+    Western Michigan University - Computer Science Education
+    CodePath - iOS Development Training
+    SMT Trans - Professional Experience
+    GitHub - Hosting Platform
+
+# TECHNOLOGY COLOPHON
+    Languages: HTML5, CSS3, JavaScript, Python, PHP
+    Frameworks: React, Node.js, iOS
+    Tools: Git, GitHub, VS Code
+    Standards: W3C, Schema.org, Open Graph
+
+# SITE
+    Last update: 2025/01/27
+    Language: English
+    Doctype: HTML5
+    IDE: Visual Studio Code
+
+# SEO OPTIMIZATION
+    Focus: Personal Branding, Professional Portfolio
+    Target: "Lazizjon Alimov", "LA Alimov", "Laziz Alimov"
+    Location: Brooklyn, New York
+    Industry: IT Systems, Data Analysis, Software Development

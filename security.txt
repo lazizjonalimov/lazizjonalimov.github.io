@@ -1,0 +1,12 @@
+Contact: mailto:lazalimov@gmail.com
+Contact: https://linkedin.com/in/lazizjonalimov/
+Contact: https://github.com/lazizjonalimov
+Expires: 2026-01-27T00:00:00.000Z
+Encryption: https://lazizjonalimov.github.io/assets/resume/Lazizjon_Alimov_Resume.pdf
+Preferred-Languages: en
+Canonical: https://lazizjonalimov.github.io/security.txt
+Policy: https://lazizjonalimov.github.io/
+
+# Security contact for Lazizjon Alimov Portfolio
+# For security researchers and professionals
+# Contact: lazalimov@gmail.com
