@@ -27,8 +27,21 @@ User-agent: YandexBot
 Allow: /
 Crawl-delay: 0
 
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
 # Sitemaps
 Sitemap: https://lazizjonalimov.github.io/sitemap.xml
 
 # Host
 Host: lazizjonalimov.github.io
+
+# Additional directives for better SEO
+# Allow all search engines to access all content
+# No disallow rules - everything is public and should be indexed
