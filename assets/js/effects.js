@@ -120,3 +120,63 @@ function initKeyboardNavigation() {
     `;
     document.head.appendChild(focusStyle);
 }
+
+// Add experience icon animation on company name hover (fallback for browsers without :has() support)
+function initExperienceIconAnimation() {
+    // Check if :has() is supported
+    const hasSelectorSupported = CSS.supports('selector(:has(*))');
+    
+    if (!hasSelectorSupported) {
+        const setupAnimation = () => {
+            // Fallback for browsers without :has() support
+            // Target the company name text specifically (h3 or company-link)
+            const companyNames = document.querySelectorAll('.experience-title h3:not([data-animation-setup]), .experience-title .company-link:not([data-animation-setup])');
+            
+            companyNames.forEach(companyName => {
+                const experienceHeader = companyName.closest('.experience-header');
+                const experienceIcon = experienceHeader?.querySelector('.experience-icon');
+                
+                if (experienceIcon) {
+                    // Mark as set up to avoid duplicate event listeners
+                    companyName.setAttribute('data-animation-setup', 'true');
+                    
+                    companyName.addEventListener('mouseenter', function() {
+                        experienceIcon.style.animation = 'iconBounce 0.6s ease';
+                    });
+                    
+                    // Reset animation so it can be triggered again
+                    experienceIcon.addEventListener('animationend', function() {
+                        experienceIcon.style.animation = '';
+                    });
+                }
+            });
+        };
+        
+        // Initial setup
+        setupAnimation();
+        
+        // Watch for dynamically loaded components
+        const observer = new MutationObserver(function(mutations) {
+            const hasNewExperience = Array.from(mutations).some(mutation => 
+                Array.from(mutation.addedNodes).some(node => 
+                    node.nodeType === 1 && (
+                        node.tagName === 'H3' ||
+                        node.classList?.contains('company-link') ||
+                        node.querySelector?.('.experience-title h3') ||
+                        node.querySelector?.('.company-link')
+                    )
+                )
+            );
+            
+            if (hasNewExperience) {
+                setupAnimation();
+            }
+        });
+        
+        // Observe the document body for changes
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    }
+}

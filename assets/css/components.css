@@ -765,6 +765,37 @@
     box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
     position: relative;
     z-index: 3;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Animate icon when hovering over company name text specifically */
+/* Works for both normal and reverse layouts using :has() selector */
+.experience-header:has(.experience-title h3:hover) .experience-icon,
+.experience-header:has(.experience-title .company-link:hover) .experience-icon {
+    animation: iconBounce 0.6s ease;
+}
+
+/* Make company name show pointer cursor */
+.experience-title h3,
+.experience-title .company-link {
+    cursor: pointer;
+    transition: color 0.3s ease;
+    display: inline-block;
+}
+
+@keyframes iconBounce {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+    }
+    25% {
+        transform: scale(1.15) rotate(-10deg);
+    }
+    50% {
+        transform: scale(1.2) rotate(10deg);
+    }
+    75% {
+        transform: scale(1.15) rotate(-5deg);
+    }
 }
 
 .experience-title {
