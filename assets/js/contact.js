@@ -1,7 +1,5 @@
 // Contact form functionality with EmailJS
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize EmailJS
-    emailjs.init("_-92C8D10fO1hZvoj");
     
     const form = document.getElementById('contact-form');
     const submitBtn = document.getElementById('submit-btn');
