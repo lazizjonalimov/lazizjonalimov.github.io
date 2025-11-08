@@ -478,6 +478,7 @@
     font-size: 1rem;
     transition: border-color 0.3s ease;
     background: #f8f9fa;
+    color: #000000;
 }
 
 .form-group input:focus,
