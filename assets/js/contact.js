@@ -9,9 +9,7 @@ function initContactForm() {
     const btnIcon = submitBtn.querySelector('.btn-icon');
     const formMessage = document.getElementById('form-message');
     
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
+    submitBtn.addEventListener('click', function() {
         // Get form data
         const formData = new FormData(form);
         const name = formData.get('name');
