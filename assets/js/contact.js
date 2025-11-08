@@ -1,5 +1,5 @@
 // Contact form functionality with EmailJS
-function initContactForm() {
+document.addEventListener('DOMContentLoaded', function() {
     // Initialize EmailJS
     emailjs.init("_-92C8D10fO1hZvoj");
     
@@ -9,7 +9,9 @@ function initContactForm() {
     const btnIcon = submitBtn.querySelector('.btn-icon');
     const formMessage = document.getElementById('form-message');
     
-    submitBtn.addEventListener('click', function() {
+    form.addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevent the form from submitting normally
+        
         // Get form data
         const formData = new FormData(form);
         const name = formData.get('name');
@@ -85,9 +87,5 @@ function initContactForm() {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     }
-}
-
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    initContactForm();
+    // End of DOMContentLoaded callback
 });
