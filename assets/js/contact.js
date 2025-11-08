@@ -14,20 +14,20 @@ window.onload = function() {
 
         // Collect form data
         const templateParams = {
-            name: document.getElementById("name").value,
-            email: document.getElementById("email").value,
-            subject: document.getElementById("subject").value,
-            message: document.getElementById("message").value,
+            name: form.name.value,
+            email: form.email.value,
+            subject: form.subject.value,
+            message: form.message.value
         };
 
         // Send email using EmailJS
-        emailjs.send("service_npedxaj", "template_pe6rvfc", templateParams)
+        emailjs.send("service_nu5rrro", "template_93ycdj7", templateParams)
             .then(function(response) {
-                alert("Email sent successfully!");
-                console.log("SUCCESS", response.status, response.text);
+                alert("Message sent successfully!");
+                form.reset();
             }, function(error) {
-                alert("Failed to send email. Check console for details.");
-                console.error("FAILED...", error);
+                alert("Failed to send message. Try again.");
+                console.error("EmailJS error:", error);
             });
     });
 };
