@@ -1,7 +1,7 @@
 // Contact form functionality with EmailJS
 function initContactForm() {
     // Initialize EmailJS
-    emailjs.init("sChBorqqHVpsigVmf");
+    emailjs.init("_-92C8D10fO1hZvoj");
     
     const form = document.getElementById('contact-form');
     const submitBtn = document.getElementById('submit-btn');
@@ -43,7 +43,7 @@ function initContactForm() {
         };
         
         // Send email using EmailJS
-        emailjs.send('service_lmw0q2h', 'template_m621noi', templateParams)
+        emailjs.send('service_npedxaj', 'template_2cvw1ls', templateParams)
             .then(function(response) {
                 console.log('SUCCESS!', response.status, response.text);
                 showMessage('Message sent successfully! I\'ll get back to you soon.', 'success');
