@@ -21,7 +21,7 @@ window.onload = function() {
         };
 
         // Send email using EmailJS
-        emailjs.send("service_nu5rrro", "template_93ycdj7", templateParams)
+        emailjs.send("service_npedxaj", "template_pe6rvfc", templateParams)
             .then(function(response) {
                 alert("Message sent successfully!");
                 form.reset();
