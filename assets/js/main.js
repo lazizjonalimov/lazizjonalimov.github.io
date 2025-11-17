@@ -58,6 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initTypingEffect();
     initParallaxEffect();
     initSkillAnimations();
+    initSkillProjectLinks();
     initRippleEffect();
     initProjectAnimations();
     initSocialAnimations();

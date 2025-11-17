@@ -186,6 +186,87 @@ function initSkillAnimations() {
     });
 }
 
+// Link skill chips to matching project tech tags
+function initSkillProjectLinks() {
+    let activeSkill = null;
+    const normalizeSkill = (text) => text.trim().toLowerCase();
+    
+    const setupLinks = () => {
+        const skillItems = document.querySelectorAll('#skills .skill-item');
+        const projectCards = document.querySelectorAll('.project-card');
+        const projectSection = document.getElementById('projects');
+        
+        if (!skillItems.length || !projectCards.length) {
+            return false;
+        }
+
+        const clearHighlights = () => {
+            projectCards.forEach(card => {
+                card.classList.remove('project-match', 'project-dimmed');
+            });
+        };
+        
+        const highlightMatches = (skill) => {
+            projectCards.forEach(card => {
+                const hasSkill = Array.from(card.querySelectorAll('.tech-tag'))
+                    .some(tag => normalizeSkill(tag.textContent) === skill);
+                
+                card.classList.toggle('project-match', hasSkill);
+                card.classList.toggle('project-dimmed', !hasSkill);
+            });
+        };
+        
+        skillItems.forEach(item => {
+            if (item.dataset.projectLinkAttached === 'true') {
+                return;
+            }
+            
+            const skillName = normalizeSkill(item.textContent);
+            item.dataset.projectLinkAttached = 'true';
+            item.classList.add('skill-link');
+            item.setAttribute('role', 'button');
+            item.setAttribute('tabindex', '0');
+            
+            const activate = () => {
+                if (activeSkill === skillName) {
+                    activeSkill = null;
+                    clearHighlights();
+                    return;
+                }
+                
+                activeSkill = skillName;
+                highlightMatches(skillName);
+                if (projectSection) {
+                    projectSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            };
+            
+            item.addEventListener('click', activate);
+            item.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    activate();
+                }
+            });
+        });
+        
+        return true;
+    };
+    
+    if (setupLinks()) {
+        return;
+    }
+    
+    // Fallback for dynamic component loading
+    const observer = new MutationObserver(() => {
+        if (setupLinks()) {
+            observer.disconnect();
+        }
+    });
+    
+    observer.observe(document.body, { childList: true, subtree: true });
+}
+
 // Add ripple effect to buttons
 function initRippleEffect() {
     const buttons = document.querySelectorAll('.btn');
