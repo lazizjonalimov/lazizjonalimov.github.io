@@ -3,7 +3,7 @@
 # TEAM
     Developer: Lazizjon Alimov
     Contact: lazalimov@gmail.com
-    From: Brooklyn, New York, USA
+    From: United States
 
 # THANKS
     Western Michigan University - Computer Science Education
@@ -26,5 +26,5 @@
 # SEO OPTIMIZATION
     Focus: Personal Branding, Professional Portfolio
     Target: "Lazizjon Alimov", "LA Alimov", "Laziz Alimov"
-    Location: Brooklyn, New York
+    Location: United States
     Industry: IT Systems, Data Analysis, Software Development
