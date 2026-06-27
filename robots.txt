@@ -1,47 +1,4 @@
 User-agent: *
 Allow: /
-Crawl-delay: 0
 
-# Optimize for major search engines
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 0
-
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 0
-
-User-agent: Slurp
-Allow: /
-Crawl-delay: 0
-
-User-agent: DuckDuckBot
-Allow: /
-Crawl-delay: 0
-
-User-agent: Baiduspider
-Allow: /
-Crawl-delay: 0
-
-User-agent: YandexBot
-Allow: /
-Crawl-delay: 0
-
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: LinkedInBot
-Allow: /
-
-# Sitemaps
 Sitemap: https://lazizjonalimov.github.io/sitemap.xml
-
-# Host
-Host: lazizjonalimov.github.io
-
-# Additional directives for better SEO
-# Allow all search engines to access all content
-# No disallow rules - everything is public and should be indexed

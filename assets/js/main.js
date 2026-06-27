@@ -69,15 +69,4 @@ document.addEventListener('DOMContentLoaded', function() {
     initKeyboardNavigation();
     initExperienceIconAnimation();
     initImageProtection();
-    
-    // Re-initialize counter animations after components are loaded
-    setTimeout(() => {
-        if (typeof initCounterAnimations === 'function') {
-            initCounterAnimations();
-        }
-        // Re-initialize experience icon animation after components are loaded
-        if (typeof initExperienceIconAnimation === 'function') {
-            initExperienceIconAnimation();
-        }
-    }, 1000);
 });

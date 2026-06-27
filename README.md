@@ -1,17 +1,14 @@
 # Lazizjon Alimov - Portfolio Website
 
-A modern, responsive portfolio website showcasing my skills, projects, and professional experience. Fully optimized for SEO and performance.
+A modern, responsive portfolio website showcasing my skills, projects, and professional experience.
 
 ## 🚀 Features
 
 - **Responsive Design**: Works perfectly on all devices
 - **Modern UI/UX**: Clean, professional design with smooth animations
 - **Interactive Elements**: Floating animations, hover effects, and smooth scrolling
-- **SEO Optimized**: Comprehensive meta tags, structured data, and performance optimization
 - **Component-Based**: Modular HTML, CSS, and JavaScript architecture
 - **Fast Loading**: Optimized assets and efficient code structure
-- **Analytics Ready**: Google Analytics integration
-- **Social Media Optimized**: Open Graph and Twitter Card support
 
 ## 🛠️ Technologies Used
 
@@ -50,10 +47,7 @@ A modern, responsive portfolio website showcasing my skills, projects, and profe
 │       ├── projects.html
 │       └── contact.html
 ├── index.html         # Main HTML file
-├── robots.txt         # SEO robots file
-├── sitemap.xml        # SEO sitemap
 ├── site.webmanifest   # PWA manifest
-└── .htaccess         # Server optimizations
 ```
 
 ## 🚀 Getting Started
@@ -99,74 +93,13 @@ A modern, responsive portfolio website showcasing my skills, projects, and profe
 3. Update `component-loader.js` to load the new section
 4. Add corresponding CSS styles
 
-## 🔍 SEO Optimization
+### Rebuild after editing components
 
-### Current SEO Features
-- ✅ **Meta Tags**: Comprehensive title, description, and keyword tags
-- ✅ **Structured Data**: Schema.org markup for person, education, and skills
-- ✅ **Open Graph**: Facebook and social media optimization
-- ✅ **Twitter Cards**: Twitter sharing optimization
-- ✅ **Sitemap**: XML sitemap for search engines
-- ✅ **Robots.txt**: Search engine crawling instructions
-- ✅ **Mobile Optimization**: Responsive design and mobile-first approach
-- ✅ **Performance**: Optimized loading and caching
-- ✅ **Analytics**: Google Analytics integration ready
+Page content is inlined into `index.html` for search engines. After editing files in `components/`, run:
 
-### SEO Setup Instructions
-
-1. **Google Analytics Setup**
-   - Replace `GA_MEASUREMENT_ID` in `index.html` with your actual Google Analytics ID
-   - Set up Google Analytics account at [analytics.google.com](https://analytics.google.com)
-
-2. **Google Search Console**
-   - Submit your sitemap: `https://yourusername.github.io/sitemap.xml`
-   - Verify ownership of your domain
-   - Monitor search performance and indexing
-
-3. **Social Media Optimization**
-   - Update Open Graph images in meta tags
-   - Test social sharing with [Facebook Debugger](https://developers.facebook.com/tools/debug/)
-   - Test Twitter Cards with [Twitter Card Validator](https://cards-dev.twitter.com/validator)
-
-4. **Performance Monitoring**
-   - Test with [Google PageSpeed Insights](https://pagespeed.web.dev/)
-   - Monitor Core Web Vitals
-   - Use [GTmetrix](https://gtmetrix.com/) for detailed performance analysis
-
-### Content Strategy for SEO
-
-1. **Regular Updates**
-   - Add new projects and achievements
-   - Update skills and certifications
-   - Blog about your learning journey
-   - Share insights and tutorials
-
-2. **Keyword Optimization**
-   - Target: "Computer Science Graduate", "Software Developer", "Python Developer"
-   - Include location-based keywords: "Brooklyn Developer", "New York Software Engineer"
-   - Use long-tail keywords: "Recent Computer Science Graduate Portfolio"
-
-3. **Backlink Building**
-   - Share on LinkedIn with professional summary
-   - Post on GitHub with detailed README
-   - Submit to developer portfolio directories
-   - Network with other developers and professionals
-
-## 📊 Analytics and Monitoring
-
-### Google Analytics Events
-The website includes tracking for:
-- Page views and user sessions
-- Section interactions (About, Skills, Projects, Contact)
-- Button clicks and form submissions
-- Mobile vs desktop usage
-- Geographic location of visitors
-
-### Performance Metrics
-- **Core Web Vitals**: Optimized for LCP, FID, and CLS
-- **Loading Speed**: Sub-3 second load times
-- **Mobile Performance**: 90+ PageSpeed score
-- **Accessibility**: WCAG 2.1 AA compliant
+```bash
+node scripts/build-index.js
+```
 
 ## 🚀 Deployment Options
 
@@ -179,7 +112,7 @@ The website includes tracking for:
 ### Custom Domain
 1. Add `CNAME` file with your domain name
 2. Configure DNS settings with your domain provider
-3. Update all URLs in meta tags and sitemap
+3. Update URLs in meta tags if needed
 
 ### Other Hosting Options
 - **Netlify**: Drag and drop deployment
