@@ -8,7 +8,7 @@ function initLoadingAnimation() {
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--ink);
+            background: var(--void);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -20,8 +20,9 @@ function initLoadingAnimation() {
         spinner.style.cssText = `
             width: 50px;
             height: 50px;
-            border: 3px solid rgba(250, 250, 248, 0.3);
-            border-top: 3px solid var(--paper);
+            border: 3px solid rgba(244, 244, 249, 0.15);
+            border-top: 3px solid var(--cyan);
+            box-shadow: 0 0 20px rgba(34, 224, 255, 0.5);
             border-radius: 50%;
             animation: spin 1s linear infinite;
         `;
@@ -48,31 +49,113 @@ function initLoadingAnimation() {
     });
 }
 
-// Add cursor trail effect
+// Neon glow cursor: a trailing ring that scales/glows over interactive elements
 function initCursorTrail() {
-    const cursor = document.createElement('div');
-    cursor.style.cssText = `
+    if (window.matchMedia('(hover: none), (pointer: coarse)').matches) {
+        return;
+    }
+
+    const ring = document.createElement('div');
+    ring.style.cssText = `
         position: fixed;
-        width: 20px;
-        height: 20px;
-        background: rgba(10, 10, 10, 0.5);
+        top: 0;
+        left: 0;
+        width: 32px;
+        height: 32px;
+        margin: -16px 0 0 -16px;
         border-radius: 50%;
+        border: 1.5px solid var(--cyan);
+        box-shadow: 0 0 16px rgba(34, 224, 255, 0.6);
         pointer-events: none;
         z-index: 10000;
-        transition: transform 0.1s ease;
-        mix-blend-mode: difference;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+        transform: translate(-100px, -100px);
+        opacity: 0;
+        will-change: transform;
     `;
-    document.body.appendChild(cursor);
-    
+
+    const dot = document.createElement('div');
+    dot.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 6px;
+        height: 6px;
+        margin: -3px 0 0 -3px;
+        border-radius: 50%;
+        background: var(--cyan);
+        box-shadow: 0 0 8px rgba(34, 224, 255, 0.8);
+        pointer-events: none;
+        z-index: 10000;
+        transform: translate(-100px, -100px);
+        will-change: transform;
+    `;
+
+    document.body.appendChild(ring);
+    document.body.appendChild(dot);
+
+    let ringX = 0, ringY = 0, targetX = 0, targetY = 0;
+    let scale = 1;
+    let visible = false;
+    let hovering = false;
+
     document.addEventListener('mousemove', function(e) {
-        cursor.style.left = e.clientX - 10 + 'px';
-        cursor.style.top = e.clientY - 10 + 'px';
+        targetX = e.clientX;
+        targetY = e.clientY;
+        dot.style.transform = `translate(${targetX}px, ${targetY}px)`;
+        if (!visible) {
+            visible = true;
+            ring.style.opacity = '1';
+            ringX = targetX;
+            ringY = targetY;
+        }
     });
-    
-    // Hide cursor on mobile
-    if (window.innerWidth <= 768) {
-        cursor.style.display = 'none';
+
+    (function follow() {
+        ringX += (targetX - ringX) * 0.18;
+        ringY += (targetY - ringY) * 0.18;
+        scale += ((hovering ? 1.8 : 1) - scale) * 0.2;
+        ring.style.transform = `translate(${ringX}px, ${ringY}px) scale(${scale})`;
+        requestAnimationFrame(follow);
+    })();
+
+    const interactiveSelector = 'a, button, .btn, .skill-item, .project-card, .social-link, .nav-cta, input, textarea';
+
+    document.addEventListener('mouseover', function(e) {
+        if (e.target.closest(interactiveSelector)) {
+            hovering = true;
+            ring.style.borderColor = 'var(--pink)';
+            ring.style.boxShadow = '0 0 22px rgba(255, 79, 216, 0.7)';
+        }
+    });
+
+    document.addEventListener('mouseout', function(e) {
+        if (e.target.closest(interactiveSelector)) {
+            hovering = false;
+            ring.style.borderColor = 'var(--cyan)';
+            ring.style.boxShadow = '0 0 16px rgba(34, 224, 255, 0.6)';
+        }
+    });
+}
+
+// Magnetic pull effect for primary buttons
+function initMagneticButtons() {
+    if (window.matchMedia('(hover: none), (pointer: coarse)').matches) {
+        return;
     }
+
+    document.querySelectorAll('.btn, .nav-cta, .theme-toggle').forEach(function(el) {
+        el.addEventListener('mousemove', function(e) {
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            el.style.transform = `translate(${x * 0.2}px, ${y * 0.3}px)`;
+        });
+
+        el.addEventListener('mouseleave', function() {
+            el.style.transform = '';
+        });
+    });
 }
 
 // Add scroll progress indicator
@@ -84,7 +167,8 @@ function initScrollProgress() {
         left: 0;
         width: 0%;
         height: 3px;
-        background: var(--ink);
+        background: var(--gradient-full);
+        box-shadow: 0 0 12px rgba(34, 224, 255, 0.6);
         z-index: 10000;
         transition: width 0.3s ease;
     `;
@@ -114,7 +198,7 @@ function initKeyboardNavigation() {
     const focusStyle = document.createElement('style');
     focusStyle.textContent = `
         .keyboard-navigation *:focus {
-            outline: 2px solid var(--ink) !important;
+            outline: 2px solid var(--cyan) !important;
             outline-offset: 2px !important;
         }
     `;

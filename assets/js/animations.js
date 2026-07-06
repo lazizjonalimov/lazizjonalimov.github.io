@@ -1,57 +1,3 @@
-// Particle system
-function initParticles() {
-    const particlesContainer = document.getElementById('particles');
-    const particleCount = 50;
-
-    for (let i = 0; i < particleCount; i++) {
-        createParticle(particlesContainer);
-    }
-
-    function createParticle(container) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        
-        // Random properties
-        const size = Math.random() * 4 + 2;
-        const x = Math.random() * window.innerWidth;
-        const y = Math.random() * window.innerHeight;
-        const duration = Math.random() * 10 + 5;
-        const delay = Math.random() * 5;
-        
-        particle.style.width = size + 'px';
-        particle.style.height = size + 'px';
-        particle.style.left = x + 'px';
-        particle.style.top = y + 'px';
-        particle.style.animationDuration = duration + 's';
-        particle.style.animationDelay = delay + 's';
-        
-        container.appendChild(particle);
-    }
-
-    // Animate particles on mouse move
-    document.addEventListener('mousemove', function(e) {
-        const particles = document.querySelectorAll('.particle');
-        const mouseX = e.clientX;
-        const mouseY = e.clientY;
-        
-        particles.forEach((particle, index) => {
-            const rect = particle.getBoundingClientRect();
-            const x = rect.left + rect.width / 2;
-            const y = rect.top + rect.height / 2;
-            const distance = Math.sqrt(Math.pow(mouseX - x, 2) + Math.pow(mouseY - y, 2));
-            
-            if (distance < 100) {
-                const force = (100 - distance) / 100;
-                const angle = Math.atan2(y - mouseY, x - mouseX);
-                const moveX = Math.cos(angle) * force * 10;
-                const moveY = Math.sin(angle) * force * 10;
-                
-                particle.style.transform = `translate(${moveX}px, ${moveY}px)`;
-            }
-        });
-    });
-}
-
 // Scroll animations
 function initScrollAnimations() {
     const observerOptions = {
@@ -94,31 +40,29 @@ function initCounterAnimations() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const counter = entry.target;
-                const target = parseInt(counter.getAttribute('data-target'));
-                
+                const target = parseFloat(counter.getAttribute('data-target'));
+                const suffix = counter.getAttribute('data-suffix') || '';
+                const isDecimal = !Number.isInteger(target);
+
                 // Skip if no data-target attribute or invalid value
                 if (isNaN(target)) {
                     return;
                 }
-                
+
                 const duration = 2000; // 2 seconds
                 const increment = target / (duration / 16); // 60fps
                 let current = 0;
-                
+
                 const updateCounter = () => {
                     current += increment;
                     if (current < target) {
-                        counter.textContent = Math.floor(current);
+                        counter.textContent = (isDecimal ? current.toFixed(1) : Math.floor(current)) + suffix;
                         requestAnimationFrame(updateCounter);
                     } else {
-                        counter.textContent = target;
-                        // Add "+" suffix for hero stats
-                        if (counter.closest('.hero-stats')) {
-                            counter.textContent = target + '+';
-                        }
+                        counter.textContent = (isDecimal ? target.toFixed(1) : target) + suffix;
                     }
                 };
-                
+
                 updateCounter();
                 counterObserver.unobserve(counter);
             }
@@ -133,12 +77,19 @@ function initCounterAnimations() {
 // Typing effect for hero title
 function initTypingEffect() {
     const titleLines = document.querySelectorAll('.title-line');
-    
+
     titleLines.forEach((line, index) => {
-        const text = line.textContent;
+        // Lines with element children (e.g. the gradient name span) keep their
+        // markup intact and just fade in via the existing slideInUp animation.
+        if (line.children.length > 0) {
+            line.style.opacity = '1';
+            return;
+        }
+
+        const text = line.textContent.trim();
         line.textContent = '';
         line.style.opacity = '1';
-        
+
         setTimeout(() => {
             typeText(line, text, 100);
         }, index * 500);
@@ -348,18 +299,3 @@ function initSocialAnimations() {
     });
 }
 
-// Add dynamic background color change on scroll
-function initDynamicBackground() {
-    window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-        const scrollPercent = scrolled / maxScroll;
-        
-        // Change hero background based on scroll
-        const hero = document.querySelector('.hero');
-        if (hero) {
-            const hue = 240 + (scrollPercent * 60); // Blue to purple
-            hero.style.background = `linear-gradient(135deg, hsl(${hue}, 70%, 60%) 0%, hsl(${hue + 30}, 70%, 50%) 100%)`;
-        }
-    });
-}

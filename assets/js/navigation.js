@@ -91,24 +91,56 @@ function initSmoothScrolling() {
     });
 }
 
-// Scroll to Top Button functionality
-function initScrollToTop() {
-    const scrollToTopBtn = document.getElementById('scrollToTop');
-    
+// Light/Dark mode toggle button (appears in the same spot the
+// scroll-to-top button used to occupy, once the user scrolls down)
+function initThemeToggle() {
+    const toggleBtn = document.getElementById('themeToggle');
+    if (!toggleBtn) {
+        return;
+    }
+
+    const root = document.documentElement;
+
+    function labelFor(theme) {
+        return theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode';
+    }
+
+    function applyLabel() {
+        const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        const label = labelFor(current);
+        toggleBtn.setAttribute('aria-label', label);
+        toggleBtn.setAttribute('title', label);
+        toggleBtn.setAttribute('aria-pressed', String(current === 'light'));
+
+        const meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) {
+            meta.setAttribute('content', current === 'light' ? '#f6f6fb' : '#08080d');
+        }
+    }
+
+    // Reflect whatever theme the inline head script already applied
+    applyLabel();
+
     // Show/hide button based on scroll position
     window.addEventListener('scroll', function() {
         if (window.scrollY > 300) {
-            scrollToTopBtn.classList.add('show');
+            toggleBtn.classList.add('show');
         } else {
-            scrollToTopBtn.classList.remove('show');
+            toggleBtn.classList.remove('show');
         }
     });
-    
-    // Scroll to top when button is clicked
-    scrollToTopBtn.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+
+    // Toggle theme when button is clicked
+    toggleBtn.addEventListener('click', function() {
+        const isLight = root.getAttribute('data-theme') === 'light';
+        if (isLight) {
+            root.removeAttribute('data-theme');
+            try { localStorage.setItem('theme', 'dark'); } catch (e) {}
+        } else {
+            root.setAttribute('data-theme', 'light');
+            try { localStorage.setItem('theme', 'light'); } catch (e) {}
+        }
+        applyLabel();
+        window.dispatchEvent(new Event('themechange'));
     });
 }

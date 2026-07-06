@@ -50,11 +50,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize all features
     initNavigation();
     initSmoothScrolling();
-    initScrollToTop();
-    initParticles();
+    initThemeToggle();
+    initParticleCanvas();
     initScrollAnimations();
     initCounterAnimations();
-    initContactForm();
     initTypingEffect();
     initParallaxEffect();
     initSkillAnimations();
@@ -62,9 +61,12 @@ document.addEventListener('DOMContentLoaded', function() {
     initRippleEffect();
     initProjectAnimations();
     initSocialAnimations();
-    initDynamicBackground();
     initLoadingAnimation();
     initCursorTrail();
+    initMagneticButtons();
+    initTiltCards();
+    initSkillCountRings();
+    initTimelineProgress();
     initScrollProgress();
     initKeyboardNavigation();
     initExperienceIconAnimation();

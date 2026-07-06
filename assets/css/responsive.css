@@ -8,26 +8,27 @@
 }
 
 /* Tablet screens */
-@media (max-width: 1024px) and (min-width: 769px) {
+@media (max-width: 1024px) and (min-width: 941px) {
     .hero-title {
         font-size: 3.5rem;
     }
-    
+
     .hero-content {
         gap: 40px;
     }
-    
+
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .projects-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* Mobile screens */
-@media (max-width: 768px) {
+/* Mobile screens (also covers tablet/portrait widths where the full nav
+   — logo + 5 links + Resume button — no longer fits in one row) */
+@media (max-width: 940px) {
     .hamburger {
         display: flex;
     }
@@ -38,16 +39,16 @@
         top: 70px;
         height: calc(100vh - 70px);
         flex-direction: column;
-        background-color: rgba(250, 250, 248, 0.98);
+        background-color: var(--nav-menu-bg);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         width: 100%;
         text-align: center;
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         padding: 40px 0;
         z-index: 1000;
-        border-top: 1px solid var(--line);
+        border-top: 1px solid var(--border);
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
     }
@@ -87,13 +88,14 @@
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         border-radius: 12px;
         margin: 0 20px;
-        color: var(--ink);
+        color: var(--text);
     }
 
     .nav-link:hover {
-        background: var(--line);
+        background: var(--surface);
+        color: var(--cyan);
         transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(10, 10, 10, 0.15);
+        box-shadow: var(--glow-cyan);
     }
 
     .hero {
@@ -321,5 +323,11 @@
 
     .skill-items {
         grid-template-columns: 1fr;
+    }
+
+    .contact-info-card,
+    .contact-form-card {
+        padding: 24px;
+        min-height: 0;
     }
 }

@@ -3,9 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+    (function () {
+        try {
+            // Dark is the site's default look; light mode only kicks in once
+            // the visitor has explicitly chosen it via the toggle button.
+            if (localStorage.getItem('theme') === 'light') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        } catch (e) {}
+    })();
+    </script>
 
     <title>Lazizjon Alimov | Systems Engineer & Software Developer</title>
-    <meta name="theme-color" content="#0a0a0a">
+    <meta name="theme-color" content="#08080d">
 
     <link rel="icon" type="image/x-icon" href="assets/images/icons/favicon-white.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/icons/favicon-white-16x16.png">
@@ -26,7 +37,7 @@
     <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/animations.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Black&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Black&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -82,7 +93,7 @@
                 <div class="shape shape-4"></div>
                 <div class="shape shape-5"></div>
             </div>
-            <div class="particles" id="particles"></div>
+            <canvas id="particle-canvas" class="particle-canvas"></canvas>
             <div class="gradient-overlay"></div>
         </div>
         
@@ -111,15 +122,15 @@
                 
                 <div class="hero-stats">
                     <div class="stat-item">
-                        <span class="stat-number" data-target="2">0</span>
+                        <span class="stat-number" data-target="2" data-suffix="+">0</span>
                         <span class="stat-label">Years Experience</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number" data-target="10">0</span>
+                        <span class="stat-number" data-target="10" data-suffix="+">0</span>
                         <span class="stat-label">Technologies</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number" data-target="15">0</span>
+                        <span class="stat-number" data-target="15" data-suffix="+">0</span>
                         <span class="stat-label">Projects</span>
                     </div>
                 </div>
@@ -213,19 +224,19 @@
                     </p>
                     <div class="about-stats">
                         <div class="stat">
-                            <span class="stat-number" data-target="300">0</span>
+                            <span class="stat-number" data-target="300" data-suffix="+">0</span>
                             <span class="stat-label gradient-text">Users Trained</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number" data-target="11">0</span>
+                            <span class="stat-number" data-target="11" data-suffix="%">0</span>
                             <span class="stat-label gradient-text">Efficiency Improvement</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number" data-target="8.5">0</span>
+                            <span class="stat-number" data-target="8.5" data-suffix="%">0</span>
                             <span class="stat-label gradient-text">Response Time Improvement</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number" data-target="7">0</span>
+                            <span class="stat-number" data-target="7" data-suffix="%">0</span>
                             <span class="stat-label gradient-text">Issue Resolution Speed Improvement</span>
                         </div>
                     </div>
@@ -285,6 +296,7 @@
                 <p class="section-subtitle">My professional journey in IT systems, software development, and fleet management</p>
             </div>
             <div class="experience-timeline">
+                <div class="timeline-progress" aria-hidden="true"></div>
                 <!-- Current Position -->
                 <div class="experience-item">
                     <div class="experience-header">
@@ -869,9 +881,10 @@
         </div>
     </footer>
     
-    <!-- Scroll to Top Button -->
-    <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
-        <i class="fas fa-chevron-up"></i>
+    <!-- Theme Toggle Button -->
+    <button id="themeToggle" class="theme-toggle" aria-label="Switch to light mode" title="Switch to light mode" aria-pressed="false">
+        <i class="fas fa-sun icon-sun" aria-hidden="true"></i>
+        <i class="fas fa-moon icon-moon" aria-hidden="true"></i>
     </button>
     </div>
 
@@ -880,6 +893,10 @@
     <script src="assets/js/animations.js"></script>
     <script src="assets/js/contact.js"></script>
     <script src="assets/js/effects.js"></script>
+    <script src="assets/js/particles-canvas.js"></script>
+    <script src="assets/js/tilt.js"></script>
+    <script src="assets/js/skill-rings.js"></script>
+    <script src="assets/js/timeline-progress.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>
