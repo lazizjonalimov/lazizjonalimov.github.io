@@ -273,10 +273,9 @@
     cursor: pointer;
     font-size: 18px;
     z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    opacity: 1;
+    visibility: visible;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: var(--glow-violet);
 }
 
@@ -295,12 +294,6 @@
 .theme-toggle:hover {
     transform: translateY(-3px) scale(1.05);
     box-shadow: 0 0 45px rgba(168, 85, 247, 0.65);
-}
-
-.theme-toggle.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
 }
 
 /* Skill Items */

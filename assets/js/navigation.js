@@ -91,8 +91,7 @@ function initSmoothScrolling() {
     });
 }
 
-// Light/Dark mode toggle button (appears in the same spot the
-// scroll-to-top button used to occupy, once the user scrolls down)
+// Light/Dark mode toggle button (fixed bottom-right, always visible)
 function initThemeToggle() {
     const toggleBtn = document.getElementById('themeToggle');
     if (!toggleBtn) {
@@ -120,15 +119,6 @@ function initThemeToggle() {
 
     // Reflect whatever theme the inline head script already applied
     applyLabel();
-
-    // Show/hide button based on scroll position
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 300) {
-            toggleBtn.classList.add('show');
-        } else {
-            toggleBtn.classList.remove('show');
-        }
-    });
 
     // Toggle theme when button is clicked
     toggleBtn.addEventListener('click', function() {
