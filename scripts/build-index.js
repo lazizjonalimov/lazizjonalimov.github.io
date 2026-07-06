@@ -1,13 +1,12 @@
 #!/usr/bin/env node
 /**
- * Builds index.html with all components inlined for SEO.
- * Run after editing files in components/ — search engines need content in the initial HTML.
+ * Builds index.html with all components inlined.
+ * Run after editing files in components/.
  */
 const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
-const SITE_URL = 'https://lazizjonalimov.github.io';
 
 const componentMap = {
     navigation: 'components/partials/navigation.html',
@@ -40,70 +39,7 @@ const html = `<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Lazizjon Alimov | Systems Engineer & Software Developer</title>
-    <meta name="description" content="Lazizjon Alimov (Laziz) — Systems Engineer and Software Developer portfolio. Professional experience, projects, and resume. Computer Science graduate from Western Michigan University.">
-    <meta name="author" content="Lazizjon Alimov">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="${SITE_URL}/">
-
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="${SITE_URL}/">
-    <meta property="og:title" content="Lazizjon Alimov | Software Developer Portfolio">
-    <meta property="og:description" content="Portfolio of Lazizjon Alimov — Systems Engineer, IT specialist, and Software Developer.">
-    <meta property="og:image" content="${SITE_URL}/assets/images/profile-image.jpeg">
-    <meta property="og:site_name" content="Lazizjon Alimov">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Lazizjon Alimov | Software Developer Portfolio">
-    <meta name="twitter:description" content="Portfolio of Lazizjon Alimov — Systems Engineer and Software Developer.">
-    <meta name="twitter:image" content="${SITE_URL}/assets/images/profile-image.jpeg">
-    <meta name="twitter:creator" content="@lazizjonalimov">
-
-    <link rel="me" href="https://linkedin.com/in/lazizjonalimov/">
-    <link rel="me" href="https://github.com/lazizjonalimov">
-
-    <meta name="google-site-verification" content="fqjouxQ3y6JTcp8qXid3zjbJ02HqeJVq470EJ-DpH5I">
     <meta name="theme-color" content="#667eea">
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Lazizjon Alimov",
-        "alternateName": ["Laziz Alimov", "Laziz", "Lazizjon", "lazizjonalimov"],
-        "url": "${SITE_URL}",
-        "image": "${SITE_URL}/assets/images/profile-image.jpeg",
-        "jobTitle": "Systems Engineer",
-        "email": "lazizjonalimov@gmail.com",
-        "address": {
-            "@type": "PostalAddress",
-            "addressCountry": "US"
-        },
-        "alumniOf": {
-            "@type": "CollegeOrUniversity",
-            "name": "Western Michigan University",
-            "url": "https://wmich.edu"
-        },
-        "worksFor": {
-            "@type": "Organization",
-            "name": "SMT Trans"
-        },
-        "sameAs": [
-            "https://linkedin.com/in/lazizjonalimov/",
-            "https://github.com/lazizjonalimov",
-            "https://x.com/lazizjonalimov",
-            "https://instagram.com/lazizjonalimov"
-        ]
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Lazizjon Alimov",
-        "alternateName": "Lazizjon Alimov Portfolio",
-        "url": "${SITE_URL}"
-    }
-    </script>
 
     <link rel="icon" type="image/x-icon" href="assets/images/icons/favicon-white.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/icons/favicon-white-16x16.png">
@@ -141,4 +77,4 @@ ${bodySections}
 `;
 
 fs.writeFileSync(path.join(ROOT, 'index.html'), html);
-console.log('Built index.html with inlined components for SEO.');
+console.log('Built index.html with inlined components.');

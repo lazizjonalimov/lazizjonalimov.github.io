@@ -44,17 +44,9 @@ git push -u origin main
 5. Click "Save"
 6. Wait 5–10 minutes, then visit `https://lazizjonalimov.github.io`
 
-## Step 3: Google Search Console (for name search visibility)
+After editing `components/`, run `node scripts/build-index.js` before deploying.
 
-1. Go to [Google Search Console](https://search.google.com/search-console)
-2. Add property: `https://lazizjonalimov.github.io`
-3. Verify ownership (meta tag is already in `index.html`)
-4. Submit sitemap: `https://lazizjonalimov.github.io/sitemap.xml`
-5. Use **URL Inspection** → **Request Indexing** on your homepage after deploying
-
-Indexing can take days to a few weeks. After editing `components/`, run `node scripts/build-index.js` before deploying.
-
-## Step 4: Custom Domain (Optional)
+## Step 3: Custom Domain (Optional)
 
 1. Add a `CNAME` file with your domain name
 2. Configure DNS settings with your domain provider

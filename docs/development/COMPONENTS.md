@@ -7,11 +7,12 @@ The HTML has been divided into modular components for better maintainability and
 ```
 components/
 ├── sections/          # Main page sections
-│   ├── hero.html      # Hero/landing section
-│   ├── about.html     # About section
-│   ├── skills.html    # Skills section
-│   ├── projects.html  # Projects section
-│   └── contact.html   # Contact section
+│   ├── hero.html       # Hero/landing section
+│   ├── about.html      # About section
+│   ├── experience.html # Work experience section
+│   ├── skills.html     # Skills section
+│   ├── projects.html   # Projects section
+│   └── contact.html    # Contact section
 └── partials/          # Reusable components
     ├── navigation.html # Navigation bar
     └── footer.html     # Footer and scroll-to-top
@@ -33,6 +34,11 @@ components/
 - **Purpose**: Personal introduction and statistics
 - **Features**: Profile image, animated counters, responsive layout
 - **Dependencies**: `assets/css/layout.css`, `assets/js/animations.js`
+
+### Experience Section (`components/sections/experience.html`)
+- **Purpose**: Work experience and professional history
+- **Features**: Timeline layout, role/company details
+- **Dependencies**: `assets/css/layout.css`, `assets/css/components.css`
 
 ### Skills Section (`components/sections/skills.html`)
 - **Purpose**: Technical skills and technologies showcase
@@ -56,33 +62,28 @@ components/
 
 ## Usage
 
-### Method 1: Component Loader (Recommended)
-```html
-<!-- Include the component loader -->
-<script src="assets/js/component-loader.js"></script>
+Components are inlined into `index.html` at build time by `scripts/build-index.js` — there's no runtime fetching. Each entry in that script's `componentMap` maps a `<div id="...">` wrapper to a component file:
 
-<!-- Components will be automatically loaded -->
-<div id="navigation"></div>
-<div id="hero"></div>
-<!-- etc. -->
-```
-
-### Method 2: Manual Loading
 ```javascript
-// Load individual components
-await componentLoader.loadComponent('navigation', 'navigation');
-await componentLoader.loadComponent('hero', 'hero');
+const componentMap = {
+    navigation: 'components/partials/navigation.html',
+    hero: 'components/sections/hero.html',
+    about: 'components/sections/about.html',
+    experience: 'components/sections/experience.html',
+    skills: 'components/sections/skills.html',
+    projects: 'components/sections/projects.html',
+    contact: 'components/sections/contact.html',
+    footer: 'components/partials/footer.html',
+};
 ```
 
-### Method 3: Fetch API (Simple)
-```javascript
-// Load component manually
-async function loadComponent(path, targetId) {
-    const response = await fetch(path);
-    const html = await response.text();
-    document.getElementById(targetId).innerHTML = html;
-}
+After editing any file in `components/`, rebuild `index.html`:
+
+```bash
+node scripts/build-index.js
 ```
+
+This keeps the served page fully self-contained (no client-side fetches needed), which matters for search engine crawlers and first-paint performance.
 
 ## Benefits
 
@@ -102,9 +103,8 @@ async function loadComponent(path, targetId) {
 - Clear ownership of components
 
 ### 🚀 **Performance**
-- Components can be loaded on demand
-- Better caching strategies
-- Reduced initial bundle size
+- Fully inlined at build time — no client-side fetches or waterfall requests
+- Single static HTML file to cache
 
 ### 📱 **Responsive Design**
 - Each component handles its own responsive behavior
@@ -115,9 +115,9 @@ async function loadComponent(path, targetId) {
 
 ### Adding New Components
 1. Create component file in appropriate directory
-2. Register component in `component-loader.js`
-3. Add component to main HTML file
-4. Test component loading and functionality
+2. Add it to `componentMap` in `scripts/build-index.js`
+3. Run `node scripts/build-index.js` to regenerate `index.html`
+4. Test the rendered section
 
 ### Modifying Existing Components
 1. Edit the specific component file
@@ -134,30 +134,6 @@ async function loadComponent(path, targetId) {
 
 ## File Organization
 
-### Main Files
-- `index-new.html` - New modular main file
-- `index.html` - Original monolithic file (backup)
-
-### Component Files
-- All components are in `components/` directory
-- Organized by type (sections vs partials)
-- Self-contained HTML fragments
-
-### JavaScript
-- `component-loader.js` - Component loading utility
-- Existing JS files remain unchanged
-- Components work with existing functionality
-
-## Migration Notes
-
-### From Monolithic to Component-Based
-1. **Backup**: Original `index.html` is preserved
-2. **Gradual**: Can migrate components one by one
-3. **Testing**: Each component can be tested independently
-4. **Rollback**: Easy to revert to original structure
-
-### Compatibility
-- All existing CSS and JavaScript works unchanged
-- No breaking changes to functionality
-- Same visual appearance and behavior
-- Improved code organization and maintainability
+- `index.html` - Generated output; don't hand-edit, it's overwritten by the build script
+- `components/` - Source of truth for section/partial markup, organized by type (sections vs partials)
+- `scripts/build-index.js` - Build script that inlines `components/` into `index.html`
