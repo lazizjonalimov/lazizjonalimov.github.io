@@ -8,20 +8,20 @@ function initLoadingAnimation() {
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--ink);
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 10000;
             transition: opacity 0.5s ease;
         `;
-        
+
         const spinner = document.createElement('div');
         spinner.style.cssText = `
             width: 50px;
             height: 50px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            border-top: 3px solid white;
+            border: 3px solid rgba(250, 250, 248, 0.3);
+            border-top: 3px solid var(--paper);
             border-radius: 50%;
             animation: spin 1s linear infinite;
         `;
@@ -55,7 +55,7 @@ function initCursorTrail() {
         position: fixed;
         width: 20px;
         height: 20px;
-        background: rgba(102, 126, 234, 0.5);
+        background: rgba(10, 10, 10, 0.5);
         border-radius: 50%;
         pointer-events: none;
         z-index: 10000;
@@ -84,7 +84,7 @@ function initScrollProgress() {
         left: 0;
         width: 0%;
         height: 3px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: var(--ink);
         z-index: 10000;
         transition: width 0.3s ease;
     `;
@@ -114,7 +114,7 @@ function initKeyboardNavigation() {
     const focusStyle = document.createElement('style');
     focusStyle.textContent = `
         .keyboard-navigation *:focus {
-            outline: 2px solid #667eea !important;
+            outline: 2px solid var(--ink) !important;
             outline-offset: 2px !important;
         }
     `;

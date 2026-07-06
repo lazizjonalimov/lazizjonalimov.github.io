@@ -1,3 +1,14 @@
+:root {
+    --ink: #0a0a0a;
+    --paper: #fafaf8;
+    --line: rgba(10, 10, 10, 0.12);
+    --grey1: #6b6b68;
+    --grey2: #a8a7a2;
+    --grey3: #e4e3df;
+    --font-display: 'Archivo Black', sans-serif;
+    --font-body: 'Archivo', sans-serif;
+}
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -10,9 +21,10 @@ html {
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-body);
     line-height: 1.6;
-    color: #333;
+    color: var(--ink);
+    background: var(--paper);
     overflow-x: hidden;
 }
 
@@ -75,13 +87,12 @@ section {
 }
 
 .section-title {
+    font-family: var(--font-display);
     font-size: 2.5rem;
-    font-weight: 700;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
     margin-bottom: 10px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--ink);
 }
 
 /* Responsive section title */
@@ -99,7 +110,7 @@ section {
 
 .section-subtitle {
     font-size: 1.2rem;
-    color: #666;
+    color: var(--grey1);
 }
 
 /* Responsive section subtitle */
