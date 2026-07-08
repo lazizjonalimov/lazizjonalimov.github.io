@@ -53,13 +53,18 @@ function initCounterAnimations() {
                 const increment = target / (duration / 16); // 60fps
                 let current = 0;
 
+                const format = (value) => value.toLocaleString('en-US', {
+                    minimumFractionDigits: isDecimal ? 1 : 0,
+                    maximumFractionDigits: isDecimal ? 1 : 0
+                });
+
                 const updateCounter = () => {
                     current += increment;
                     if (current < target) {
-                        counter.textContent = (isDecimal ? current.toFixed(1) : Math.floor(current)) + suffix;
+                        counter.textContent = format(current) + suffix;
                         requestAnimationFrame(updateCounter);
                     } else {
-                        counter.textContent = (isDecimal ? target.toFixed(1) : target) + suffix;
+                        counter.textContent = format(target) + suffix;
                     }
                 };
 

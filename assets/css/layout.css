@@ -188,6 +188,19 @@
     padding: 120px 0 80px;
 }
 
+/* Fade the hero into the section below instead of cutting off on a hard edge */
+.hero::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 200px;
+    background: linear-gradient(to bottom, transparent, var(--bg-alt));
+    pointer-events: none;
+    z-index: 3;
+}
+
 .hero-background {
     position: absolute;
     top: 0;
