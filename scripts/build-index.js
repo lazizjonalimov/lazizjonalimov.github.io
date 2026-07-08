@@ -7,6 +7,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
+const SITE_URL = 'https://lazizjonalimov.github.io';
 
 const componentMap = {
     navigation: 'components/partials/navigation.html',
@@ -49,8 +50,72 @@ const html = `<!DOCTYPE html>
     })();
     </script>
 
-    <title>Lazizjon Alimov | Systems Engineer & Software Developer</title>
+    <title>Lazizjon Alimov | IT Systems Engineer & Software Developer</title>
+    <meta name="description" content="Lazizjon Alimov (Laziz) — IT Systems Engineer and Software Developer. Honors Computer Science graduate from Western Michigan University building practical, scalable technology in transportation, logistics, and automation.">
+    <meta name="author" content="Lazizjon Alimov">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="${SITE_URL}/">
+
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="${SITE_URL}/">
+    <meta property="og:title" content="Lazizjon Alimov | IT Systems Engineer & Software Developer">
+    <meta property="og:description" content="Portfolio of Lazizjon Alimov — IT Systems Engineer, Computer Science graduate, and software developer.">
+    <meta property="og:image" content="${SITE_URL}/assets/images/profile-image.jpeg">
+    <meta property="og:site_name" content="Lazizjon Alimov">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lazizjon Alimov | IT Systems Engineer & Software Developer">
+    <meta name="twitter:description" content="Portfolio of Lazizjon Alimov — IT Systems Engineer and software developer.">
+    <meta name="twitter:image" content="${SITE_URL}/assets/images/profile-image.jpeg">
+    <meta name="twitter:creator" content="@lazizjonalimov">
+
+    <link rel="me" href="https://linkedin.com/in/lazizjonalimov/">
+    <link rel="me" href="https://github.com/lazizjonalimov">
+
+    <meta name="google-site-verification" content="fqjouxQ3y6JTcp8qXid3zjbJ02HqeJVq470EJ-DpH5I">
     <meta name="theme-color" content="#08080d">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Lazizjon Alimov",
+        "alternateName": ["Laziz Alimov", "Laziz", "Lazizjon", "lazizjonalimov"],
+        "url": "${SITE_URL}",
+        "image": "${SITE_URL}/assets/images/profile-image.jpeg",
+        "jobTitle": "IT Systems Engineer",
+        "email": "lazizjonalimov@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "US"
+        },
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Western Michigan University",
+            "url": "https://wmich.edu"
+        },
+        "worksFor": {
+            "@type": "Organization",
+            "name": "SMT Trans"
+        },
+        "sameAs": [
+            "https://linkedin.com/in/lazizjonalimov/",
+            "https://github.com/lazizjonalimov",
+            "https://x.com/lazizjonalimov",
+            "https://instagram.com/lazizjonalimov",
+            "https://www.facebook.com/lazalimov/"
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Lazizjon Alimov",
+        "alternateName": "Lazizjon Alimov Portfolio",
+        "url": "${SITE_URL}"
+    }
+    </script>
 
     <link rel="icon" type="image/x-icon" href="assets/images/icons/favicon-white.ico">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/icons/favicon-white-16x16.png">
