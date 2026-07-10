@@ -497,6 +497,79 @@
     font-weight: 500;
 }
 
+/* Featured Project */
+.featured-project {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    margin-bottom: 40px;
+}
+
+.featured-media {
+    height: auto;
+    min-height: 320px;
+    background: var(--gradient-full);
+}
+
+.trail-dot {
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--on-accent);
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.25);
+}
+
+.featured-content {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.featured-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--lime);
+    margin-bottom: 16px;
+}
+
+.featured-badge::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--lime);
+    box-shadow: 0 0 10px var(--lime);
+}
+
+.featured-content .project-tech {
+    margin-bottom: 26px;
+}
+
+.featured-links .btn {
+    padding: 12px 26px;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 940px) {
+    .featured-project {
+        grid-template-columns: 1fr;
+    }
+
+    .featured-media {
+        min-height: 220px;
+    }
+
+    .featured-content {
+        padding: 30px;
+    }
+}
+
 /* Contact Cards - Unified Styling */
 .contact-info-card,
 .contact-form-card {
