@@ -28,10 +28,15 @@
     --glow-pink: 0 0 30px rgba(255, 79, 216, 0.4);
     --glow-soft: 0 20px 60px rgba(0, 0, 0, 0.55);
 
-    /* Fixed text color used on top of bright gradient fills (buttons, tags,
-       icon badges) — stays dark in both themes since the gradients
-       themselves don't change between light/dark mode. */
+    /* Text / glyph color that sits on top of an accent gradient fill
+       (buttons, tag pills, icon badges). Dark here because the dark-theme
+       accents are bright neon; the light theme flips this to white since
+       its accents are deepened. */
     --on-accent: #0a0a12;
+
+    /* Never-themed ink for decorative marks on vivid fills (trail dots,
+       floating tooltips) — must stay dark regardless of --on-accent. */
+    --ink: #0a0a12;
 
     /* Translucent navbar/dropdown glass + cursor-spotlight tint */
     --nav-glass: rgba(5, 5, 10, 0.75);
@@ -68,6 +73,9 @@
     --violet: #7c3aed;
     --pink: #c2178a;
     --lime: #4d7c0f;
+
+    /* Light-theme accent fills are deep/saturated, so text on them goes white */
+    --on-accent: #ffffff;
 
     --glow-cyan: 0 0 24px rgba(2, 132, 166, 0.25);
     --glow-violet: 0 0 24px rgba(124, 58, 237, 0.25);

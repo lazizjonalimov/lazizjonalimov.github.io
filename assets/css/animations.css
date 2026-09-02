@@ -127,7 +127,7 @@
     bottom: -40px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--on-accent);
+    background: var(--ink);
     color: #fff;
     padding: 5px 10px;
     border-radius: 5px;
