@@ -38,9 +38,14 @@
     --nav-menu-bg: rgba(8, 8, 13, 0.98);
     --spotlight: rgba(255, 255, 255, 0.12);
 
+    /* Two typefaces, one family — a tight, single-voice system.
+       Display: Archivo Black for headlines and the wordmark.
+       Text: Archivo Regular/Medium for body copy, captions, and UI labels.
+       --font-label is the same family, kept as an alias for the small
+       uppercase caption/label treatments that pair it with tracking. */
     --font-display: 'Archivo Black', sans-serif;
     --font-body: 'Archivo', sans-serif;
-    --font-mono: 'Space Mono', monospace;
+    --font-label: 'Archivo', sans-serif;
 }
 
 :root[data-theme="light"] {
