@@ -392,6 +392,27 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
+.skill-category summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    list-style: none;
+}
+
+.skill-category summary::-webkit-details-marker {
+    display: none;
+}
+
+.skill-category summary i {
+    color: var(--cyan);
+    transition: transform 0.25s ease;
+}
+
+.skill-category[open] summary i {
+    transform: rotate(180deg);
+}
+
 .skill-category:hover {
     transform: translateY(-10px);
     border-color: var(--violet);
@@ -402,8 +423,12 @@
     font-family: var(--font-display);
     font-size: 1.5rem;
     text-transform: uppercase;
-    margin-bottom: 30px;
+    margin: 0;
     color: var(--text);
+}
+
+.skill-category[open] .skill-items {
+    margin-top: 30px;
 }
 
 .skill-items {
