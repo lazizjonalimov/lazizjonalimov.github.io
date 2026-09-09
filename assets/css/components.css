@@ -427,6 +427,15 @@
     display: block;
 }
 
+/* Keep complete website screenshots visible instead of cropping them. */
+.project-image.website-preview {
+    background: #fff;
+}
+
+.project-image.website-preview img {
+    object-fit: contain;
+}
+
 .project-overlay {
     position: absolute;
     top: 0;
