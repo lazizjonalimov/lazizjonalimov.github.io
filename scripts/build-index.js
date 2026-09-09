@@ -50,22 +50,22 @@ const html = `<!DOCTYPE html>
     })();
     </script>
 
-    <title>Lazizjon Alimov | IT Systems Engineer & Software Developer</title>
-    <meta name="description" content="Lazizjon Alimov (Laziz) — IT Systems Engineer and Software Developer. Honors Computer Science graduate from Western Michigan University building practical, scalable technology in transportation, logistics, and automation.">
+    <title>Lazizjon Alimov | Systems Engineer & Software Developer</title>
+    <meta name="description" content="Lazizjon Alimov (Laziz) — Systems Engineer and Software Developer. Honors Computer Science graduate from Western Michigan University building practical, scalable technology in transportation, logistics, and automation.">
     <meta name="author" content="Lazizjon Alimov">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="${SITE_URL}/">
 
     <meta property="og:type" content="profile">
     <meta property="og:url" content="${SITE_URL}/">
-    <meta property="og:title" content="Lazizjon Alimov | IT Systems Engineer & Software Developer">
-    <meta property="og:description" content="Portfolio of Lazizjon Alimov — IT Systems Engineer, Computer Science graduate, and software developer.">
+    <meta property="og:title" content="Lazizjon Alimov | Systems Engineer & Software Developer">
+    <meta property="og:description" content="Portfolio of Lazizjon Alimov — Systems Engineer, Computer Science graduate, and software developer.">
     <meta property="og:image" content="${SITE_URL}/assets/images/profile-image.jpeg">
     <meta property="og:site_name" content="Lazizjon Alimov">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Lazizjon Alimov | IT Systems Engineer & Software Developer">
-    <meta name="twitter:description" content="Portfolio of Lazizjon Alimov — IT Systems Engineer and software developer.">
+    <meta name="twitter:title" content="Lazizjon Alimov | Systems Engineer & Software Developer">
+    <meta name="twitter:description" content="Portfolio of Lazizjon Alimov — Systems Engineer and software developer.">
     <meta name="twitter:image" content="${SITE_URL}/assets/images/profile-image.jpeg">
     <meta name="twitter:creator" content="@lazizjonalimov">
 
@@ -83,7 +83,7 @@ const html = `<!DOCTYPE html>
         "alternateName": ["Laziz Alimov", "Laziz", "Lazizjon", "lazizjonalimov"],
         "url": "${SITE_URL}",
         "image": "${SITE_URL}/assets/images/profile-image.jpeg",
-        "jobTitle": "IT Systems Engineer",
+        "jobTitle": "Systems Engineer",
         "email": "lazizjonalimov@gmail.com",
         "address": {
             "@type": "PostalAddress",
