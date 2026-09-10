@@ -647,8 +647,28 @@
     gap: 20px;
 }
 
+.form-note {
+    margin: 0 0 4px;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+}
+
 .form-group {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.required {
+    color: var(--pink, #ff4fd8);
+    font-weight: 700;
 }
 
 .form-group input,
