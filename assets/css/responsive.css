@@ -322,7 +322,7 @@
     }
 
     .skill-items {
-        grid-template-columns: 1fr;
+        gap: 8px;
     }
 
     .contact-info-card,

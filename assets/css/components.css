@@ -298,31 +298,34 @@
 
 /* Skill Items */
 .skill-item {
-    display: flex;
-    flex-direction: column;
+    display: inline-flex;
+    flex-direction: row;
     align-items: center;
-    padding: 20px;
-    background: var(--surface);
+    gap: 9px;
+    padding: 9px 15px;
+    background: var(--surface-strong);
     border: 1px solid var(--border);
-    border-radius: 15px;
-    transition: all 0.3s ease;
+    border-radius: 999px;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
 .skill-item:hover {
-    transform: translateY(-4px) scale(1.03);
+    transform: translateY(-3px);
     border-color: var(--cyan);
     box-shadow: var(--glow-cyan);
 }
 
 .skill-item i {
-    font-size: 2rem;
-    margin-bottom: 10px;
+    font-size: 1rem;
+    margin-bottom: 0;
     color: var(--cyan);
 }
 
 .skill-item span {
+    font-size: 0.92rem;
     font-weight: 600;
     color: var(--text);
+    white-space: nowrap;
 }
 
 .skill-link {
@@ -377,11 +380,7 @@
 /* Responsive skill items */
 @media (max-width: 1024px) and (min-width: 769px) {
     .skill-item {
-        padding: 18px;
-    }
-
-    .skill-item i {
-        font-size: 1.8rem;
+        padding: 8px 13px;
     }
 }
 
