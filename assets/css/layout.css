@@ -337,6 +337,26 @@
     line-height: 1.8;
 }
 
+.about-social {
+    margin-top: 32px;
+}
+
+.about-social-label {
+    display: block;
+    font-family: var(--font-label);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-faint);
+    margin-bottom: 12px;
+}
+
+.about-social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
 .about-stats {
     display: flex;
     gap: 40px;
