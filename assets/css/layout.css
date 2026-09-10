@@ -379,6 +379,7 @@
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+    align-items: start;
     gap: 40px;
 }
 
@@ -430,6 +431,12 @@
 
 .skill-category[open] .skill-items {
     margin-top: 22px;
+}
+
+/* Keep closed categories fully collapsed to just their summary — an author
+   `display` on the content would otherwise override the browser's hiding. */
+.skill-category:not([open]) .skill-items {
+    display: none;
 }
 
 .skill-items {
