@@ -187,6 +187,10 @@
         flex-wrap: wrap;
     }
 
+    .about-social-links {
+        justify-content: center;
+    }
+
     .skills-grid {
         grid-template-columns: 1fr;
     }

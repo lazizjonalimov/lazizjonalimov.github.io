@@ -338,23 +338,25 @@
 }
 
 .about-social {
-    margin-top: 32px;
+    margin-top: 36px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
 }
 
 .about-social-label {
     display: block;
     font-family: var(--font-label);
-    font-size: 0.8rem;
+    font-weight: 700;
+    font-size: 0.9rem;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--text-faint);
-    margin-bottom: 12px;
+    letter-spacing: 0.04em;
+    margin-bottom: 16px;
 }
 
 .about-social-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 14px;
 }
 
 .about-stats {
