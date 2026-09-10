@@ -649,15 +649,6 @@
 
 .form-group {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-}
-
-.form-group label {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text);
 }
 
 .form-group input,
