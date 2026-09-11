@@ -195,8 +195,45 @@
         grid-template-columns: 1fr;
     }
 
+    /* With 8+ project cards, stacking them in one column means a lot of
+       vertical scrolling on small screens — scroll the grid horizontally
+       instead, one card (mostly) in view at a time, snapping as you swipe. */
     .projects-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        grid-template-columns: none;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: visible;
+        gap: 20px;
+        padding: 4px 4px 20px;
+        margin: 0 -4px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scrollbar-color: var(--border-strong) transparent;
+    }
+
+    .projects-grid .project-card {
+        flex: 0 0 82%;
+        max-width: 340px;
+        scroll-snap-align: start;
+    }
+
+    .projects-grid::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .projects-grid::-webkit-scrollbar-thumb {
+        background: var(--border-strong);
+        border-radius: 999px;
+    }
+
+    .projects-grid::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .scroll-hint {
+        display: flex;
     }
 
     .contact-content {

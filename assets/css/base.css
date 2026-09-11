@@ -200,6 +200,19 @@ section {
     color: var(--text-dim);
 }
 
+.scroll-hint {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    font-family: var(--font-label);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-faint);
+}
+
 /* Responsive section subtitle */
 @media (max-width: 768px) {
     .section-subtitle {
