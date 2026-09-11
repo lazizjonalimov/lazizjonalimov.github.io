@@ -40,7 +40,6 @@
 
     /* Translucent navbar/dropdown glass + cursor-spotlight tint */
     --nav-glass: rgba(5, 5, 10, 0.75);
-    --nav-menu-bg: rgba(8, 8, 13, 0.98);
     --spotlight: rgba(255, 255, 255, 0.12);
 
     /* Two typefaces, one family — a tight, single-voice system.
@@ -83,7 +82,6 @@
     --glow-soft: 0 15px 40px rgba(20, 20, 40, 0.12);
 
     --nav-glass: rgba(255, 255, 255, 0.75);
-    --nav-menu-bg: rgba(255, 255, 255, 0.98);
     --spotlight: rgba(10, 10, 30, 0.06);
 }
 
