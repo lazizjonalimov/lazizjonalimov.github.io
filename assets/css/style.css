@@ -127,10 +127,8 @@ p { margin: 0; }
 .wordmark { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 21px; color: var(--text); text-decoration: none; }
 .wordmark:hover { color: var(--text); }
 .wordmark { display: inline-flex; align-items: center; }
-.logo-img { height: 40px; width: auto; }
-.logo-light { display: none; }
-[data-theme="light"] .logo-dark { display: none; }
-[data-theme="light"] .logo-light { display: block; }
+.logo-img { height: 40px; width: auto; display: block; filter: invert(1) brightness(1.6); }
+[data-theme="light"] .logo-img { filter: none; }
 .site-nav { display: flex; gap: 28px; font-size: 15px; font-weight: 500; }
 .site-nav a { color: var(--text-2); text-decoration: none; padding: 6px 0; border-bottom: 2px solid transparent; }
 .site-nav a:hover, .site-nav a.active { color: var(--text); border-bottom-color: var(--accent); }
