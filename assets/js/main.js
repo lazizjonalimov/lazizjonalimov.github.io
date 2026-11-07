@@ -68,4 +68,15 @@
             if (el) io.observe(el);
         });
     }
+
+    // ---- Back-to-top button (shown on mobile after scrolling) ----
+    var toTop = document.getElementById('toTop');
+    if (toTop) {
+        window.addEventListener('scroll', function () {
+            toTop.classList.toggle('show', window.scrollY > 600);
+        }, { passive: true });
+        toTop.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
 })();

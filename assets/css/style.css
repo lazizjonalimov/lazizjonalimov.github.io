@@ -280,6 +280,52 @@ p { margin: 0; }
     .contact-title { font-size: 32px; }
     .featured .card-body { padding: 24px; }
 }
+/* ---------- compact mobile layout: less scrolling ---------- */
+.to-top {
+    display: none; position: fixed; right: 16px; bottom: 16px; z-index: 40;
+    width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border-strong);
+    background: var(--surface); color: var(--text); font-size: 16px; cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 700px) {
+    .container { max-width: 100%; padding: 0 18px; }
+    .to-top.show { display: inline-flex; align-items: center; justify-content: center; }
+    .hero-inner { padding-top: 32px; padding-bottom: 36px; gap: 28px; }
+    .hero-text { gap: 16px; }
+    .hero-title { font-size: 34px; }
+    .hero-lead { font-size: 16px; }
+    .hero-photo img { max-width: 220px; }
+    .section { padding: 40px 0; }
+    .section-title { font-size: 26px; }
+    .section-head { margin-bottom: 20px; }
+    .split { gap: 16px; }
+    .prose { font-size: 15px; line-height: 1.6; gap: 12px; }
+    .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .stats dt { font-size: 24px; }
+    .edu-list li { padding: 12px 0; }
+    /* projects become a swipeable row instead of a long stack */
+    .media-tile { display: none; }
+    .card-grid {
+        display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory;
+        margin: 0 -18px; padding: 4px 18px 12px; scroll-padding: 0 18px; -webkit-overflow-scrolling: touch;
+    }
+    .card-grid > .card { flex: 0 0 82%; scroll-snap-align: start; }
+    .featured { margin-bottom: 14px; }
+    .card-media, .featured .card-media { height: 150px; min-height: 0; }
+    .card-body, .featured .card-body { padding: 18px; gap: 8px; }
+    .card-title, .featured .card-title { font-size: 19px; }
+    .card-text { font-size: 14px; line-height: 1.5; }
+    .card:hover { transform: none; }
+    .skills .section-title { margin-bottom: 20px; }
+    .skill-groups { gap: 22px; }
+    .pills li { padding: 6px 12px; font-size: 13px; }
+    .job { padding: 18px 0; gap: 4px 16px; }
+    .job-role { font-size: 18px; }
+    .job-points { font-size: 14px; gap: 4px; }
+    .contact-inner { gap: 28px; }
+    .contact-title { font-size: 28px; }
+    .footer-inner { padding-top: 18px; padding-bottom: 18px; }
+}
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after { transition: none !important; }
