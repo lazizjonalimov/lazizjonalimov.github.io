@@ -1,33 +1,36 @@
-// contact.js
+// contact.js — sends the contact form through EmailJS.
 
-// Initialize EmailJS with your Public Key
-// (v4 of the SDK requires an options object — passing a bare string here
-// silently fails to set the key and makes every send() call reject)
-(function() {
-    emailjs.init({ publicKey: "_-92C8D10fO1hZvoj" });
+// EmailJS v4 needs an options object for init.
+(function () {
+    if (window.emailjs) emailjs.init({ publicKey: "_-92C8D10fO1hZvoj" });
 })();
 
-// Attach event listener to the form
-window.onload = function() {
-    const form = document.getElementById("contact-form");
-    const submitBtn = document.getElementById("submit-btn");
-    const btnText = submitBtn.querySelector(".btn-text");
-    const btnSpinner = submitBtn.querySelector(".btn-icon");
-    const messageBox = document.getElementById("form-message");
+document.addEventListener('DOMContentLoaded', function () {
+    var form = document.getElementById('contact-form');
+    if (!form) return;
+    var submitBtn = document.getElementById('submit-btn');
+    var messageBox = document.getElementById('form-message');
 
     function showMessage(text, isError) {
         messageBox.textContent = text;
-        messageBox.style.display = "block";
-        messageBox.style.background = isError ? "rgba(255, 79, 216, 0.12)" : "rgba(182, 255, 60, 0.12)";
-        messageBox.style.border = "1px solid " + (isError ? "var(--pink)" : "var(--lime)");
-        messageBox.style.color = "var(--text)";
+        messageBox.className = 'form-message show ' + (isError ? 'err' : 'ok');
     }
 
-    form.addEventListener("submit", function(event) {
-        event.preventDefault(); // prevent page reload
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
 
-        // Collect form data
-        const templateParams = {
+        if (!form.checkValidity()) {
+            showMessage('Please fill in every field with a valid email address.', true);
+            var firstInvalid = form.querySelector(':invalid');
+            if (firstInvalid) firstInvalid.focus();
+            return;
+        }
+        if (!window.emailjs) {
+            showMessage('The form is unavailable right now. Please email me at lazizjonalimov@gmail.com.', true);
+            return;
+        }
+
+        var templateParams = {
             name: form.name.value,
             email: form.email.value,
             subject: form.subject.value,
@@ -35,23 +38,20 @@ window.onload = function() {
         };
 
         submitBtn.disabled = true;
-        btnText.style.display = "none";
-        btnSpinner.style.display = "inline-flex";
-        messageBox.style.display = "none";
+        submitBtn.classList.add('is-loading');
+        messageBox.className = 'form-message';
 
-        // Send email using EmailJS
         emailjs.send("service_npedxaj", "template_pe6rvfc", templateParams)
-            .then(function() {
-                showMessage("Message sent successfully! I'll get back to you soon.", false);
+            .then(function () {
+                showMessage("Message sent! I'll get back to you soon.", false);
                 form.reset();
-            }, function(error) {
-                showMessage("Something went wrong sending your message. Please email me directly at lazizjonalimov@gmail.com.", true);
-                console.error("EmailJS error:", error);
+            }, function (error) {
+                showMessage('Something went wrong sending your message. Please email me at lazizjonalimov@gmail.com.', true);
+                console.error('EmailJS error:', error);
             })
-            .finally(function() {
+            .finally(function () {
                 submitBtn.disabled = false;
-                btnText.style.display = "inline";
-                btnSpinner.style.display = "none";
+                submitBtn.classList.remove('is-loading');
             });
     });
-};
+});

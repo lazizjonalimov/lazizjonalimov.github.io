@@ -1,38 +1,23 @@
-<!-- Navigation -->
-<nav class="navbar" role="navigation" aria-label="Main navigation">
-    <div class="nav-container">
-        <div class="nav-logo">
-            <a href="#home" class="logo-link" aria-label="Lazizjon Alimov - Go to homepage">
-                <img src="assets/images/logo-black.png" alt="Lazizjon Alimov Logo" class="logo-image">
-            </a>
+<!-- Header / navigation -->
+<header class="site-header">
+    <div class="container header-inner">
+        <a href="#home" class="wordmark" aria-label="Lazizjon Alimov — back to top">Lazizjon<span class="accent">.</span></a>
+        <nav class="site-nav" id="site-nav" aria-label="Main">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="header-actions">
+            <button id="themeToggle" class="icon-btn" type="button" aria-label="Switch to light mode" title="Switch to light mode" aria-pressed="false">
+                <i class="fas fa-sun icon-sun" aria-hidden="true"></i>
+                <i class="fas fa-moon icon-moon" aria-hidden="true"></i>
+            </button>
+            <a href="assets/resume/Tech%20Resume.pdf" class="btn btn-outline btn-sm" target="_blank" rel="noopener">Download résumé</a>
+            <button class="icon-btn menu-btn" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
         </div>
-        <ul class="nav-menu" role="menubar">
-            <li class="nav-item" role="none">
-                <a href="#home" class="nav-link" role="menuitem" aria-label="Go to home section">Home</a>
-            </li>
-            <li class="nav-item" role="none">
-                <a href="#about" class="nav-link" role="menuitem" aria-label="Go to about section">About</a>
-            </li>
-            <li class="nav-item" role="none">
-                <a href="#experience" class="nav-link" role="menuitem" aria-label="Go to experience section">Experience</a>
-            </li>
-            <li class="nav-item" role="none">
-                <a href="#skills" class="nav-link" role="menuitem" aria-label="Go to skills section">Skills</a>
-            </li>
-            <li class="nav-item" role="none">
-                <a href="#projects" class="nav-link" role="menuitem" aria-label="Go to projects section">Projects</a>
-            </li>
-        </ul>
-        <div class="nav-actions">
-            <a href="assets/resume/Tech%20Resume.pdf" class="nav-cta" target="_blank" aria-label="Download my tech resume">
-                Resume
-                <i class="fas fa-download" style="margin-left: 8px;"></i>
-            </a>
-        </div>
-        <button class="hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
     </div>
-</nav>
+</header>

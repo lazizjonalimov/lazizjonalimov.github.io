@@ -13,9 +13,9 @@ const componentMap = {
     navigation: 'components/partials/navigation.html',
     hero: 'components/sections/hero.html',
     about: 'components/sections/about.html',
-    experience: 'components/sections/experience.html',
-    skills: 'components/sections/skills.html',
     projects: 'components/sections/projects.html',
+    skills: 'components/sections/skills.html',
+    experience: 'components/sections/experience.html',
     contact: 'components/sections/contact.html',
     footer: 'components/partials/footer.html',
 };
@@ -30,7 +30,7 @@ function indent(content, spaces = 4) {
 }
 
 const bodySections = Object.entries(componentMap)
-    .map(([id, file]) => `    <div id="${id}">\n${indent(readComponent(file))}\n    </div>`)
+    .map(([, file]) => indent(readComponent(file)))
     .join('\n\n');
 
 const html = `<!DOCTYPE html>
@@ -73,7 +73,7 @@ const html = `<!DOCTYPE html>
     <link rel="me" href="https://github.com/lazizjonalimov">
 
     <meta name="google-site-verification" content="fqjouxQ3y6JTcp8qXid3zjbJ02HqeJVq470EJ-DpH5I">
-    <meta name="theme-color" content="#08080d">
+    <meta name="theme-color" content="#0E1014">
 
     <script type="application/ld+json">
     {
@@ -131,26 +131,17 @@ const html = `<!DOCTYPE html>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
-    <link rel="stylesheet" href="assets/css/base.css">
-    <link rel="stylesheet" href="assets/css/layout.css">
-    <link rel="stylesheet" href="assets/css/components.css">
-    <link rel="stylesheet" href="assets/css/animations.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Black&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <a class="skip-link" href="#home">Skip to content</a>
 ${bodySections}
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="assets/js/navigation.js"></script>
-    <script src="assets/js/animations.js"></script>
     <script src="assets/js/contact.js"></script>
-    <script src="assets/js/effects.js"></script>
-    <script src="assets/js/particles-canvas.js"></script>
-    <script src="assets/js/tilt.js"></script>
-    <script src="assets/js/skill-rings.js"></script>
-    <script src="assets/js/timeline-progress.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>
