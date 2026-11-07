@@ -126,6 +126,11 @@ p { margin: 0; }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 72px; }
 .wordmark { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 21px; color: var(--text); text-decoration: none; }
 .wordmark:hover { color: var(--text); }
+.wordmark { display: inline-flex; align-items: center; }
+.logo-img { height: 40px; width: auto; }
+.logo-light { display: none; }
+[data-theme="light"] .logo-dark { display: none; }
+[data-theme="light"] .logo-light { display: block; }
 .site-nav { display: flex; gap: 28px; font-size: 15px; font-weight: 500; }
 .site-nav a { color: var(--text-2); text-decoration: none; padding: 6px 0; border-bottom: 2px solid transparent; }
 .site-nav a:hover, .site-nav a.active { color: var(--text); border-bottom-color: var(--accent); }
