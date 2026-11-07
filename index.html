@@ -6,14 +6,12 @@
     <script>
     (function () {
         try {
-            // Light is the site's default look; dark mode only applies once
+            // Dark is the site's default look; light mode only kicks in once
             // the visitor has explicitly chosen it via the toggle button.
-            if (localStorage.getItem('theme') !== 'dark') {
+            if (localStorage.getItem('theme') === 'light') {
                 document.documentElement.setAttribute('data-theme', 'light');
             }
-        } catch (e) {
-            document.documentElement.setAttribute('data-theme', 'light');
-        }
+        } catch (e) {}
     })();
     </script>
 
@@ -40,7 +38,7 @@
     <link rel="me" href="https://github.com/lazizjonalimov">
 
     <meta name="google-site-verification" content="fqjouxQ3y6JTcp8qXid3zjbJ02HqeJVq470EJ-DpH5I">
-    <meta name="theme-color" content="#FAFAF7">
+    <meta name="theme-color" content="#0E1014">
 
     <script type="application/ld+json">
     {
@@ -101,14 +99,14 @@
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css?v=4">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <a class="skip-link" href="#home">Skip to content</a>
     <!-- Header / navigation -->
     <header class="site-header">
         <div class="container header-inner">
-            <a href="#home" class="wordmark" aria-label="Lazizjon Alimov — back to top"><img src="assets/images/logo-black.png" alt="" class="logo-img" width="48" height="40"></a>
+            <a href="#home" class="wordmark" aria-label="Lazizjon Alimov — back to top">Lazizjon<span class="accent">.</span></a>
             <nav class="site-nav" id="site-nav" aria-label="Main">
                 <a href="#about">About</a>
                 <a href="#projects">Projects</a>
@@ -117,7 +115,7 @@
                 <a href="#contact">Contact</a>
             </nav>
             <div class="header-actions">
-                <button id="themeToggle" class="icon-btn" type="button" aria-label="Switch to dark mode" title="Switch to dark mode" aria-pressed="true">
+                <button id="themeToggle" class="icon-btn" type="button" aria-label="Switch to light mode" title="Switch to light mode" aria-pressed="false">
                     <i class="fas fa-sun icon-sun" aria-hidden="true"></i>
                     <i class="fas fa-moon icon-moon" aria-hidden="true"></i>
                 </button>
@@ -319,6 +317,13 @@
             <h2 class="section-title">Experience</h2>
             <ol class="split-body jobs">
                 <li class="job">
+                    <p class="job-dates">2026 – Present</p>
+                    <div class="job-body">
+                        <h3 class="job-role">Founder</h3>
+                        <p class="job-org"><a href="https://alimoffcorp.vercel.app/" target="_blank" rel="noopener noreferrer">Alimoff Corporation</a></p>
+                    </div>
+                </li>
+                <li class="job">
                     <p class="job-dates">Mar 2026 – Present</p>
                     <div class="job-body">
                         <h3 class="job-role">Systems Engineer</h3>
@@ -437,6 +442,5 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="assets/js/contact.js"></script>
     <script src="assets/js/main.js"></script>
-    <button type="button" class="to-top" id="toTop" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
 </body>
 </html>
