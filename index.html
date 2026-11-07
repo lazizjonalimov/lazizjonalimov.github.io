@@ -6,12 +6,14 @@
     <script>
     (function () {
         try {
-            // Dark is the site's default look; light mode only kicks in once
+            // Light is the site's default look; dark mode only applies once
             // the visitor has explicitly chosen it via the toggle button.
-            if (localStorage.getItem('theme') === 'light') {
+            if (localStorage.getItem('theme') !== 'dark') {
                 document.documentElement.setAttribute('data-theme', 'light');
             }
-        } catch (e) {}
+        } catch (e) {
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
     })();
     </script>
 
@@ -38,7 +40,7 @@
     <link rel="me" href="https://github.com/lazizjonalimov">
 
     <meta name="google-site-verification" content="fqjouxQ3y6JTcp8qXid3zjbJ02HqeJVq470EJ-DpH5I">
-    <meta name="theme-color" content="#0E1014">
+    <meta name="theme-color" content="#FAFAF7">
 
     <script type="application/ld+json">
     {
@@ -115,7 +117,7 @@
                 <a href="#contact">Contact</a>
             </nav>
             <div class="header-actions">
-                <button id="themeToggle" class="icon-btn" type="button" aria-label="Switch to light mode" title="Switch to light mode" aria-pressed="false">
+                <button id="themeToggle" class="icon-btn" type="button" aria-label="Switch to dark mode" title="Switch to dark mode" aria-pressed="true">
                     <i class="fas fa-sun icon-sun" aria-hidden="true"></i>
                     <i class="fas fa-moon icon-moon" aria-hidden="true"></i>
                 </button>

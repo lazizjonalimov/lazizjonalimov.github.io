@@ -2,7 +2,7 @@
 (function () {
     var root = document.documentElement;
 
-    // ---- Theme (dark by default, light when chosen) ----
+    // ---- Theme (light by default, dark when chosen) ----
     var toggle = document.getElementById('themeToggle');
     function isLight() { return root.getAttribute('data-theme') === 'light'; }
     function syncToggle() {
