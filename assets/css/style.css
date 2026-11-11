@@ -78,7 +78,7 @@ p { margin: 0; }
 .skip-link { position: absolute; left: 12px; top: -60px; z-index: 100; padding: 10px 16px; border-radius: 8px; background: var(--accent); color: var(--on-accent); font-weight: 600; }
 .skip-link:focus { top: 12px; }
 
-.container { max-width: 90%; margin: 0 auto; padding: 0 24px; }
+.container { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
 .accent { color: var(--accent); }
 
 /* ---------- buttons & links ---------- */
@@ -288,7 +288,7 @@ p { margin: 0; }
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
 }
 @media (max-width: 700px) {
-    .container { max-width: 100%; padding: 0 18px; }
+    .container { padding: 0 18px; }
     .to-top.show { display: inline-flex; align-items: center; justify-content: center; }
     .hero-inner { padding-top: 32px; padding-bottom: 36px; gap: 28px; }
     .hero-text { gap: 16px; }
