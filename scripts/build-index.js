@@ -40,18 +40,21 @@ const html = `<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
     (function () {
+        document.documentElement.classList.add('js');
         try {
-            // Dark is the site's default look; light mode only kicks in once
+            // Light is the site's default look; dark mode only applies once
             // the visitor has explicitly chosen it via the toggle button.
-            if (localStorage.getItem('theme') === 'light') {
+            if (localStorage.getItem('theme') !== 'dark') {
                 document.documentElement.setAttribute('data-theme', 'light');
             }
-        } catch (e) {}
+        } catch (e) {
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
     })();
     </script>
 
     <title>Lazizjon Alimov | Systems Engineer & Software Developer</title>
-    <meta name="description" content="Lazizjon Alimov (Laziz) — Systems Engineer and Software Developer. Honors Computer Science graduate from Western Michigan University building practical, scalable technology in transportation, logistics, and automation.">
+    <meta name="description" content="Lazizjon Alimov (Laziz) — Systems Engineer and Software Developer. Western Michigan University Honors CS graduate building tools for transportation and logistics.">
     <meta name="author" content="Lazizjon Alimov">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="${SITE_URL}/">
@@ -73,7 +76,7 @@ const html = `<!DOCTYPE html>
     <link rel="me" href="https://github.com/lazizjonalimov">
 
     <meta name="google-site-verification" content="fqjouxQ3y6JTcp8qXid3zjbJ02HqeJVq470EJ-DpH5I">
-    <meta name="theme-color" content="#0E1014">
+    <meta name="theme-color" content="#F2F2F2">
 
     <script type="application/ld+json">
     {
@@ -84,6 +87,8 @@ const html = `<!DOCTYPE html>
         "url": "${SITE_URL}",
         "image": "${SITE_URL}/assets/images/profile-image.jpeg",
         "jobTitle": "Systems Engineer",
+        "description": "Systems Engineer and Software Developer, Honors Computer Science graduate of Western Michigan University, building tools for transportation, logistics and automation.",
+        "knowsAbout": ["Systems engineering", "Software development", "Python", "JavaScript", "React", "iOS development", "Transportation management systems"],
         "email": "lazizjonalimov@gmail.com",
         "address": {
             "@type": "PostalAddress",
@@ -132,9 +137,9 @@ const html = `<!DOCTYPE html>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?v=7">
 </head>
 <body>
     <a class="skip-link" href="#home">Skip to content</a>
@@ -143,6 +148,7 @@ ${bodySections}
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="assets/js/contact.js"></script>
     <script src="assets/js/main.js"></script>
+    <button type="button" class="to-top" id="toTop" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
 </body>
 </html>
 `;

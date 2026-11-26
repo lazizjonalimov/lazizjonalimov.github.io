@@ -1,40 +1,51 @@
 <!-- Contact -->
-<section id="contact" class="section band">
-    <div class="container contact-inner">
-        <div class="contact-text">
-            <h2 class="contact-title">Let's work together.</h2>
-            <p class="contact-lead">Open to new roles, freelance projects and collaborations. Send a message or reach me directly.</p>
-            <ul class="contact-links">
-                <li><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:lazizjonalimov@gmail.com">lazizjonalimov@gmail.com</a></li>
-                <li><i class="fab fa-linkedin" aria-hidden="true"></i><a href="https://linkedin.com/in/lazizjonalimov/" target="_blank" rel="noopener noreferrer">linkedin.com/in/lazizjonalimov</a></li>
-                <li><i class="fab fa-github" aria-hidden="true"></i><a href="https://github.com/lazizjonalimov" target="_blank" rel="noopener noreferrer">github.com/lazizjonalimov</a></li>
-                <li><i class="fas fa-location-dot" aria-hidden="true"></i><span>United States</span></li>
-            </ul>
+<section id="contact" class="contact">
+    <div class="contact-glow" aria-hidden="true"></div>
+    <div class="container">
+        <div class="section-bar on-dark reveal">
+            <p class="mono-label"><i class="fas fa-paper-plane" aria-hidden="true"></i>Get started</p>
+            <p class="mono-handle">@lazizjonalimov</p>
         </div>
-        <form class="contact-form" id="contact-form" novalidate>
-            <div class="field-row">
+        <div class="contact-inner">
+            <div class="contact-text">
+                <h2 class="contact-title reveal">Let's build something that works.</h2>
+                <p class="contact-lead reveal">Open to new roles, freelance projects and collaborations. Send a message or reach me directly.</p>
+                <div class="person reveal">
+                    <img src="assets/images/profile-image.jpeg" alt="" width="80" height="80" loading="lazy">
+                    <div>
+                        <p class="person-name">Lazizjon Alimov</p>
+                        <p class="mono-meta">Systems Engineer · United States</p>
+                    </div>
+                </div>
+                <ul class="contact-links reveal">
+                    <li><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:lazizjonalimov@gmail.com">lazizjonalimov@gmail.com</a></li>
+                    <li><i class="fab fa-linkedin" aria-hidden="true"></i><a href="https://linkedin.com/in/lazizjonalimov/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                    <li><i class="fab fa-github" aria-hidden="true"></i><a href="https://github.com/lazizjonalimov" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                </ul>
+            </div>
+            <form class="contact-form reveal" id="contact-form" novalidate>
                 <div class="field">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" autocomplete="name" required>
+                    <label for="name">Name<span aria-hidden="true">*</span></label>
+                    <input type="text" id="name" name="name" autocomplete="name" placeholder="Full name" required>
                 </div>
                 <div class="field">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" autocomplete="email" required>
+                    <label for="email">Email<span aria-hidden="true">*</span></label>
+                    <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required>
                 </div>
-            </div>
-            <div class="field">
-                <label for="subject">Subject</label>
-                <input type="text" id="subject" name="subject" required>
-            </div>
-            <div class="field">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary" id="submit-btn">
-                <span class="btn-text">Send message</span>
-                <i class="fas fa-spinner fa-spin btn-spinner" aria-hidden="true"></i>
-            </button>
-            <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
-        </form>
+                <div class="field">
+                    <label for="subject">Subject<span aria-hidden="true">*</span></label>
+                    <input type="text" id="subject" name="subject" placeholder="What's it about?" required>
+                </div>
+                <div class="field">
+                    <label for="message">Message<span aria-hidden="true">*</span></label>
+                    <textarea id="message" name="message" rows="4" placeholder="Leave a message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-accent" id="submit-btn">
+                    <span class="btn-text">Send message</span>
+                    <i class="fas fa-spinner fa-spin btn-spinner" aria-hidden="true"></i>
+                </button>
+                <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+            </form>
+        </div>
     </div>
 </section>
