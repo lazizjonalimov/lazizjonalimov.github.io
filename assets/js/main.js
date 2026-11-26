@@ -99,14 +99,17 @@
     function countUp(el) {
         var target = parseInt(el.getAttribute('data-count'), 10);
         if (reduceMotion || isNaN(target)) return;
+        var suffix = el.hasAttribute('data-suffix') ? el.getAttribute('data-suffix')
+            : (/%$/.test(el.textContent.trim()) ? '%' : '');
         var start = null;
+        function fmt(n) { return n.toLocaleString('en-US') + suffix; }
         function step(ts) {
             if (!start) start = ts;
-            var t = Math.min((ts - start) / 1200, 1);
-            el.textContent = Math.round(target * (1 - Math.pow(1 - t, 3))) + '%';
+            var t = Math.min((ts - start) / 1400, 1);
+            el.textContent = fmt(Math.round(target * (1 - Math.pow(1 - t, 3))));
             if (t < 1) requestAnimationFrame(step);
         }
-        el.textContent = '0%';
+        el.textContent = fmt(0);
         requestAnimationFrame(step);
     }
 
@@ -180,4 +183,68 @@
             } else { done(false); }
         });
     });
+
+    // ---- Statement text that fills in word by word while scrolling ----
+    document.querySelectorAll('[data-fill]').forEach(function (el) {
+        var words = el.textContent.trim().split(/\s+/);
+        el.setAttribute('aria-label', el.textContent.trim());
+        el.innerHTML = words.map(function (w) { return '<span class="fw" aria-hidden="true">' + w.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</span>'; }).join(' ');
+        var spans = el.querySelectorAll('.fw');
+        function update() {
+            var r = el.getBoundingClientRect();
+            var vh = window.innerHeight;
+            var p = (vh * 0.85 - r.top) / (r.height + vh * 0.35);
+            var n = Math.round(Math.max(0, Math.min(1, p)) * spans.length);
+            for (var i = 0; i < spans.length; i++) spans[i].classList.toggle('on', i < n);
+        }
+        if (reduceMotion) { spans.forEach(function (sp) { sp.classList.add('on'); }); return; }
+        window.addEventListener('scroll', function () { requestAnimationFrame(update); }, { passive: true });
+        window.addEventListener('resize', update);
+        update();
+    });
+
+    // ---- Case study pages: highlight the section in view ----
+    var toc = document.querySelector('.case-toc');
+    if (toc && 'IntersectionObserver' in window) {
+        var tocLinks = toc.querySelectorAll('a[href^="#"]');
+        var tocIO = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+                tocLinks.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id); });
+            });
+        }, { rootMargin: '-35% 0px -60% 0px' });
+        tocLinks.forEach(function (a) { var t = document.getElementById(a.getAttribute('href').slice(1)); if (t) tocIO.observe(t); });
+    }
+
+    // ---- Latest GitHub repositories (live, public API) ----
+    var ghBox = document.getElementById('ghRepos');
+    if (ghBox && window.fetch) {
+        var escHTML = function (t) { return String(t || '').replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+        var ago = function (iso) {
+            var days = Math.floor((Date.now() - new Date(iso).getTime()) / 864e5);
+            if (days < 1) return 'today';
+            if (days < 30) return days + (days === 1 ? ' day ago' : ' days ago');
+            var months = Math.floor(days / 30);
+            if (months < 12) return months + (months === 1 ? ' month ago' : ' months ago');
+            var years = Math.floor(days / 365);
+            return years + (years === 1 ? ' year ago' : ' years ago');
+        };
+        fetch('https://api.github.com/users/lazizjonalimov/repos?sort=pushed&per_page=12')
+            .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+            .then(function (repos) {
+                var list = repos.filter(function (r) { return !r.fork && r.name !== 'lazizjonalimov.github.io'; }).slice(0, 6);
+                if (!list.length) throw new Error('empty');
+                ghBox.innerHTML = list.map(function (r) {
+                    return '<a class="gh-card" href="' + escHTML(r.html_url) + '" target="_blank" rel="noopener noreferrer">' +
+                        '<h3><i class="far fa-folder" aria-hidden="true"></i>' + escHTML(r.name) + '</h3>' +
+                        (r.description ? '<p>' + escHTML(r.description) + '</p>' : '') +
+                        '<p class="gh-meta mono-meta">' + (r.language ? '<span class="gh-lang">' + escHTML(r.language) + '</span>' : '') +
+                        '<span>Updated ' + ago(r.pushed_at) + '</span>' +
+                        (r.stargazers_count ? '<span>★ ' + r.stargazers_count + '</span>' : '') + '</p></a>';
+                }).join('');
+            })
+            .catch(function () {
+                ghBox.innerHTML = '<p class="gh-fallback">GitHub is not responding right now — <a href="https://github.com/lazizjonalimov" target="_blank" rel="noopener noreferrer">see all repositories on GitHub</a>.</p>';
+            });
+    }
 })();

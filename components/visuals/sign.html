@@ -1,0 +1,28 @@
+<div class="viz viz-sign" role="img" aria-label="Illustration of real-time hand sign recognition: a hand outlined with tracking points inside a detection box, translated into text.">
+    <svg viewBox="0 0 640 400" aria-hidden="true">
+        <defs>
+            <pattern id="signGrid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="rgba(255,255,255,.07)"/></pattern>
+        </defs>
+        <rect width="640" height="400" fill="url(#signGrid)"/>
+        <g class="box"><path d="M200 60h-36v36M440 60h36v36M200 360h-36v-36M440 360h36v-36"/></g>
+        <g class="bones">
+            <path d="M320 330 L262 284 L236 236 L222 196 L212 160"/>
+            <path d="M320 330 L290 240 L284 180 L282 140 L280 104"/>
+            <path d="M320 330 L320 236 L322 170 L324 126 L326 86"/>
+            <path d="M320 330 L350 240 L360 184 L366 146 L370 112"/>
+            <path d="M320 330 L376 258 L394 218 L404 190 L412 164"/>
+            <path d="M262 284 L290 240 L320 236 L350 240 L376 258"/>
+        </g>
+        <g class="joints">
+            <circle cx="320" cy="330" r="6"/>
+            <circle cx="262" cy="284" r="5"/><circle cx="236" cy="236" r="5"/><circle cx="222" cy="196" r="5"/><circle cx="212" cy="160" r="5"/>
+            <circle cx="290" cy="240" r="5"/><circle cx="284" cy="180" r="5"/><circle cx="282" cy="140" r="5"/><circle cx="280" cy="104" r="5"/>
+            <circle cx="320" cy="236" r="5"/><circle cx="322" cy="170" r="5"/><circle cx="324" cy="126" r="5"/><circle cx="326" cy="86" r="5"/>
+            <circle cx="350" cy="240" r="5"/><circle cx="360" cy="184" r="5"/><circle cx="366" cy="146" r="5"/><circle cx="370" cy="112" r="5"/>
+            <circle cx="376" cy="258" r="5"/><circle cx="394" cy="218" r="5"/><circle cx="404" cy="190" r="5"/><circle cx="412" cy="164" r="5"/>
+        </g>
+        <g class="tag"><rect x="440" y="40" width="168" height="34" rx="4"/><text x="454" y="62">SIGN DETECTED</text></g>
+        <text x="24" y="34" class="cap">LIVE CAMERA · TENSORFLOW + OPENCV</text>
+        <g class="out"><rect x="24" y="336" width="128" height="40" rx="4"/><text x="40" y="361">→ "Hello"</text></g>
+    </svg>
+</div>

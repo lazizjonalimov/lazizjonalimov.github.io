@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+    (function () {
+        document.documentElement.classList.add('js');
+        try {
+            // Light is the site's default look; dark mode only applies once
+            // the visitor has explicitly chosen it via the toggle button.
+            if (localStorage.getItem('theme') !== 'dark') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        } catch (e) {
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
+    })();
+    </script>
+
+    <title>SMT Trans website &amp; quote intake — Case study | Lazizjon Alimov</title>
+    <meta name="description" content="The public website for a nationwide transportation company, and a full-stack Flask app that takes quote requests and new clients online.">
+    <meta name="author" content="Lazizjon Alimov">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://lazizjonalimov.github.io/work/smt-trans/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://lazizjonalimov.github.io/work/smt-trans/">
+    <meta property="og:title" content="SMT Trans website &amp; quote intake — Case study | Lazizjon Alimov">
+    <meta property="og:description" content="The public website for a nationwide transportation company, and a full-stack Flask app that takes quote requests and new clients online.">
+    <meta property="og:image" content="https://lazizjonalimov.github.io/assets/images/projects/smt-trans-homepage.webp">
+    <meta property="og:site_name" content="Lazizjon Alimov">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SMT Trans website &amp; quote intake — Case study | Lazizjon Alimov">
+    <meta name="twitter:description" content="The public website for a nationwide transportation company, and a full-stack Flask app that takes quote requests and new clients online.">
+    <meta name="twitter:image" content="https://lazizjonalimov.github.io/assets/images/projects/smt-trans-homepage.webp">
+    <meta name="twitter:creator" content="@lazizjonalimov">
+
+    <link rel="me" href="https://linkedin.com/in/lazizjonalimov/">
+    <link rel="me" href="https://github.com/lazizjonalimov">
+
+    <meta name="google-site-verification" content="fqjouxQ3y6JTcp8qXid3zjbJ02HqeJVq470EJ-DpH5I">
+    <meta name="theme-color" content="#F2F2F2">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "name": "SMT Trans website & quote intake",
+        "description": "The public website for a nationwide transportation company, and a full-stack Flask app that takes quote requests and new clients online.",
+        "url": "https://lazizjonalimov.github.io/work/smt-trans/",
+        "author": { "@type": "Person", "name": "Lazizjon Alimov", "url": "https://lazizjonalimov.github.io" }
+    }
+    </script>
+
+    <link rel="icon" type="image/x-icon" href="/assets/images/icons/favicon-white.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-white-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-white-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/icons/favicon-white-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon-white.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/icons/android-chrome-192x192-white.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/icons/android-chrome-512x512-white.png">
+    <link rel="shortcut icon" href="/assets/images/icons/favicon-white.ico">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css?v=9">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <!-- Header / navigation -->
+    <div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
+    <header class="site-header">
+        <div class="header-bar">
+            <a href="/#home" class="logo" aria-label="Lazizjon Alimov — back to top">
+                <img src="/assets/images/logo-black.webp" alt="" class="logo-img logo-light" width="28" height="24">
+                <img src="/assets/images/logo-white.webp" alt="" class="logo-img logo-dark" width="28" height="24">
+            </a>
+            <p class="header-status"><span class="status-dot" aria-hidden="true"></span>Open to new roles</p>
+            <nav class="site-nav" id="site-nav" aria-label="Main">
+                <a href="/#about">About</a>
+                <a href="/#projects">Work</a>
+                <a href="/#skills">Skills</a>
+                <a href="/#experience">Experience</a>
+                <a href="/assets/resume/Laziz-Alimov-Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+            </nav>
+            <button id="themeToggle" class="icon-btn" type="button" aria-label="Switch to dark mode" title="Switch to dark mode" aria-pressed="true">
+                <i class="fas fa-sun icon-sun" aria-hidden="true"></i>
+                <i class="fas fa-moon icon-moon" aria-hidden="true"></i>
+            </button>
+            <button class="icon-btn menu-btn" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+                <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+            </button>
+        </div>
+        <a href="/#contact" class="header-cta">
+            <img src="/assets/images/profile-image.webp" alt="" width="36" height="36">
+            <span>Get in touch</span>
+        </a>
+    </header>
+
+    <main id="main" class="case">
+        <section class="container case-hero">
+            <a class="back-link" href="/#projects">← All work</a>
+            <div class="case-title-row reveal">
+                <span class="case-icon"><i class="fas fa-globe" aria-hidden="true"></i></span>
+                <h1 class="case-title">SMT Trans website &amp; quote intake</h1>
+                <span class="mono-meta">Mar 2026 – Present</span>
+            </div>
+            <div class="case-intro">
+                <p class="mono-label reveal">Project details:</p>
+                <div class="reveal">
+                    <p class="case-sum">The public website for a nationwide transportation company, and a full-stack Flask app that takes quote requests and new clients online.</p>
+                    <dl class="case-details">
+                            <div><dt>Client:</dt><dd>SMT Trans · Philadelphia, PA</dd></div>
+                            <div><dt>Industry:</dt><dd>Transportation &amp; logistics</dd></div>
+                            <div><dt>Role:</dt><dd>Systems Engineer</dd></div>
+                            <div><dt>Stack:</dt><dd>Python · Flask · Jinja2 · JavaScript · SQLAlchemy</dd></div>
+                    </dl>
+                    <div class="case-links">
+                        <a class="btn-arrow" href="https://www.smttrans.com" target="_blank" rel="noopener noreferrer"><span class="ba-icon" aria-hidden="true"><i class="fas fa-arrow-up-right-from-square"></i></span><span class="ba-text">Live site</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container case-visual reveal">
+            <img src="/assets/images/projects/smt-trans-homepage.webp" alt="SMT Trans website homepage" loading="lazy">
+        </div>
+
+        <div class="container case-body">
+            <nav class="case-toc" aria-label="On this page">
+                <p class="mono-meta">On this page</p>
+                <a href="#challenge">The challenge</a>
+                <a href="#approach">The approach</a>
+                <a href="#deliverables">Key deliverables</a>
+                <a href="#outcome">The outcome</a>
+            </nav>
+            <div class="case-content">
+                <section id="challenge" class="reveal">
+                    <h2>The challenge</h2>
+                    <p>Customers needed a clear picture of what SMT Trans offers — its services, fleet and how to work with the company — and a simple way to ask for a quote. Driver recruiting needed a front door too.</p>
+                </section>
+                <section id="approach" class="reveal">
+                    <h2>The approach</h2>
+                    <p>The website covers services, the fleet, driver applications and contact options for customers across the U.S. For quotes, I designed and developed a full-stack Flask web application — Jinja2 templates, JavaScript, RESTful APIs and SQLAlchemy data models — that handles online quote requests and client intake.</p>
+                </section>
+                <section id="deliverables" class="reveal">
+                    <h2>Key deliverables</h2>
+                    <ul class="deliverables">
+                            <li>Company website: services, fleet, contact</li>
+                            <li>Driver application flow</li>
+                            <li>Online quote request form</li>
+                            <li>Client intake with SQLAlchemy data models</li>
+                            <li>RESTful API layer</li>
+                    </ul>
+                </section>
+                <section id="outcome">
+                    <h2 class="reveal">The outcome</h2>
+                    <p class="reveal">Quote requests now arrive online, ready to act on, and inbound leads went up noticeably.</p>
+                    <dl class="metrics">
+                            <div class="metric reveal"><dt>more inbound leads</dt><dd>35%</dd></div>
+                            <div class="metric reveal"><dt>estimated added annual revenue</dt><dd>$20k+</dd></div>
+                    </dl>
+                </section>
+            </div>
+        </div>
+
+        <section class="container more-cases">
+            <div class="section-bar reveal">
+                <p class="mono-label"><i class="fas fa-briefcase" aria-hidden="true"></i>Projects</p>
+                <a class="mono-handle" href="/#projects">All work →</a>
+            </div>
+            <h2 class="section-title center reveal">Explore more projects</h2>
+            <div class="more-grid">
+                <article class="stack-card flat">
+                    <div class="sc-info">
+                        <div class="sc-top">
+                            <span class="sc-logo"><i class="fas fa-road" aria-hidden="true"></i>Chavous Transportation</span>
+                            <span class="mono-meta">Client website</span>
+                        </div>
+                        <p class="sc-sum">A fast, search-friendly website for a freight carrier that serves all 48 continental states.</p>
+                        <dl class="sc-rows">
+                            <div><dt>Service:</dt><dd>Web design &amp; development</dd></div>
+                            <div><dt>Industry:</dt><dd>Freight &amp; trucking</dd></div>
+                            <div><dt>Result:</dt><dd>48 continental states served</dd></div>
+                        </dl>
+                        <a class="link-arrow" href="/work/chavous-transportation/">→| View case study<span class="sr-only">: Chavous Transportation</span></a>
+                    </div>
+                    <a class="sc-media" href="/work/chavous-transportation/" tabindex="-1" aria-hidden="true">
+                        <img src="/assets/images/projects/chavous-transportation.webp" alt="Chavous Transportation website homepage" loading="lazy">
+                    </a>
+                </article>
+                <article class="stack-card flat">
+                    <div class="sc-info">
+                        <div class="sc-top">
+                            <span class="sc-logo"><i class="fas fa-mobile-screen" aria-hidden="true"></i>KNC Mobile</span>
+                            <span class="mono-meta">Mobile app</span>
+                        </div>
+                        <p class="sc-sum">A cross-platform trail guide for the Kalamazoo Nature Center, with QR codes at historic sites, live event updates and interactive maps.</p>
+                        <dl class="sc-rows">
+                            <div><dt>Service:</dt><dd>Mobile app development</dd></div>
+                            <div><dt>Industry:</dt><dd>Nature &amp; education</dd></div>
+                            <div><dt>Result:</dt><dd>2,500+ monthly visitors served</dd></div>
+                        </dl>
+                        <a class="link-arrow" href="/work/knc-mobile/">→| View case study<span class="sr-only">: KNC Trail Guide app</span></a>
+                    </div>
+                    <a class="sc-media" href="/work/knc-mobile/" tabindex="-1" aria-hidden="true">
+                        <div class="viz viz-knc" role="img" aria-label="Illustration of the Kalamazoo Nature Center trail guide app on a phone, showing a trail map with points of interest and a QR scan button.">
+                            <div class="phone" aria-hidden="true">
+                                <div class="phone-notch"></div>
+                                <div class="phone-bar"><span>Trail Guide</span><span class="phone-pill">Events today</span></div>
+                                <svg class="phone-map" viewBox="0 0 220 300">
+                                    <rect width="220" height="300" fill="#E9EDE4"/>
+                                    <path d="M0 210 C50 190 70 240 120 220 S190 170 220 190 V300 H0Z" fill="#DCE5D3"/>
+                                    <path d="M150 0 C140 60 190 90 170 140 S120 200 140 300" fill="none" stroke="#BFD3E6" stroke-width="10" stroke-linecap="round"/>
+                                    <path class="trail t1" d="M20 60 C60 40 90 90 120 80 S170 40 200 70"/>
+                                    <path class="trail t2" d="M30 150 C70 120 100 170 130 150 S190 120 205 160"/>
+                                    <path class="trail t3" d="M40 260 C60 220 110 250 120 210 S90 120 60 100"/>
+                                    <g class="pin"><circle cx="120" cy="80" r="7"/><circle cx="120" cy="80" r="2.5" fill="#fff"/></g>
+                                    <g class="pin"><circle cx="70" cy="140" r="7"/><circle cx="70" cy="140" r="2.5" fill="#fff"/></g>
+                                    <g class="pin dark"><circle cx="120" cy="210" r="7"/><circle cx="120" cy="210" r="2.5" fill="#fff"/></g>
+                                    <circle class="me" cx="95" cy="185" r="6"/>
+                                </svg>
+                                <div class="phone-card">
+                                    <span class="phone-label">Historic site nearby</span>
+                                    <span class="phone-scan"><span class="qr"></span>Scan QR</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container cta-inner">
+                <h2 class="cta-title">Have a problem like this to solve?</h2>
+                <a class="btn-arrow light" href="/#contact"><span class="ba-icon" aria-hidden="true"><i class="fas fa-arrow-right-to-bracket"></i></span><span class="ba-text">Get in touch</span></a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="/assets/images/logo-white.webp" alt="" width="40" height="33" loading="lazy">
+                    <p>Practical, scalable technology for transportation, logistics and automation — built to be used.</p>
+                </div>
+                <div class="footer-cols">
+                    <div>
+                        <p class="mono-meta">Navigate</p>
+                        <ul>
+                            <li><a href="/#about">About</a></li>
+                            <li><a href="/#projects">Work</a></li>
+                            <li><a href="/#skills">Skills</a></li>
+                            <li><a href="/#experience">Experience</a></li>
+                            <li><a href="/#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="mono-meta">Elsewhere</p>
+                        <ul>
+                            <li><a href="https://github.com/lazizjonalimov" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                            <li><a href="https://linkedin.com/in/lazizjonalimov/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                            <li><a href="https://x.com/lazizjonalimov" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
+                            <li><a href="https://instagram.com/lazizjonalimov" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                            <li><a href="https://www.facebook.com/lazalimov/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="mono-meta">Resources</p>
+                        <ul>
+                            <li><a href="/assets/resume/Laziz-Alimov-Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a></li>
+                            <li><a href="mailto:lazizjonalimov@gmail.com">Email me</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <p class="footer-word reveal" aria-hidden="true">ALIMOV</p>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lazizjon Alimov</p>
+                <a href="/#home">Back to top ↑</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+    <button type="button" class="to-top" id="toTop" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
+</body>
+</html>

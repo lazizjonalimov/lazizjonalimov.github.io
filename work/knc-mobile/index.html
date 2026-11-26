@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+    (function () {
+        document.documentElement.classList.add('js');
+        try {
+            // Light is the site's default look; dark mode only applies once
+            // the visitor has explicitly chosen it via the toggle button.
+            if (localStorage.getItem('theme') !== 'dark') {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        } catch (e) {
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
+    })();
+    </script>
+
+    <title>KNC Trail Guide app — Case study | Lazizjon Alimov</title>
+    <meta name="description" content="A cross-platform trail guide for the Kalamazoo Nature Center, with QR codes at historic sites, live event updates and interactive maps.">
+    <meta name="author" content="Lazizjon Alimov">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://lazizjonalimov.github.io/work/knc-mobile/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://lazizjonalimov.github.io/work/knc-mobile/">
+    <meta property="og:title" content="KNC Trail Guide app — Case study | Lazizjon Alimov">
+    <meta property="og:description" content="A cross-platform trail guide for the Kalamazoo Nature Center, with QR codes at historic sites, live event updates and interactive maps.">
+    <meta property="og:image" content="https://lazizjonalimov.github.io/assets/images/profile-image.jpeg">
+    <meta property="og:site_name" content="Lazizjon Alimov">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="KNC Trail Guide app — Case study | Lazizjon Alimov">
+    <meta name="twitter:description" content="A cross-platform trail guide for the Kalamazoo Nature Center, with QR codes at historic sites, live event updates and interactive maps.">
+    <meta name="twitter:image" content="https://lazizjonalimov.github.io/assets/images/profile-image.jpeg">
+    <meta name="twitter:creator" content="@lazizjonalimov">
+
+    <link rel="me" href="https://linkedin.com/in/lazizjonalimov/">
+    <link rel="me" href="https://github.com/lazizjonalimov">
+
+    <meta name="google-site-verification" content="fqjouxQ3y6JTcp8qXid3zjbJ02HqeJVq470EJ-DpH5I">
+    <meta name="theme-color" content="#F2F2F2">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        "name": "KNC Trail Guide app",
+        "description": "A cross-platform trail guide for the Kalamazoo Nature Center, with QR codes at historic sites, live event updates and interactive maps.",
+        "url": "https://lazizjonalimov.github.io/work/knc-mobile/",
+        "author": { "@type": "Person", "name": "Lazizjon Alimov", "url": "https://lazizjonalimov.github.io" }
+    }
+    </script>
+
+    <link rel="icon" type="image/x-icon" href="/assets/images/icons/favicon-white.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-white-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-white-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/icons/favicon-white-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon-white.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/icons/android-chrome-192x192-white.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/icons/android-chrome-512x512-white.png">
+    <link rel="shortcut icon" href="/assets/images/icons/favicon-white.ico">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css?v=9">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <!-- Header / navigation -->
+    <div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
+    <header class="site-header">
+        <div class="header-bar">
+            <a href="/#home" class="logo" aria-label="Lazizjon Alimov — back to top">
+                <img src="/assets/images/logo-black.webp" alt="" class="logo-img logo-light" width="28" height="24">
+                <img src="/assets/images/logo-white.webp" alt="" class="logo-img logo-dark" width="28" height="24">
+            </a>
+            <p class="header-status"><span class="status-dot" aria-hidden="true"></span>Open to new roles</p>
+            <nav class="site-nav" id="site-nav" aria-label="Main">
+                <a href="/#about">About</a>
+                <a href="/#projects">Work</a>
+                <a href="/#skills">Skills</a>
+                <a href="/#experience">Experience</a>
+                <a href="/assets/resume/Laziz-Alimov-Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+            </nav>
+            <button id="themeToggle" class="icon-btn" type="button" aria-label="Switch to dark mode" title="Switch to dark mode" aria-pressed="true">
+                <i class="fas fa-sun icon-sun" aria-hidden="true"></i>
+                <i class="fas fa-moon icon-moon" aria-hidden="true"></i>
+            </button>
+            <button class="icon-btn menu-btn" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+                <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+            </button>
+        </div>
+        <a href="/#contact" class="header-cta">
+            <img src="/assets/images/profile-image.webp" alt="" width="36" height="36">
+            <span>Get in touch</span>
+        </a>
+    </header>
+
+    <main id="main" class="case">
+        <section class="container case-hero">
+            <a class="back-link" href="/#projects">← All work</a>
+            <div class="case-title-row reveal">
+                <span class="case-icon"><i class="fas fa-mobile-screen" aria-hidden="true"></i></span>
+                <h1 class="case-title">KNC Trail Guide app</h1>
+                <span class="mono-meta">Mobile app</span>
+            </div>
+            <div class="case-intro">
+                <p class="mono-label reveal">Project details:</p>
+                <div class="reveal">
+                    <p class="case-sum">A cross-platform trail guide for the Kalamazoo Nature Center, with QR codes at historic sites, live event updates and interactive maps.</p>
+                    <dl class="case-details">
+                            <div><dt>Client:</dt><dd>Kalamazoo Nature Center</dd></div>
+                            <div><dt>Industry:</dt><dd>Nature center &amp; education</dd></div>
+                            <div><dt>Role:</dt><dd>Co-developer</dd></div>
+                            <div><dt>Stack:</dt><dd>Flutter · Dart · Google Maps API</dd></div>
+                    </dl>
+                    <div class="case-links">
+                        <a class="btn-arrow" href="https://github.com/lazizjonalimov/MobileApp-KNC" target="_blank" rel="noopener noreferrer"><span class="ba-icon" aria-hidden="true"><i class="fas fa-arrow-up-right-from-square"></i></span><span class="ba-text">Code</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container case-visual reveal">
+            <div class="viz viz-knc" role="img" aria-label="Illustration of the Kalamazoo Nature Center trail guide app on a phone, showing a trail map with points of interest and a QR scan button.">
+                <div class="phone" aria-hidden="true">
+                    <div class="phone-notch"></div>
+                    <div class="phone-bar"><span>Trail Guide</span><span class="phone-pill">Events today</span></div>
+                    <svg class="phone-map" viewBox="0 0 220 300">
+                        <rect width="220" height="300" fill="#E9EDE4"/>
+                        <path d="M0 210 C50 190 70 240 120 220 S190 170 220 190 V300 H0Z" fill="#DCE5D3"/>
+                        <path d="M150 0 C140 60 190 90 170 140 S120 200 140 300" fill="none" stroke="#BFD3E6" stroke-width="10" stroke-linecap="round"/>
+                        <path class="trail t1" d="M20 60 C60 40 90 90 120 80 S170 40 200 70"/>
+                        <path class="trail t2" d="M30 150 C70 120 100 170 130 150 S190 120 205 160"/>
+                        <path class="trail t3" d="M40 260 C60 220 110 250 120 210 S90 120 60 100"/>
+                        <g class="pin"><circle cx="120" cy="80" r="7"/><circle cx="120" cy="80" r="2.5" fill="#fff"/></g>
+                        <g class="pin"><circle cx="70" cy="140" r="7"/><circle cx="70" cy="140" r="2.5" fill="#fff"/></g>
+                        <g class="pin dark"><circle cx="120" cy="210" r="7"/><circle cx="120" cy="210" r="2.5" fill="#fff"/></g>
+                        <circle class="me" cx="95" cy="185" r="6"/>
+                    </svg>
+                    <div class="phone-card">
+                        <span class="phone-label">Historic site nearby</span>
+                        <span class="phone-scan"><span class="qr"></span>Scan QR</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container case-body">
+            <nav class="case-toc" aria-label="On this page">
+                <p class="mono-meta">On this page</p>
+                <a href="#challenge">The challenge</a>
+                <a href="#approach">The approach</a>
+                <a href="#deliverables">Key deliverables</a>
+                <a href="#outcome">The outcome</a>
+            </nav>
+            <div class="case-content">
+                <section id="challenge" class="reveal">
+                    <h2>The challenge</h2>
+                    <p>Visitors explore 16 trails on their own. They needed a guide in their pocket: where they are, what is around them and what is happening at the center that day.</p>
+                </section>
+                <section id="approach" class="reveal">
+                    <h2>The approach</h2>
+                    <p>We built the app in Flutter and Dart, so one codebase ships to both iOS and Android. Interactive trail maps use the Google Maps API, QR codes at historic sites open the story of each spot, and real-time event updates keep visitors in the loop.</p>
+                </section>
+                <section id="deliverables" class="reveal">
+                    <h2>Key deliverables</h2>
+                    <ul class="deliverables">
+                            <li>Cross-platform Flutter app</li>
+                            <li>Interactive trail maps for 16 trails</li>
+                            <li>QR scanning for historic sites</li>
+                            <li>Real-time event updates</li>
+                    </ul>
+                </section>
+                <section id="outcome">
+                    <h2 class="reveal">The outcome</h2>
+                    <p class="reveal">The app shipped and serves the center’s visitors, increasing engagement with self-guided visits.</p>
+                    <dl class="metrics">
+                            <div class="metric reveal"><dt>monthly visitors served</dt><dd>2,500+</dd></div>
+                            <div class="metric reveal"><dt>trails mapped</dt><dd>16</dd></div>
+                    </dl>
+                </section>
+            </div>
+        </div>
+
+        <section class="container more-cases">
+            <div class="section-bar reveal">
+                <p class="mono-label"><i class="fas fa-briefcase" aria-hidden="true"></i>Projects</p>
+                <a class="mono-handle" href="/#projects">All work →</a>
+            </div>
+            <h2 class="section-title center reveal">Explore more projects</h2>
+            <div class="more-grid">
+                <article class="stack-card flat">
+                    <div class="sc-info">
+                        <div class="sc-top">
+                            <span class="sc-logo"><i class="fas fa-hands" aria-hidden="true"></i>Sign Language Detection</span>
+                            <span class="mono-meta">Computer vision</span>
+                        </div>
+                        <p class="sc-sum">A computer-vision system that recognizes hand signs from a live camera feed and turns them into readable text.</p>
+                        <dl class="sc-rows">
+                            <div><dt>Service:</dt><dd>Machine learning &amp; computer vision</dd></div>
+                            <div><dt>Industry:</dt><dd>Accessibility</dd></div>
+                            <div><dt>Result:</dt><dd>90%+ recognition accuracy</dd></div>
+                        </dl>
+                        <a class="link-arrow" href="/work/sign-language-detection/">→| View case study<span class="sr-only">: Real-time hand sign recognition</span></a>
+                    </div>
+                    <a class="sc-media" href="/work/sign-language-detection/" tabindex="-1" aria-hidden="true">
+                        <div class="viz viz-sign" role="img" aria-label="Illustration of real-time hand sign recognition: a hand outlined with tracking points inside a detection box, translated into text.">
+                            <svg viewBox="0 0 640 400" aria-hidden="true">
+                                <defs>
+                                    <pattern id="signGrid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="rgba(255,255,255,.07)"/></pattern>
+                                </defs>
+                                <rect width="640" height="400" fill="url(#signGrid)"/>
+                                <g class="box"><path d="M200 60h-36v36M440 60h36v36M200 360h-36v-36M440 360h36v-36"/></g>
+                                <g class="bones">
+                                    <path d="M320 330 L262 284 L236 236 L222 196 L212 160"/>
+                                    <path d="M320 330 L290 240 L284 180 L282 140 L280 104"/>
+                                    <path d="M320 330 L320 236 L322 170 L324 126 L326 86"/>
+                                    <path d="M320 330 L350 240 L360 184 L366 146 L370 112"/>
+                                    <path d="M320 330 L376 258 L394 218 L404 190 L412 164"/>
+                                    <path d="M262 284 L290 240 L320 236 L350 240 L376 258"/>
+                                </g>
+                                <g class="joints">
+                                    <circle cx="320" cy="330" r="6"/>
+                                    <circle cx="262" cy="284" r="5"/><circle cx="236" cy="236" r="5"/><circle cx="222" cy="196" r="5"/><circle cx="212" cy="160" r="5"/>
+                                    <circle cx="290" cy="240" r="5"/><circle cx="284" cy="180" r="5"/><circle cx="282" cy="140" r="5"/><circle cx="280" cy="104" r="5"/>
+                                    <circle cx="320" cy="236" r="5"/><circle cx="322" cy="170" r="5"/><circle cx="324" cy="126" r="5"/><circle cx="326" cy="86" r="5"/>
+                                    <circle cx="350" cy="240" r="5"/><circle cx="360" cy="184" r="5"/><circle cx="366" cy="146" r="5"/><circle cx="370" cy="112" r="5"/>
+                                    <circle cx="376" cy="258" r="5"/><circle cx="394" cy="218" r="5"/><circle cx="404" cy="190" r="5"/><circle cx="412" cy="164" r="5"/>
+                                </g>
+                                <g class="tag"><rect x="440" y="40" width="168" height="34" rx="4"/><text x="454" y="62">SIGN DETECTED</text></g>
+                                <text x="24" y="34" class="cap">LIVE CAMERA · TENSORFLOW + OPENCV</text>
+                                <g class="out"><rect x="24" y="336" width="128" height="40" rx="4"/><text x="40" y="361">→ "Hello"</text></g>
+                            </svg>
+                        </div>
+                    </a>
+                </article>
+                <article class="stack-card flat">
+                    <div class="sc-info">
+                        <div class="sc-top">
+                            <span class="sc-logo"><i class="fas fa-truck-fast" aria-hidden="true"></i>SMT Trans TMS</span>
+                            <span class="mono-meta">Aug 2025 – Feb 2026</span>
+                        </div>
+                        <p class="sc-sum">A custom TMS that brought SMT Trans’s fleet, driver and compliance data into one place — and put compliance deadlines on autopilot.</p>
+                        <dl class="sc-rows">
+                            <div><dt>Service:</dt><dd>Systems engineering &amp; automation</dd></div>
+                            <div><dt>Industry:</dt><dd>Transportation &amp; logistics</dd></div>
+                            <div><dt>Result:</dt><dd>60% less manual admin workload</dd></div>
+                        </dl>
+                        <a class="link-arrow" href="/work/smt-trans-tms/">→| View case study<span class="sr-only">: Transportation Management System</span></a>
+                    </div>
+                    <a class="sc-media" href="/work/smt-trans-tms/" tabindex="-1" aria-hidden="true">
+                        <div class="viz viz-tms" role="img" aria-label="Simplified diagram: fleet, driver and compliance records flow into a Flask app with REST APIs, which stores data in PostgreSQL, runs scheduled Python jobs that send reminders, and syncs with Excel.">
+                            <svg viewBox="0 0 640 400" aria-hidden="true">
+                                <defs>
+                                    <pattern id="tmsGrid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="rgba(255,255,255,.05)"/></pattern>
+                                </defs>
+                                <rect width="640" height="400" fill="url(#tmsGrid)"/>
+                                <g class="viz-lines">
+                                    <path d="M170 88 C210 88 210 190 250 190"/>
+                                    <path d="M170 200 L250 200"/>
+                                    <path d="M170 312 C210 312 210 210 250 210"/>
+                                    <path d="M410 180 C440 180 440 98 470 98"/>
+                                    <path d="M410 210 C440 210 440 212 470 212"/>
+                                    <path d="M543 244 L543 290"/>
+                                    <path d="M330 240 L330 292"/>
+                                </g>
+                                <g class="viz-node"><rect x="24" y="62" width="146" height="52" rx="6"/><text x="44" y="93">Fleet</text><circle cx="152" cy="88" r="4" class="dot"/></g>
+                                <g class="viz-node"><rect x="24" y="174" width="146" height="52" rx="6"/><text x="44" y="205">Drivers</text><circle cx="152" cy="200" r="4" class="dot"/></g>
+                                <g class="viz-node"><rect x="24" y="286" width="146" height="52" rx="6"/><text x="44" y="309">Compliance</text><text x="44" y="327" class="sub">documents</text><circle cx="152" cy="312" r="4" class="dot"/></g>
+                                <g class="viz-node core"><rect x="250" y="160" width="160" height="80" rx="6"/><text x="270" y="194">Flask app</text><text x="270" y="216" class="sub">REST APIs</text></g>
+                                <g class="viz-node"><rect x="470" y="72" width="146" height="52" rx="6"/><text x="490" y="103">PostgreSQL</text></g>
+                                <g class="viz-node"><rect x="470" y="186" width="146" height="58" rx="6"/><text x="490" y="210">Scheduled</text><text x="490" y="230">Python jobs</text></g>
+                                <g class="viz-node accent"><rect x="470" y="290" width="146" height="52" rx="6"/><text x="490" y="321">Reminders</text></g>
+                                <g class="viz-node"><rect x="250" y="292" width="160" height="50" rx="6"/><text x="270" y="322">Excel sync</text></g>
+                                <text x="24" y="34" class="cap">SIMPLIFIED OVERVIEW · TMS</text>
+                            </svg>
+                        </div>
+                    </a>
+                </article>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container cta-inner">
+                <h2 class="cta-title">Have a problem like this to solve?</h2>
+                <a class="btn-arrow light" href="/#contact"><span class="ba-icon" aria-hidden="true"><i class="fas fa-arrow-right-to-bracket"></i></span><span class="ba-text">Get in touch</span></a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="/assets/images/logo-white.webp" alt="" width="40" height="33" loading="lazy">
+                    <p>Practical, scalable technology for transportation, logistics and automation — built to be used.</p>
+                </div>
+                <div class="footer-cols">
+                    <div>
+                        <p class="mono-meta">Navigate</p>
+                        <ul>
+                            <li><a href="/#about">About</a></li>
+                            <li><a href="/#projects">Work</a></li>
+                            <li><a href="/#skills">Skills</a></li>
+                            <li><a href="/#experience">Experience</a></li>
+                            <li><a href="/#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="mono-meta">Elsewhere</p>
+                        <ul>
+                            <li><a href="https://github.com/lazizjonalimov" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                            <li><a href="https://linkedin.com/in/lazizjonalimov/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                            <li><a href="https://x.com/lazizjonalimov" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
+                            <li><a href="https://instagram.com/lazizjonalimov" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                            <li><a href="https://www.facebook.com/lazalimov/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="mono-meta">Resources</p>
+                        <ul>
+                            <li><a href="/assets/resume/Laziz-Alimov-Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a></li>
+                            <li><a href="mailto:lazizjonalimov@gmail.com">Email me</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <p class="footer-word reveal" aria-hidden="true">ALIMOV</p>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lazizjon Alimov</p>
+                <a href="/#home">Back to top ↑</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+    <button type="button" class="to-top" id="toTop" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
+</body>
+</html>

@@ -1,61 +1,29 @@
 <!-- Projects -->
-<section id="projects" class="section">
+<section id="projects" class="work-section">
     <div class="container">
-        <div class="section-bar reveal">
+        <div class="section-bar on-dark reveal">
             <p class="mono-label"><i class="fas fa-briefcase" aria-hidden="true"></i>Selected work</p>
             <a href="https://github.com/lazizjonalimov" target="_blank" rel="noopener noreferrer" class="mono-handle">All on GitHub ↗</a>
         </div>
-        <h2 class="section-title center reveal">Things I've built for real people</h2>
-
-        <div class="work-grid">
-            <article class="work-card reveal">
-                <a class="work-media" href="https://chavousllc.com" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-                    <img src="assets/images/projects/chavous-transportation.webp" alt="" loading="lazy">
-                </a>
-                <div class="work-body">
-                    <p class="mono-meta">Web · Client site</p>
-                    <h3><a href="https://chavousllc.com" target="_blank" rel="noopener noreferrer">Chavous Transportation <span aria-hidden="true">↗</span></a></h3>
-                    <p>Website for a nationwide freight carrier serving all 48 continental states — freight quotes, driver applications and dispatch contact. Server-rendered with Next.js on Vercel for fast loads and strong SEO.</p>
-                    <p class="mono-meta">Next.js · React · Vercel · SEO</p>
-                </div>
-            </article>
-            <article class="work-card reveal">
-                <a class="work-media" href="https://www.smttrans.com" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-                    <img src="assets/images/projects/smt-trans-homepage.webp" alt="" loading="lazy">
-                </a>
-                <div class="work-body">
-                    <p class="mono-meta">Web · Client site</p>
-                    <h3><a href="https://www.smttrans.com" target="_blank" rel="noopener noreferrer">SMT Trans <span aria-hidden="true">↗</span></a></h3>
-                    <p>Professional website for a nationwide transportation and logistics company, covering its services, fleet, driver applications and contact options for customers across the U.S.</p>
-                    <p class="mono-meta">HTML5 · CSS3 · JavaScript · Flask</p>
-                </div>
-            </article>
-            <article class="work-card feature reveal">
-                <div class="work-media tile-media" aria-hidden="true">
-                    <i class="fas fa-mobile-screen"></i>
-                    <span>2,500+ monthly visitors · 16 trails</span>
-                </div>
-                <div class="work-body">
-                    <p class="mono-meta">Featured · Mobile app</p>
-                    <h3><a href="https://github.com/lazizjonalimov/MobileApp-KNC" target="_blank" rel="noopener noreferrer">KNC Mobile <span aria-hidden="true">↗</span></a></h3>
-                    <p>Led development of a cross-platform Flutter app for the Kalamazoo Nature Center, with QR code scanning for historic spots, event updates and interactive trail maps.</p>
-                    <p class="mono-meta">Flutter · Cross-platform · QR scanning</p>
-                </div>
-            </article>
+        <div class="work-head">
+            <h2 class="section-title reveal">Projects with real results to show</h2>
+            <p class="work-lead reveal">Five case studies — the problem, what I built and what changed.</p>
         </div>
 
+        <div class="stack">
+{{WORK_CARDS}}
+        </div>
+    </div>
+</section>
+
+<!-- More projects -->
+<section class="section more-work">
+    <div class="container">
+        <div class="section-bar reveal">
+            <p class="mono-label"><i class="fas fa-flask" aria-hidden="true"></i>More projects</p>
+            <p class="mono-handle">@lazizjonalimov</p>
+        </div>
         <ul class="project-list">
-            <li class="project-row reveal">
-                <div>
-                    <h3>Real-Time Sign Language Detection</h3>
-                    <p class="row-desc">Recognizes hand signs with over 90% accuracy and translates them into readable output.</p>
-                    <p class="mono-meta">Python · TensorFlow · OpenCV</p>
-                </div>
-                <div class="row-actions">
-                    <a class="btn btn-dark btn-sm" href="https://github.com/lazizjonalimov/RealTImeSignLanguageDetection" target="_blank" rel="noopener noreferrer">Code</a>
-                    <a class="btn btn-ghost btn-sm" href="https://devpost.com/software/real-time-sign-language-detection" target="_blank" rel="noopener noreferrer">Devpost</a>
-                </div>
-            </li>
             <li class="project-row reveal">
                 <div>
                     <h3>Face Detection App</h3>
@@ -99,3 +67,11 @@
         </ul>
     </div>
 </section>
+
+<!-- Ticker -->
+<div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+        <span>Build</span><i>+</i><span>Automate</span><i>+</i><span>Ship</span><i>+</i><span>Support</span><i>+</i>
+        <span>Build</span><i>+</i><span>Automate</span><i>+</i><span>Ship</span><i>+</i><span>Support</span><i>+</i>
+    </div>
+</div>
