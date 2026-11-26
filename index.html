@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
     (function () {
+        document.documentElement.classList.add('js');
         try {
             // Light is the site's default look; dark mode only applies once
             // the visitor has explicitly chosen it via the toggle button.
@@ -40,7 +41,7 @@
     <link rel="me" href="https://github.com/lazizjonalimov">
 
     <meta name="google-site-verification" content="fqjouxQ3y6JTcp8qXid3zjbJ02HqeJVq470EJ-DpH5I">
-    <meta name="theme-color" content="#FAFAF7">
+    <meta name="theme-color" content="#F2F2F2">
 
     <script type="application/ld+json">
     {
@@ -101,81 +102,116 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css?v=6">
+    <link rel="stylesheet" href="assets/css/style.css?v=7">
 </head>
 <body>
     <a class="skip-link" href="#home">Skip to content</a>
     <!-- Header / navigation -->
     <header class="site-header">
-        <div class="container header-inner">
-            <a href="#home" class="wordmark" aria-label="Lazizjon Alimov — back to top"><img src="assets/images/logo-black.png" alt="" class="logo-img" width="48" height="40"></a>
+        <div class="header-bar">
+            <a href="#home" class="logo" aria-label="Lazizjon Alimov — back to top">
+                <img src="assets/images/logo-black.png" alt="" class="logo-img logo-light" width="28" height="24">
+                <img src="assets/images/logo-white.png" alt="" class="logo-img logo-dark" width="28" height="24">
+            </a>
+            <p class="header-status"><span class="status-dot" aria-hidden="true"></span>Open to new roles</p>
             <nav class="site-nav" id="site-nav" aria-label="Main">
                 <a href="#about">About</a>
-                <a href="#projects">Projects</a>
+                <a href="#projects">Work</a>
                 <a href="#skills">Skills</a>
                 <a href="#experience">Experience</a>
-                <a href="#contact">Contact</a>
+                <a href="assets/resume/Laziz-Alimov-Resume.pdf" target="_blank" rel="noopener">Résumé</a>
             </nav>
-            <div class="header-actions">
-                <button id="themeToggle" class="icon-btn" type="button" aria-label="Switch to dark mode" title="Switch to dark mode" aria-pressed="true">
-                    <i class="fas fa-sun icon-sun" aria-hidden="true"></i>
-                    <i class="fas fa-moon icon-moon" aria-hidden="true"></i>
-                </button>
-                <a href="assets/resume/Laziz-Alimov-Resume.pdf" class="btn btn-outline btn-sm" target="_blank" rel="noopener">Download résumé</a>
-                <button class="icon-btn menu-btn" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
-                    <i class="fas fa-bars" aria-hidden="true"></i>
-                </button>
-            </div>
+            <button id="themeToggle" class="icon-btn" type="button" aria-label="Switch to dark mode" title="Switch to dark mode" aria-pressed="true">
+                <i class="fas fa-sun icon-sun" aria-hidden="true"></i>
+                <i class="fas fa-moon icon-moon" aria-hidden="true"></i>
+            </button>
+            <button class="icon-btn menu-btn" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+                <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+            </button>
         </div>
+        <a href="#contact" class="header-cta">
+            <img src="assets/images/profile-image.jpeg" alt="" width="36" height="36">
+            <span>Get in touch</span>
+        </a>
     </header>
 
     <!-- Hero -->
     <section id="home" class="hero">
-        <div class="container hero-inner">
-            <div class="hero-text">
-                <p class="eyebrow">Systems Engineer · Software Developer</p>
-                <h1 class="hero-title"><span class="hero-name">Lazizjon Alimov</span> I build practical technology that solves real problems.</h1>
-                <p class="hero-lead">Hi, I'm Lazizjon Alimov — an Honors Computer Science graduate from Western Michigan University, building scalable tools for transportation, logistics and automation.</p>
-                <div class="btn-row">
-                    <a href="#projects" class="btn btn-primary">See my work</a>
-                    <a href="#contact" class="btn btn-soft">Get in touch</a>
-                </div>
+        <div class="container hero-head">
+            <p class="mono-label reveal"><i class="fas fa-terminal" aria-hidden="true"></i>Systems Engineer · Software Developer</p>
+            <h1 class="hero-title reveal"><span class="hero-name">Lazizjon Alimov</span> I build practical technology that solves real problems.</h1>
+            <p class="hero-lead reveal">Honors Computer Science graduate from Western Michigan University, building scalable tools for transportation, logistics and automation.</p>
+            <div class="btn-row reveal">
+                <a href="#projects" class="btn btn-dark">See my work</a>
+                <a href="#contact" class="btn btn-ghost">Get in touch</a>
             </div>
-            <div class="hero-photo">
-                <img src="assets/images/profile-image.jpeg" alt="Portrait of Lazizjon Alimov" width="360" height="450">
+        </div>
+    
+        <div class="hero-marquee" aria-label="Highlights">
+            <div class="marquee-track">
+                <div class="marquee-group">
+                    <figure class="m-card up"><img src="assets/images/projects/chavous-transportation.jpg" alt="Chavous Transportation website" loading="eager"></figure>
+                    <div class="m-card tile accent down"><span class="tile-num">60%</span><span class="tile-text">less manual admin work with a custom TMS</span></div>
+                    <figure class="m-card up portrait"><img src="assets/images/profile-image.jpeg" alt="Portrait of Lazizjon Alimov"></figure>
+                    <div class="m-card tile dark down"><span class="tile-num">1,000+</span><span class="tile-text">end users supported across 15+ organizations</span></div>
+                    <figure class="m-card up"><img src="assets/images/projects/smt-trans-homepage.png" alt="SMT Trans website"></figure>
+                    <div class="m-card tile light down"><span class="tile-num">95%</span><span class="tile-text">first-time resolution rate in IT support</span></div>
+                    <figure class="m-card up"><img src="assets/images/projects/alimoff-corp-homepage.png" alt="Alimoff Corp website"></figure>
+                    <div class="m-card tile accent down"><span class="tile-num">35%</span><span class="tile-text">more inbound leads from a Flask quote app</span></div>
+                </div>
+                <div class="marquee-group" aria-hidden="true">
+                    <figure class="m-card up"><img src="assets/images/projects/chavous-transportation.jpg" alt=""></figure>
+                    <div class="m-card tile accent down"><span class="tile-num">60%</span><span class="tile-text">less manual admin work with a custom TMS</span></div>
+                    <figure class="m-card up portrait"><img src="assets/images/profile-image.jpeg" alt=""></figure>
+                    <div class="m-card tile dark down"><span class="tile-num">1,000+</span><span class="tile-text">end users supported across 15+ organizations</span></div>
+                    <figure class="m-card up"><img src="assets/images/projects/smt-trans-homepage.png" alt=""></figure>
+                    <div class="m-card tile light down"><span class="tile-num">95%</span><span class="tile-text">first-time resolution rate in IT support</span></div>
+                    <figure class="m-card up"><img src="assets/images/projects/alimoff-corp-homepage.png" alt=""></figure>
+                    <div class="m-card tile accent down"><span class="tile-num">35%</span><span class="tile-text">more inbound leads from a Flask quote app</span></div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- About -->
-    <section id="about" class="section band">
-        <div class="container split">
-            <h2 class="section-title">About me</h2>
-            <div class="split-body prose">
-                <p>I'm Lazizjon Alimov — a Systems Engineer with an Honors B.S. in Computer Science and a minor in Data Analytics from Western Michigan University. I like building technology that actually gets used: practical, scalable tools that make people's work easier.</p>
-                <p>At SMT Trans, I run the IT side of a logistics operation and built a custom Transportation Management System from the ground up — cutting manual tracking by 60% and automating compliance so deadlines never slip. Previously, I supported IT operations at Western Michigan University and Streamline Healthcare Solutions.</p>
-                <p>I work across the stack — Python, PHP, JavaScript, React and Node.js — with experience in iOS development and database management. What drives me is continuous learning and using technology to solve real-world problems, especially in transportation, logistics and automation.</p>
-    
-                <dl class="stats">
-                    <div><dt>1,000+</dt><dd>end users supported</dd></div>
-                    <div><dt>80%</dt><dd>data accuracy improvement</dd></div>
-                    <div><dt>95%</dt><dd>first-time resolution rate</dd></div>
-                    <div><dt>35%</dt><dd>inbound lead growth</dd></div>
-                </dl>
-    
-                <h3 class="sub-title">Education</h3>
-                <ul class="edu-list">
-                    <li>
-                        <p class="edu-name">B.S. Computer Science (Honors), minor in Data Analytics</p>
-                        <p class="edu-meta"><a href="https://wmich.edu" target="_blank" rel="noopener noreferrer">Western Michigan University</a> · Sep 2020 – Apr 2025 · Lee Honors College, Dean's List, Alpha Lambda Delta</p>
-                    </li>
-                    <li>
-                        <p class="edu-name">Intermediate iOS Development</p>
-                        <p class="edu-meta"><a href="https://codepath.org" target="_blank" rel="noopener noreferrer">CodePath</a> · Jan 2023 – May 2023 · Swift, mobile apps</p>
-                    </li>
-                </ul>
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-bar reveal">
+                <p class="mono-label"><i class="fas fa-user" aria-hidden="true"></i>About me</p>
+                <p class="mono-handle">@lazizjonalimov</p>
+            </div>
+            <div class="split">
+                <div class="split-head">
+                    <h2 class="section-title reveal">Technology that actually gets used</h2>
+                    <div class="prose reveal">
+                        <p>I'm Lazizjon Alimov — a Systems Engineer with an Honors B.S. in Computer Science and a minor in Data Analytics from Western Michigan University.</p>
+                        <p>At SMT Trans I run the IT side of a logistics operation. Before that, I supported IT operations at Western Michigan University and Streamline Healthcare Solutions.</p>
+                    </div>
+                </div>
+                <div class="value-cards">
+                    <article class="value-card reveal">
+                        <i class="fas fa-truck-fast value-icon" aria-hidden="true"></i>
+                        <h3>Build for real operations</h3>
+                        <p>I built a custom Transportation Management System from the ground up — cutting manual tracking by 60% and automating compliance so deadlines never slip.</p>
+                    </article>
+                    <article class="value-card reveal">
+                        <i class="fas fa-layer-group value-icon" aria-hidden="true"></i>
+                        <h3>Work across the stack</h3>
+                        <p>Python, PHP, JavaScript, React and Node.js, plus iOS development and database management — whatever the problem needs.</p>
+                    </article>
+                    <article class="value-card reveal">
+                        <i class="fas fa-gears value-icon" aria-hidden="true"></i>
+                        <h3>Automate the busywork</h3>
+                        <p>Scheduled scripts, validation pipelines and data syncs that take repetitive work off people's plates and keep records accurate.</p>
+                    </article>
+                    <article class="value-card reveal">
+                        <i class="fas fa-seedling value-icon" aria-hidden="true"></i>
+                        <h3>Keep learning</h3>
+                        <p>What drives me is continuous learning and using technology to solve real-world problems, especially in transportation, logistics and automation.</p>
+                    </article>
+                </div>
             </div>
         </div>
     </section>
@@ -183,132 +219,148 @@
     <!-- Projects -->
     <section id="projects" class="section">
         <div class="container">
-            <div class="section-head">
-                <h2 class="section-title">Selected projects</h2>
-                <a href="https://github.com/lazizjonalimov" target="_blank" rel="noopener noreferrer" class="text-link">All projects on GitHub →</a>
+            <div class="section-bar reveal">
+                <p class="mono-label"><i class="fas fa-briefcase" aria-hidden="true"></i>Selected work</p>
+                <a href="https://github.com/lazizjonalimov" target="_blank" rel="noopener noreferrer" class="mono-handle">All on GitHub ↗</a>
             </div>
+            <h2 class="section-title center reveal">Things I've built for real people</h2>
     
-            <article class="card featured">
-                <div class="card-media media-tile" aria-hidden="true"><span>Mobile</span></div>
-                <div class="card-body">
-                    <p class="tag">Featured · Mobile app</p>
-                    <h3 class="card-title">KNC Mobile</h3>
-                    <p class="card-text">Led development of a cross-platform Flutter app for the Kalamazoo Nature Center, with QR code scanning for historic spots, event updates and interactive maps of 16 trails for 2,500+ monthly visitors.</p>
-                    <p class="card-stack">Flutter · Cross-platform · QR scanning</p>
-                    <div class="card-links"><a href="https://github.com/lazizjonalimov/MobileApp-KNC" target="_blank" rel="noopener noreferrer">Code</a></div>
-                </div>
-            </article>
-    
-            <div class="card-grid">
-                <article class="card">
-                    <div class="card-media"><img src="assets/images/projects/chavous-transportation.jpg" alt="Chavous Transportation website homepage" loading="lazy"></div>
-                    <div class="card-body">
-                        <p class="tag">Web · Client site</p>
-                        <h3 class="card-title">Chavous Transportation</h3>
-                        <p class="card-text">Website for a nationwide freight carrier serving all 48 continental states, handling freight quotes, driver applications and dispatch contact. Server-rendered with Next.js on Vercel for fast loads and strong SEO.</p>
-                        <p class="card-stack">Next.js · React · Vercel · SEO</p>
-                        <div class="card-links"><a href="https://chavousllc.com" target="_blank" rel="noopener noreferrer">Live site</a></div>
+            <div class="work-grid">
+                <article class="work-card reveal">
+                    <a class="work-media" href="https://chavousllc.com" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+                        <img src="assets/images/projects/chavous-transportation.jpg" alt="" loading="lazy">
+                    </a>
+                    <div class="work-body">
+                        <p class="mono-meta">Web · Client site</p>
+                        <h3><a href="https://chavousllc.com" target="_blank" rel="noopener noreferrer">Chavous Transportation <span aria-hidden="true">↗</span></a></h3>
+                        <p>Website for a nationwide freight carrier serving all 48 continental states — freight quotes, driver applications and dispatch contact. Server-rendered with Next.js on Vercel for fast loads and strong SEO.</p>
+                        <p class="mono-meta">Next.js · React · Vercel · SEO</p>
                     </div>
                 </article>
-    
-                <article class="card">
-                    <div class="card-media"><img src="assets/images/projects/smt-trans-homepage.png" alt="SMT Trans website homepage" loading="lazy"></div>
-                    <div class="card-body">
-                        <p class="tag">Web · Client site</p>
-                        <h3 class="card-title">SMT Trans</h3>
-                        <p class="card-text">Professional website for a nationwide transportation and logistics company, covering its services, fleet, driver applications and contact options for customers across the U.S.</p>
-                        <p class="card-stack">HTML5 · CSS3 · JavaScript · Flask</p>
-                        <div class="card-links"><a href="https://www.smttrans.com" target="_blank" rel="noopener noreferrer">Live site</a></div>
+                <article class="work-card reveal">
+                    <a class="work-media" href="https://www.smttrans.com" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+                        <img src="assets/images/projects/smt-trans-homepage.png" alt="" loading="lazy">
+                    </a>
+                    <div class="work-body">
+                        <p class="mono-meta">Web · Client site</p>
+                        <h3><a href="https://www.smttrans.com" target="_blank" rel="noopener noreferrer">SMT Trans <span aria-hidden="true">↗</span></a></h3>
+                        <p>Professional website for a nationwide transportation and logistics company, covering its services, fleet, driver applications and contact options for customers across the U.S.</p>
+                        <p class="mono-meta">HTML5 · CSS3 · JavaScript · Flask</p>
                     </div>
                 </article>
-    
-                <article class="card">
-                    <div class="card-media media-tile" aria-hidden="true"><span>Vision</span></div>
-                    <div class="card-body">
-                        <p class="tag">Computer vision</p>
-                        <h3 class="card-title">Real-Time Sign Language Detection</h3>
-                        <p class="card-text">Hand-sign recognition that identifies signs with over 90% accuracy and translates them into readable output, helping bridge communication between sign-language users and people who don't sign.</p>
-                        <p class="card-stack">Python · TensorFlow · OpenCV</p>
-                        <div class="card-links">
-                            <a href="https://github.com/lazizjonalimov/RealTImeSignLanguageDetection" target="_blank" rel="noopener noreferrer">Code</a>
-                            <a href="https://devpost.com/software/real-time-sign-language-detection" target="_blank" rel="noopener noreferrer">Devpost</a>
-                        </div>
+                <article class="work-card feature reveal">
+                    <div class="work-media tile-media" aria-hidden="true">
+                        <i class="fas fa-mobile-screen"></i>
+                        <span>2,500+ monthly visitors · 16 trails</span>
                     </div>
-                </article>
-    
-                <article class="card">
-                    <div class="card-media media-tile" aria-hidden="true"><span>Vision</span></div>
-                    <div class="card-body">
-                        <p class="tag">Computer vision</p>
-                        <h3 class="card-title">Face Detection App</h3>
-                        <p class="card-text">Detects and tracks faces in images or live video in real time using OpenCV's Haar Cascade classifiers and image-processing techniques.</p>
-                        <p class="card-stack">Python · OpenCV</p>
-                        <div class="card-links"><a href="https://github.com/lazizjonalimov/FaceDetectionProject" target="_blank" rel="noopener noreferrer">Code</a></div>
-                    </div>
-                </article>
-    
-                <article class="card">
-                    <div class="card-media media-tile" aria-hidden="true"><span>iOS</span></div>
-                    <div class="card-body">
-                        <p class="tag">iOS app</p>
-                        <h3 class="card-title">BeReal Clone</h3>
-                        <p class="card-text">A working clone of BeReal: capture and share real-time photos, interact with posts and follow participation-based viewing rules, with authentication and persistent sessions.</p>
-                        <p class="card-stack">Swift · UIKit</p>
-                        <div class="card-links"><a href="https://github.com/lazizjonalimov/Social-Media" target="_blank" rel="noopener noreferrer">Code</a></div>
-                    </div>
-                </article>
-    
-                <article class="card">
-                    <div class="card-media media-tile" aria-hidden="true"><span>iOS</span></div>
-                    <div class="card-body">
-                        <p class="tag">iOS app</p>
-                        <h3 class="card-title">Flixster Clone</h3>
-                        <p class="card-text">Browse and explore movies with live data from an external API, shown through table and collection views with titles, descriptions and posters.</p>
-                        <p class="card-stack">Swift · API integration · JSON</p>
-                        <div class="card-links"><a href="https://github.com/lazizjonalimov/Movies-App" target="_blank" rel="noopener noreferrer">Code</a></div>
-                    </div>
-                </article>
-    
-                <article class="card">
-                    <div class="card-media media-tile" aria-hidden="true"><span>Mobile</span></div>
-                    <div class="card-body">
-                        <p class="tag">Mobile app</p>
-                        <h3 class="card-title">MusicReel</h3>
-                        <p class="card-text">A social app for sharing a daily music pick and seeing what others are listening to, built around a clean, engaging UI.</p>
-                        <p class="card-stack">Mobile · UI/UX design</p>
+                    <div class="work-body">
+                        <p class="mono-meta">Featured · Mobile app</p>
+                        <h3><a href="https://github.com/lazizjonalimov/MobileApp-KNC" target="_blank" rel="noopener noreferrer">KNC Mobile <span aria-hidden="true">↗</span></a></h3>
+                        <p>Led development of a cross-platform Flutter app for the Kalamazoo Nature Center, with QR code scanning for historic spots, event updates and interactive trail maps.</p>
+                        <p class="mono-meta">Flutter · Cross-platform · QR scanning</p>
                     </div>
                 </article>
             </div>
+    
+            <ul class="project-list">
+                <li class="project-row reveal">
+                    <div>
+                        <h3>Real-Time Sign Language Detection</h3>
+                        <p class="row-desc">Recognizes hand signs with over 90% accuracy and translates them into readable output.</p>
+                        <p class="mono-meta">Python · TensorFlow · OpenCV</p>
+                    </div>
+                    <div class="row-actions">
+                        <a class="btn btn-dark btn-sm" href="https://github.com/lazizjonalimov/RealTImeSignLanguageDetection" target="_blank" rel="noopener noreferrer">Code</a>
+                        <a class="btn btn-ghost btn-sm" href="https://devpost.com/software/real-time-sign-language-detection" target="_blank" rel="noopener noreferrer">Devpost</a>
+                    </div>
+                </li>
+                <li class="project-row reveal">
+                    <div>
+                        <h3>Face Detection App</h3>
+                        <p class="row-desc">Detects and tracks faces in images or live video in real time with OpenCV Haar Cascade classifiers.</p>
+                        <p class="mono-meta">Python · OpenCV</p>
+                    </div>
+                    <div class="row-actions">
+                        <a class="btn btn-dark btn-sm" href="https://github.com/lazizjonalimov/FaceDetectionProject" target="_blank" rel="noopener noreferrer">Code</a>
+                    </div>
+                </li>
+                <li class="project-row reveal">
+                    <div>
+                        <h3>BeReal Clone</h3>
+                        <p class="row-desc">Capture and share real-time photos with participation-based viewing, authentication and persistent sessions.</p>
+                        <p class="mono-meta">Swift · UIKit · iOS</p>
+                    </div>
+                    <div class="row-actions">
+                        <a class="btn btn-dark btn-sm" href="https://github.com/lazizjonalimov/Social-Media" target="_blank" rel="noopener noreferrer">Code</a>
+                    </div>
+                </li>
+                <li class="project-row reveal">
+                    <div>
+                        <h3>Flixster Clone</h3>
+                        <p class="row-desc">Browse movies with live API data shown through table and collection views with posters.</p>
+                        <p class="mono-meta">Swift · API integration · JSON</p>
+                    </div>
+                    <div class="row-actions">
+                        <a class="btn btn-dark btn-sm" href="https://github.com/lazizjonalimov/Movies-App" target="_blank" rel="noopener noreferrer">Code</a>
+                    </div>
+                </li>
+                <li class="project-row reveal">
+                    <div>
+                        <h3>MusicReel</h3>
+                        <p class="row-desc">A social app for sharing a daily music pick and seeing what others are listening to.</p>
+                        <p class="mono-meta">Mobile · UI/UX design</p>
+                    </div>
+                    <div class="row-actions">
+                        <span class="mono-meta">Concept</span>
+                    </div>
+                </li>
+            </ul>
         </div>
     </section>
 
     <!-- Skills -->
-    <section id="skills" class="section skills">
+    <section id="skills" class="section">
         <div class="container">
-            <h2 class="section-title">Skills &amp; tools</h2>
-            <div class="skill-groups">
-                <div class="skill-group">
-                    <h3>Programming languages</h3>
+            <div class="section-bar reveal">
+                <p class="mono-label"><i class="fas fa-code" aria-hidden="true"></i>Skills &amp; tools</p>
+                <p class="mono-handle">@lazizjonalimov</p>
+            </div>
+            <h2 class="section-title center reveal">The toolkit behind the work</h2>
+    
+            <div class="bento">
+                <div class="bento-card b-code reveal">
+                    <p class="mono-meta">Programming languages</p>
+                    <pre class="code-snip" aria-hidden="true"><span class="c-k">def</span> <span class="c-f">solve</span>(problem):
+        <span class="c-k">return</span> build(<span class="c-s">"practical"</span>)</pre>
                     <ul class="pills"><li>Python</li><li>JavaScript</li><li>Swift</li><li>PHP</li><li>C</li><li>HTML5</li><li>CSS3</li></ul>
                 </div>
-                <div class="skill-group">
-                    <h3>Frameworks &amp; tools</h3>
+                <div class="bento-card b-accent reveal">
+                    <p class="mono-meta">Frameworks &amp; tools</p>
                     <ul class="pills"><li>React.js</li><li>Flask</li><li>Flutter</li><li>TensorFlow</li><li>OpenCV</li><li>Xcode</li><li>Android Studio</li><li>Git / GitHub</li></ul>
                 </div>
-                <div class="skill-group">
-                    <h3>Development &amp; data</h3>
+                <div class="bento-card b-stats reveal">
+                    <p class="mono-meta">By the numbers</p>
+                    <dl class="stats">
+                        <div><dt>80%</dt><dd>data accuracy gain</dd></div>
+                        <div><dt>55%</dt><dd>less compliance oversight</dd></div>
+                        <div><dt>40%</dt><dd>less manual updating</dd></div>
+                        <div><dt>28%</dt><dd>faster ticket closure</dd></div>
+                    </dl>
+                </div>
+                <div class="bento-card reveal">
+                    <p class="mono-meta">Development &amp; data</p>
                     <ul class="pills"><li>PostgreSQL</li><li>Database management</li><li>iOS / UIKit</li><li>Web development</li><li>REST APIs</li><li>JSON</li><li>Data analytics</li></ul>
                 </div>
-                <div class="skill-group">
-                    <h3>Professional</h3>
+                <div class="bento-card reveal">
+                    <p class="mono-meta">Professional</p>
                     <ul class="pills"><li>Team leadership</li><li>Process optimization</li><li>Training &amp; mentoring</li><li>IT support</li><li>Customer support</li><li>Problem solving</li><li>Finance</li><li>Sales</li></ul>
                 </div>
-                <div class="skill-group">
-                    <h3>Languages</h3>
+                <div class="bento-card reveal">
+                    <p class="mono-meta">Languages</p>
                     <ul class="pills"><li>Tajik (native)</li><li>English</li><li>Uzbek</li><li>Russian</li></ul>
                 </div>
-                <div class="skill-group">
-                    <h3>Certifications &amp; honors</h3>
+                <div class="bento-card b-wide reveal">
+                    <p class="mono-meta">Certifications &amp; honors</p>
                     <ul class="pills"><li>Intermediate Python</li><li>iOS Development</li><li>Stock Investing</li><li>Personal Finance</li><li>Diether H. Haenicke Scholarship</li><li>Lee Honors College</li><li>Alpha Lambda Delta</li><li>Dean's List</li></ul>
                 </div>
             </div>
@@ -317,122 +369,193 @@
 
     <!-- Experience -->
     <section id="experience" class="section">
-        <div class="container split">
-            <h2 class="section-title">Experience</h2>
-            <ol class="split-body jobs">
-                <li class="job">
-                    <p class="job-dates">Mar 2026 – Present</p>
-                    <div class="job-body">
-                        <h3 class="job-role">Systems Engineer</h3>
-                        <p class="job-org"><a href="https://www.smttrans.com" target="_blank" rel="noopener noreferrer">SMT Trans</a> · Hybrid</p>
-                        <ul class="job-points">
+        <div class="container">
+            <div class="section-bar reveal">
+                <p class="mono-label"><i class="fas fa-route" aria-hidden="true"></i>Experience</p>
+                <p class="mono-handle">@lazizjonalimov</p>
+            </div>
+            <div class="split">
+                <div class="split-head">
+                    <h2 class="section-title reveal">Where I've done the work</h2>
+                    <p class="split-lead reveal">From campus help desks to running IT for a logistics company. Open a role to see what I shipped there.</p>
+                </div>
+                <div class="accordion">
+                    <details class="acc-item reveal" open>
+                        <summary>
+                            <span class="acc-title">Systems Engineer <span class="acc-org">· SMT Trans</span></span>
+                            <span class="mono-meta">Mar 2026 – Present · Hybrid</span>
+                            <span class="acc-icon" aria-hidden="true"></span>
+                        </summary>
+                        <ul class="acc-body">
                             <li>Designed and built a full-stack Flask web app (Python, Jinja2, JavaScript, REST APIs, SQLAlchemy) for online quote requests and client intake, increasing inbound leads by 35% and expected to add an estimated $20,000+ in annual revenue.</li>
                         </ul>
-                    </div>
-                </li>
-                <li class="job">
-                    <p class="job-dates">Aug 2025 – Feb 2026</p>
-                    <div class="job-body">
-                        <h3 class="job-role">IT Systems &amp; Data Specialist (Volunteer)</h3>
-                        <p class="job-org"><a href="https://www.smttrans.com" target="_blank" rel="noopener noreferrer">SMT Trans</a> · Hybrid</p>
-                        <ul class="job-points">
+                    </details>
+                    <details class="acc-item reveal">
+                        <summary>
+                            <span class="acc-title">IT Systems &amp; Data Specialist <span class="acc-org">· SMT Trans</span></span>
+                            <span class="mono-meta">Aug 2025 – Feb 2026 · Volunteer</span>
+                            <span class="acc-icon" aria-hidden="true"></span>
+                        </summary>
+                        <ul class="acc-body">
                             <li>Built a custom Transportation Management System with Flask, PostgreSQL and REST APIs to centralize fleet, driver and compliance data — 60% less manual admin work and 80% better data accuracy.</li>
                             <li>Automated compliance reminders and document tracking with Excel logic and scheduled Python scripts, cutting oversight time by 55% and preventing missed regulatory deadlines.</li>
                             <li>Built data sync and validation pipelines across internal systems with Python, PostgreSQL and Excel, reducing manual update time by 40%.</li>
                         </ul>
-                    </div>
-                </li>
-                <li class="job">
-                    <p class="job-dates">Jan 2023 – May 2023</p>
-                    <div class="job-body">
-                        <h3 class="job-role">Customer Support Specialist Intern</h3>
-                        <p class="job-org"><a href="https://streamlinehealthcare.com/" target="_blank" rel="noopener noreferrer">Streamline Healthcare Solutions</a> · Kalamazoo, MI</p>
-                        <ul class="job-points">
+                    </details>
+                    <details class="acc-item reveal">
+                        <summary>
+                            <span class="acc-title">Customer Support Specialist Intern <span class="acc-org">· Streamline Healthcare Solutions</span></span>
+                            <span class="mono-meta">Jan 2023 – May 2023 · Kalamazoo, MI</span>
+                            <span class="acc-icon" aria-hidden="true"></span>
+                        </summary>
+                        <ul class="acc-body">
                             <li>Troubleshot and escalated 20+ system-level defects using CRM records and error logs, speeding resolution by 18% and mitigating an estimated $17,000 in revenue loss.</li>
                             <li>Resolved 50+ weekly application, access and data-integrity issues in the SmartCare platform, improving response time by 15%.</li>
                             <li>Managed access for 1,000+ end users across 15+ client organizations with Active Directory and Zendesk, reducing repeat requests by 20%.</li>
                         </ul>
-                    </div>
-                </li>
-                <li class="job">
-                    <p class="job-dates">Sep 2022 – Nov 2023</p>
-                    <div class="job-body">
-                        <h3 class="job-role">IT Support Technician</h3>
-                        <p class="job-org"><a href="https://wmich.edu" target="_blank" rel="noopener noreferrer">Western Michigan University</a> · Kalamazoo, MI</p>
-                        <ul class="job-points">
+                    </details>
+                    <details class="acc-item reveal">
+                        <summary>
+                            <span class="acc-title">IT Support Technician <span class="acc-org">· Western Michigan University</span></span>
+                            <span class="mono-meta">Sep 2022 – Nov 2023 · Kalamazoo, MI</span>
+                            <span class="acc-icon" aria-hidden="true"></span>
+                        </summary>
+                        <ul class="acc-body">
                             <li>Resolved 40+ tickets a week with a 95% first-time resolution rate across hardware, software and network issues, cutting average closure time by 28%.</li>
                             <li>Standardized triage workflows and documentation in Active Directory and Salesforce, reducing recurring requests by 20%.</li>
                             <li>Deployed and configured 60+ campus workstations with imaging tools and PowerShell, cutting setup time by 30%.</li>
                         </ul>
-                    </div>
-                </li>
-                <li class="job">
-                    <p class="job-dates">Sep 2021 – Sep 2023</p>
-                    <div class="job-body">
-                        <h3 class="job-role">Information Center Associate &amp; Student Employee</h3>
-                        <p class="job-org"><a href="https://wmich.edu" target="_blank" rel="noopener noreferrer">Western Michigan University</a> · Kalamazoo, MI</p>
-                        <ul class="job-points">
+                    </details>
+                    <details class="acc-item reveal">
+                        <summary>
+                            <span class="acc-title">Information Center Associate <span class="acc-org">· Western Michigan University</span></span>
+                            <span class="mono-meta">Sep 2021 – Sep 2023 · Kalamazoo, MI</span>
+                            <span class="acc-icon" aria-hidden="true"></span>
+                        </summary>
+                        <ul class="acc-body">
                             <li>Raised customer satisfaction ratings by 5%, served 25+ visitors per shift and managed event information for 100+ students and staff.</li>
                         </ul>
-                    </div>
-                </li>
-            </ol>
+                    </details>
+                    <details class="acc-item edu reveal">
+                        <summary>
+                            <span class="acc-title">B.S. Computer Science (Honors) <span class="acc-org">· Western Michigan University</span></span>
+                            <span class="mono-meta">Sep 2020 – Apr 2025 · Education</span>
+                            <span class="acc-icon" aria-hidden="true"></span>
+                        </summary>
+                        <ul class="acc-body">
+                            <li>Minor in Data Analytics. Lee Honors College, Dean's List, Alpha Lambda Delta.</li>
+                        </ul>
+                    </details>
+                    <details class="acc-item edu reveal">
+                        <summary>
+                            <span class="acc-title">Intermediate iOS Development <span class="acc-org">· CodePath</span></span>
+                            <span class="mono-meta">Jan 2023 – May 2023 · Education</span>
+                            <span class="acc-icon" aria-hidden="true"></span>
+                        </summary>
+                        <ul class="acc-body">
+                            <li>Swift and mobile app development — the foundation for the BeReal and Flixster clones above.</li>
+                        </ul>
+                    </details>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="section band">
-        <div class="container contact-inner">
-            <div class="contact-text">
-                <h2 class="contact-title">Let's work together.</h2>
-                <p class="contact-lead">Open to new roles, freelance projects and collaborations. Send a message or reach me directly.</p>
-                <ul class="contact-links">
-                    <li><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:lazizjonalimov@gmail.com">lazizjonalimov@gmail.com</a></li>
-                    <li><i class="fab fa-linkedin" aria-hidden="true"></i><a href="https://linkedin.com/in/lazizjonalimov/" target="_blank" rel="noopener noreferrer">linkedin.com/in/lazizjonalimov</a></li>
-                    <li><i class="fab fa-github" aria-hidden="true"></i><a href="https://github.com/lazizjonalimov" target="_blank" rel="noopener noreferrer">github.com/lazizjonalimov</a></li>
-                    <li><i class="fas fa-location-dot" aria-hidden="true"></i><span>United States</span></li>
-                </ul>
+    <section id="contact" class="contact">
+        <div class="contact-glow" aria-hidden="true"></div>
+        <div class="container">
+            <div class="section-bar on-dark reveal">
+                <p class="mono-label"><i class="fas fa-paper-plane" aria-hidden="true"></i>Get started</p>
+                <p class="mono-handle">@lazizjonalimov</p>
             </div>
-            <form class="contact-form" id="contact-form" novalidate>
-                <div class="field-row">
+            <div class="contact-inner">
+                <div class="contact-text">
+                    <h2 class="contact-title reveal">Let's build something that works.</h2>
+                    <p class="contact-lead reveal">Open to new roles, freelance projects and collaborations. Send a message or reach me directly.</p>
+                    <div class="person reveal">
+                        <img src="assets/images/profile-image.jpeg" alt="" width="80" height="80" loading="lazy">
+                        <div>
+                            <p class="person-name">Lazizjon Alimov</p>
+                            <p class="mono-meta">Systems Engineer · United States</p>
+                        </div>
+                    </div>
+                    <ul class="contact-links reveal">
+                        <li><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:lazizjonalimov@gmail.com">lazizjonalimov@gmail.com</a></li>
+                        <li><i class="fab fa-linkedin" aria-hidden="true"></i><a href="https://linkedin.com/in/lazizjonalimov/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                        <li><i class="fab fa-github" aria-hidden="true"></i><a href="https://github.com/lazizjonalimov" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                    </ul>
+                </div>
+                <form class="contact-form reveal" id="contact-form" novalidate>
                     <div class="field">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" autocomplete="name" required>
+                        <label for="name">Name<span aria-hidden="true">*</span></label>
+                        <input type="text" id="name" name="name" autocomplete="name" placeholder="Full name" required>
                     </div>
                     <div class="field">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" autocomplete="email" required>
+                        <label for="email">Email<span aria-hidden="true">*</span></label>
+                        <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required>
                     </div>
-                </div>
-                <div class="field">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" required>
-                </div>
-                <div class="field">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary" id="submit-btn">
-                    <span class="btn-text">Send message</span>
-                    <i class="fas fa-spinner fa-spin btn-spinner" aria-hidden="true"></i>
-                </button>
-                <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
-            </form>
+                    <div class="field">
+                        <label for="subject">Subject<span aria-hidden="true">*</span></label>
+                        <input type="text" id="subject" name="subject" placeholder="What's it about?" required>
+                    </div>
+                    <div class="field">
+                        <label for="message">Message<span aria-hidden="true">*</span></label>
+                        <textarea id="message" name="message" rows="4" placeholder="Leave a message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-accent" id="submit-btn">
+                        <span class="btn-text">Send message</span>
+                        <i class="fas fa-spinner fa-spin btn-spinner" aria-hidden="true"></i>
+                    </button>
+                    <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+                </form>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="site-footer">
-        <div class="container footer-inner">
-            <p>&copy; 2026 Lazizjon Alimov</p>
-            <div class="socials">
-                <a href="https://github.com/lazizjonalimov" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-                <a href="https://linkedin.com/in/lazizjonalimov/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-                <a href="https://x.com/lazizjonalimov" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
-                <a href="https://instagram.com/lazizjonalimov" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                <a href="https://www.facebook.com/lazalimov/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="assets/images/logo-white.png" alt="" width="40" height="33" loading="lazy">
+                    <p>Practical, scalable technology for transportation, logistics and automation — built to be used.</p>
+                </div>
+                <div class="footer-cols">
+                    <div>
+                        <p class="mono-meta">Navigate</p>
+                        <ul>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#projects">Work</a></li>
+                            <li><a href="#skills">Skills</a></li>
+                            <li><a href="#experience">Experience</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="mono-meta">Elsewhere</p>
+                        <ul>
+                            <li><a href="https://github.com/lazizjonalimov" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                            <li><a href="https://linkedin.com/in/lazizjonalimov/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                            <li><a href="https://x.com/lazizjonalimov" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
+                            <li><a href="https://instagram.com/lazizjonalimov" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                            <li><a href="https://www.facebook.com/lazalimov/" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="mono-meta">Resources</p>
+                        <ul>
+                            <li><a href="assets/resume/Laziz-Alimov-Resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a></li>
+                            <li><a href="mailto:lazizjonalimov@gmail.com">Email me</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <a href="#home" class="text-link">Back to top ↑</a>
+            <p class="footer-word" aria-hidden="true">ALIMOV</p>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lazizjon Alimov</p>
+                <a href="#home">Back to top ↑</a>
+            </div>
         </div>
     </footer>
 

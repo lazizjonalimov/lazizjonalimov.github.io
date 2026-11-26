@@ -1,4 +1,4 @@
-// main.js — theme toggle, mobile menu and active-section highlighting.
+// main.js — theme toggle, mobile menu, active-section highlight and scroll reveal.
 (function () {
     var root = document.documentElement;
 
@@ -12,7 +12,7 @@
         toggle.setAttribute('title', label);
         toggle.setAttribute('aria-pressed', String(isLight()));
         var meta = document.querySelector('meta[name="theme-color"]');
-        if (meta) meta.setAttribute('content', isLight() ? '#FAFAF7' : '#0E1014');
+        if (meta) meta.setAttribute('content', isLight() ? '#F2F2F2' : '#111111');
     }
     if (toggle) {
         toggle.addEventListener('click', function () {
@@ -47,6 +47,9 @@
         });
         nav.addEventListener('click', function (e) { if (e.target.tagName === 'A') closeMenu(); });
         document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+        document.addEventListener('click', function (e) {
+            if (nav.classList.contains('open') && !nav.contains(e.target) && !menuBtn.contains(e.target)) closeMenu();
+        });
     }
 
     // ---- Highlight the nav link for the section in view ----
@@ -67,6 +70,22 @@
             var el = document.getElementById(id);
             if (el) io.observe(el);
         });
+    }
+
+    // ---- Reveal elements as they scroll into view ----
+    var revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+        var revealer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in');
+                    revealer.unobserve(entry.target);
+                }
+            });
+        }, { rootMargin: '0px 0px -8% 0px' });
+        revealEls.forEach(function (el) { revealer.observe(el); });
+    } else {
+        revealEls.forEach(function (el) { el.classList.add('in'); });
     }
 
     // ---- Back-to-top button (shown on mobile after scrolling) ----

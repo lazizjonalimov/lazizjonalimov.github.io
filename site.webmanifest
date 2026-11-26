@@ -4,8 +4,8 @@
     "description": "Lazizjon Alimov — Systems Engineer and Software Developer portfolio",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#FAFAF7",
-    "theme_color": "#FAFAF7",
+    "background_color": "#F2F2F2",
+    "theme_color": "#F2F2F2",
     "orientation": "portrait-primary",
     "icons": [
         {
