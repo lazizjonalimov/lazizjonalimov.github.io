@@ -104,16 +104,17 @@
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css?v=7">
+    <link rel="stylesheet" href="assets/css/style.css?v=8">
 </head>
 <body>
     <a class="skip-link" href="#home">Skip to content</a>
     <!-- Header / navigation -->
+    <div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
     <header class="site-header">
         <div class="header-bar">
             <a href="#home" class="logo" aria-label="Lazizjon Alimov — back to top">
-                <img src="assets/images/logo-black.png" alt="" class="logo-img logo-light" width="28" height="24">
-                <img src="assets/images/logo-white.png" alt="" class="logo-img logo-dark" width="28" height="24">
+                <img src="assets/images/logo-black.webp" alt="" class="logo-img logo-light" width="28" height="24">
+                <img src="assets/images/logo-white.webp" alt="" class="logo-img logo-dark" width="28" height="24">
             </a>
             <p class="header-status"><span class="status-dot" aria-hidden="true"></span>Open to new roles</p>
             <nav class="site-nav" id="site-nav" aria-label="Main">
@@ -132,7 +133,7 @@
             </button>
         </div>
         <a href="#contact" class="header-cta">
-            <img src="assets/images/profile-image.jpeg" alt="" width="36" height="36">
+            <img src="assets/images/profile-image.webp" alt="" width="36" height="36">
             <span>Get in touch</span>
         </a>
     </header>
@@ -152,26 +153,31 @@
         <div class="hero-marquee" aria-label="Highlights">
             <div class="marquee-track">
                 <div class="marquee-group">
-                    <figure class="m-card up"><img src="assets/images/projects/chavous-transportation.jpg" alt="Chavous Transportation website" loading="eager"></figure>
+                    <figure class="m-card up"><img src="assets/images/projects/chavous-transportation.webp" alt="Chavous Transportation website" loading="eager"></figure>
                     <div class="m-card tile accent down"><span class="tile-num">60%</span><span class="tile-text">less manual admin work with a custom TMS</span></div>
-                    <figure class="m-card up portrait"><img src="assets/images/profile-image.jpeg" alt="Portrait of Lazizjon Alimov"></figure>
+                    <figure class="m-card up portrait"><img src="assets/images/profile-image.webp" alt="Portrait of Lazizjon Alimov"></figure>
                     <div class="m-card tile dark down"><span class="tile-num">1,000+</span><span class="tile-text">end users supported across 15+ organizations</span></div>
-                    <figure class="m-card up"><img src="assets/images/projects/smt-trans-homepage.png" alt="SMT Trans website"></figure>
+                    <figure class="m-card up"><img src="assets/images/projects/smt-trans-homepage.webp" alt="SMT Trans website"></figure>
                     <div class="m-card tile light down"><span class="tile-num">95%</span><span class="tile-text">first-time resolution rate in IT support</span></div>
-                    <figure class="m-card up"><img src="assets/images/projects/alimoff-corp-homepage.png" alt="Alimoff Corp website"></figure>
+                    <figure class="m-card up"><img src="assets/images/projects/alimoff-corp-homepage.webp" alt="Alimoff Corp website"></figure>
                     <div class="m-card tile accent down"><span class="tile-num">35%</span><span class="tile-text">more inbound leads from a Flask quote app</span></div>
                 </div>
                 <div class="marquee-group" aria-hidden="true">
-                    <figure class="m-card up"><img src="assets/images/projects/chavous-transportation.jpg" alt=""></figure>
+                    <figure class="m-card up"><img src="assets/images/projects/chavous-transportation.webp" alt=""></figure>
                     <div class="m-card tile accent down"><span class="tile-num">60%</span><span class="tile-text">less manual admin work with a custom TMS</span></div>
-                    <figure class="m-card up portrait"><img src="assets/images/profile-image.jpeg" alt=""></figure>
+                    <figure class="m-card up portrait"><img src="assets/images/profile-image.webp" alt=""></figure>
                     <div class="m-card tile dark down"><span class="tile-num">1,000+</span><span class="tile-text">end users supported across 15+ organizations</span></div>
-                    <figure class="m-card up"><img src="assets/images/projects/smt-trans-homepage.png" alt=""></figure>
+                    <figure class="m-card up"><img src="assets/images/projects/smt-trans-homepage.webp" alt=""></figure>
                     <div class="m-card tile light down"><span class="tile-num">95%</span><span class="tile-text">first-time resolution rate in IT support</span></div>
-                    <figure class="m-card up"><img src="assets/images/projects/alimoff-corp-homepage.png" alt=""></figure>
+                    <figure class="m-card up"><img src="assets/images/projects/alimoff-corp-homepage.webp" alt=""></figure>
                     <div class="m-card tile accent down"><span class="tile-num">35%</span><span class="tile-text">more inbound leads from a Flask quote app</span></div>
                 </div>
             </div>
+        </div>
+        <div class="container marquee-controls">
+            <button type="button" class="marquee-toggle" id="marqueeToggle" aria-pressed="false">
+                <i class="fas fa-pause" aria-hidden="true"></i><span>Pause motion</span>
+            </button>
         </div>
     </section>
 
@@ -228,7 +234,7 @@
             <div class="work-grid">
                 <article class="work-card reveal">
                     <a class="work-media" href="https://chavousllc.com" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-                        <img src="assets/images/projects/chavous-transportation.jpg" alt="" loading="lazy">
+                        <img src="assets/images/projects/chavous-transportation.webp" alt="" loading="lazy">
                     </a>
                     <div class="work-body">
                         <p class="mono-meta">Web · Client site</p>
@@ -239,7 +245,7 @@
                 </article>
                 <article class="work-card reveal">
                     <a class="work-media" href="https://www.smttrans.com" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-                        <img src="assets/images/projects/smt-trans-homepage.png" alt="" loading="lazy">
+                        <img src="assets/images/projects/smt-trans-homepage.webp" alt="" loading="lazy">
                     </a>
                     <div class="work-body">
                         <p class="mono-meta">Web · Client site</p>
@@ -341,10 +347,10 @@
                 <div class="bento-card b-stats reveal">
                     <p class="mono-meta">By the numbers</p>
                     <dl class="stats">
-                        <div><dt>80%</dt><dd>data accuracy gain</dd></div>
-                        <div><dt>55%</dt><dd>less compliance oversight</dd></div>
-                        <div><dt>40%</dt><dd>less manual updating</dd></div>
-                        <div><dt>28%</dt><dd>faster ticket closure</dd></div>
+                        <div><dt data-count="80">80%</dt><dd>data accuracy gain</dd></div>
+                        <div><dt data-count="55">55%</dt><dd>less compliance oversight</dd></div>
+                        <div><dt data-count="40">40%</dt><dd>less manual updating</dd></div>
+                        <div><dt data-count="28">28%</dt><dd>faster ticket closure</dd></div>
                     </dl>
                 </div>
                 <div class="bento-card reveal">
@@ -474,14 +480,14 @@
                     <h2 class="contact-title reveal">Let's build something that works.</h2>
                     <p class="contact-lead reveal">Open to new roles, freelance projects and collaborations. Send a message or reach me directly.</p>
                     <div class="person reveal">
-                        <img src="assets/images/profile-image.jpeg" alt="" width="80" height="80" loading="lazy">
+                        <img src="assets/images/profile-image.webp" alt="" width="80" height="80" loading="lazy">
                         <div>
                             <p class="person-name">Lazizjon Alimov</p>
                             <p class="mono-meta">Systems Engineer · United States</p>
                         </div>
                     </div>
                     <ul class="contact-links reveal">
-                        <li><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:lazizjonalimov@gmail.com">lazizjonalimov@gmail.com</a></li>
+                        <li><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:lazizjonalimov@gmail.com">lazizjonalimov@gmail.com</a><button type="button" class="copy-btn" data-copy="lazizjonalimov@gmail.com" aria-label="Copy email address"><i class="far fa-copy" aria-hidden="true"></i><span class="copy-label">Copy</span></button></li>
                         <li><i class="fab fa-linkedin" aria-hidden="true"></i><a href="https://linkedin.com/in/lazizjonalimov/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
                         <li><i class="fab fa-github" aria-hidden="true"></i><a href="https://github.com/lazizjonalimov" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                     </ul>
@@ -518,7 +524,7 @@
         <div class="container">
             <div class="footer-top">
                 <div class="footer-brand">
-                    <img src="assets/images/logo-white.png" alt="" width="40" height="33" loading="lazy">
+                    <img src="assets/images/logo-white.webp" alt="" width="40" height="33" loading="lazy">
                     <p>Practical, scalable technology for transportation, logistics and automation — built to be used.</p>
                 </div>
                 <div class="footer-cols">
@@ -551,7 +557,7 @@
                     </div>
                 </div>
             </div>
-            <p class="footer-word" aria-hidden="true">ALIMOV</p>
+            <p class="footer-word reveal" aria-hidden="true">ALIMOV</p>
             <div class="footer-bottom">
                 <p>&copy; 2026 Lazizjon Alimov</p>
                 <a href="#home">Back to top ↑</a>

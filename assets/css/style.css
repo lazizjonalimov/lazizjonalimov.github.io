@@ -437,6 +437,50 @@ a.mono-handle:hover { color: var(--accent); }
 }
 .to-top.show { opacity: 1; transform: none; pointer-events: auto; }
 
+/* ---------- scroll progress ---------- */
+.scroll-progress { position: fixed; inset: 0 0 auto 0; height: 2px; z-index: 60; pointer-events: none; }
+.scroll-progress span { display: block; height: 100%; background: var(--accent); transform-origin: 0 50%; transform: scaleX(0); }
+
+/* ---------- marquee control ---------- */
+.marquee-controls { display: flex; justify-content: flex-end; margin-top: 20px; }
+.marquee-toggle {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: "Geist Mono", ui-monospace, monospace; font-size: 12px; text-transform: uppercase;
+    color: var(--muted); background: transparent; border: 0; padding: 6px 0; cursor: pointer;
+}
+.marquee-toggle:hover { color: var(--text); }
+.hero-marquee.paused .marquee-track { animation-play-state: paused; }
+
+/* ---------- word-by-word headings ---------- */
+.js .split-words.reveal { opacity: 1; transform: none; }
+.w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+.w > span { display: inline-block; transform: translateY(105%); transition: transform .9s cubic-bezier(.2,.75,.2,1); transition-delay: calc(var(--i) * 45ms); }
+.split-words.in .w > span { transform: none; }
+
+/* ---------- copy email ---------- */
+.copy-btn {
+    display: inline-flex; align-items: center; gap: 6px; margin-left: 10px;
+    font-family: "Geist Mono", ui-monospace, monospace; font-size: 11px; text-transform: uppercase;
+    color: rgba(255,255,255,.75); background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.14); border-radius: 4px; padding: 4px 8px; cursor: pointer;
+}
+.copy-btn:hover { color: #fff; border-color: rgba(255,255,255,.4); }
+.copy-btn.done { color: #88D99F; border-color: rgba(136,217,159,.5); }
+
+/* ---------- project rows: arrow on hover ---------- */
+.project-row h3::after {
+    content: "→"; display: inline-block; margin-left: 10px; color: var(--accent);
+    opacity: 0; transform: translateX(-8px); transition: opacity .3s, transform .3s;
+}
+.project-row:hover h3::after { opacity: 1; transform: none; }
+
+/* ---------- header on scroll ---------- */
+.site-header.scrolled .header-bar, .site-header.scrolled .header-cta { box-shadow: 0 1px 2px rgba(0,0,0,.06), 0 14px 36px rgba(0,0,0,.10); }
+
+/* ---------- footer wordmark rise ---------- */
+.js .footer-word.reveal { transform: translateY(40%); transition-duration: 1.4s; }
+.js .footer-word.reveal.in { transform: none; }
+
 /* ---------- reveal on scroll ---------- */
 .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
 .js .reveal.in { opacity: 1; transform: none; }
@@ -444,6 +488,8 @@ a.mono-handle:hover { color: var(--accent); }
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .marquee-track, .status-dot { animation: none; }
+    .marquee-controls { display: none; }
+    .w > span { transform: none !important; }
     .js .reveal { opacity: 1; transform: none; transition: none; }
     * { transition-duration: 0s !important; }
 }
@@ -504,3 +550,16 @@ a.mono-handle:hover { color: var(--accent); }
     .contact-links li + li { padding-left: 0; border-left: 0; }
     .footer-cols { grid-template-columns: 1fr 1fr; }
 }
+
+/* ---------- 404 page ---------- */
+.nf-body { min-height: 100vh; display: grid; place-items: center; }
+.nf { display: grid; justify-items: center; text-align: center; gap: 22px; padding: 48px 16px; }
+.nf-logo { margin-bottom: 12px; }
+.nf .mono-label { color: var(--muted); }
+.nf-dot { background: var(--accent); animation: none; }
+.nf-code {
+    font-size: clamp(120px, 26vw, 280px); line-height: .85; font-weight: 800; letter-spacing: -0.06em;
+    background: linear-gradient(180deg, var(--text) 30%, var(--accent));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.nf-text { color: var(--muted); max-width: 40ch; font-size: 18px; }

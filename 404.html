@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+    (function () {
+        try {
+            if (localStorage.getItem('theme') !== 'dark') document.documentElement.setAttribute('data-theme', 'light');
+        } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+    })();
+    </script>
+    <title>Page not found | Lazizjon Alimov</title>
+    <meta name="robots" content="noindex">
+    <meta name="theme-color" content="#F2F2F2">
+    <link rel="icon" type="image/x-icon" href="/assets/images/icons/favicon-white.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css?v=8">
+</head>
+<body class="nf-body">
+    <main class="nf">
+        <a href="/" class="nf-logo" aria-label="Lazizjon Alimov — home">
+            <img src="/assets/images/logo-black.webp" alt="" class="logo-img logo-light" width="28" height="24">
+            <img src="/assets/images/logo-white.webp" alt="" class="logo-img logo-dark" width="28" height="24">
+        </a>
+        <p class="mono-label"><span class="status-dot nf-dot" aria-hidden="true"></span>Error 404</p>
+        <h1 class="nf-code">404</h1>
+        <p class="nf-text">This route doesn't exist — not even in the TMS. Let's get you back on the road.</p>
+        <div class="btn-row">
+            <a href="/" class="btn btn-dark">Back to home</a>
+            <a href="/#contact" class="btn btn-ghost">Get in touch</a>
+        </div>
+    </main>
+</body>
+</html>
