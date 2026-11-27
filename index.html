@@ -102,7 +102,7 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="/assets/css/style.css?v=9">
+    <link rel="stylesheet" href="/assets/css/style.css?v=10">
 </head>
 <body>
     <a class="skip-link" href="#home">Skip to content</a>
@@ -138,14 +138,29 @@
 
     <!-- Hero -->
     <section id="home" class="hero">
-        <div class="container hero-head">
-            <p class="mono-label reveal"><i class="fas fa-terminal" aria-hidden="true"></i>Systems Engineer · Software Developer</p>
-            <h1 class="hero-title reveal"><span class="hero-name">Lazizjon Alimov</span> I build practical technology that solves real problems.</h1>
-            <p class="hero-lead reveal">Honors Computer Science graduate from Western Michigan University, building scalable tools for transportation, logistics and automation.</p>
-            <div class="btn-row reveal">
-                <a href="#projects" class="btn btn-dark">See my work</a>
-                <a href="#contact" class="btn btn-ghost">Get in touch</a>
+        <div class="stage">
+            <div class="stage-bg" aria-hidden="true"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span></div>
+            <div class="container stage-inner">
+                <div class="stage-copy">
+                    <p class="mono-label reveal"><i class="fas fa-terminal" aria-hidden="true"></i>Systems Engineer · Software Developer</p>
+                    <h1 class="hero-title reveal"><span class="hero-name">Lazizjon Alimov</span> I build practical technology that solves real problems.</h1>
+                    <p class="hero-lead reveal">Honors Computer Science graduate from Western Michigan University, building scalable tools for transportation, logistics and automation.</p>
+                    <div class="stage-ctas reveal">
+                        <a href="#projects" class="line-link">See my work <span aria-hidden="true">⌝</span></a>
+                        <a href="#contact" class="line-link">Get in touch <span aria-hidden="true">⌝</span></a>
+                    </div>
+                </div>
+                <div class="stage-ruler" aria-hidden="true"><span>©2026</span><span class="ticks"></span><span>Open to work</span></div>
+                <div class="stage-cross" aria-hidden="true"><span>+</span><span>+</span><span>+</span><span>+</span></div>
+                <ul class="stage-services" aria-label="What I do">
+                    <li>Systems engineering</li>
+                    <li>Full-stack web</li>
+                    <li>Automation &amp; data</li>
+                    <li>Mobile &amp; ML</li>
+                    <li>IT operations</li>
+                </ul>
             </div>
+            <p class="stage-word" aria-hidden="true">LAZIZJON</p>
         </div>
 
         <div class="hero-marquee" aria-label="Highlights">
@@ -249,6 +264,24 @@
                     <ul class="service-list"><li>Flutter &amp; Dart</li><li>Swift &amp; UIKit</li><li>TensorFlow</li><li>OpenCV</li></ul>
                 </li>
             </ol>
+        </div>
+    </section>
+
+    <!-- Worked with -->
+    <section id="worked-with" class="section">
+        <div class="container">
+            <div class="section-bar reveal">
+                <p class="mono-label"><i class="fas fa-handshake" aria-hidden="true"></i>Worked with</p>
+                <p class="mono-handle">@lazizjonalimov</p>
+            </div>
+            <ul class="partners">
+                <li class="partner reveal"><span class="p-name p-bold">SMT Trans</span><span class="mono-meta">Logistics · Systems Engineer</span></li>
+                <li class="partner reveal"><span class="p-name p-serif">Chavous Transportation</span><span class="mono-meta">Freight carrier · Website</span></li>
+                <li class="partner reveal"><span class="p-name p-light">Kalamazoo Nature Center</span><span class="mono-meta">Nature center · Mobile app</span></li>
+                <li class="partner reveal"><span class="p-name p-caps">Western Michigan University</span><span class="mono-meta">University · IT support</span></li>
+                <li class="partner reveal"><span class="p-name p-bold">Streamline Healthcare</span><span class="mono-meta">Healthcare software · Support</span></li>
+                <li class="partner reveal"><span class="p-name p-mono">CodePath</span><span class="mono-meta">Education · iOS development</span></li>
+            </ul>
         </div>
     </section>
 
@@ -618,6 +651,43 @@
             </div>
             <div class="gh-grid" id="ghRepos" aria-live="polite">
                 <p class="gh-fallback">Loading repositories… If they don't appear, <a href="https://github.com/lazizjonalimov" target="_blank" rel="noopener noreferrer">see them on GitHub</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick answers -->
+    <section id="faq" class="section">
+        <div class="container">
+            <div class="section-bar reveal">
+                <p class="mono-label"><i class="fas fa-bolt" aria-hidden="true"></i>Quick answers</p>
+                <p class="mono-handle">@lazizjonalimov</p>
+            </div>
+            <div class="split">
+                <div class="split-head">
+                    <h2 class="section-title reveal">Before we talk, here's what matters</h2>
+                </div>
+                <div class="accordion">
+                    <details class="acc-item reveal" open>
+                        <summary><span class="acc-title">What kind of work are you open to?</span><span class="acc-icon" aria-hidden="true"></span></summary>
+                        <div class="acc-body faq-body"><p>New roles, freelance projects and collaborations — especially systems engineering, full-stack web and automation for transportation and logistics.</p></div>
+                    </details>
+                    <details class="acc-item reveal">
+                        <summary><span class="acc-title">What's your core stack?</span><span class="acc-icon" aria-hidden="true"></span></summary>
+                        <div class="acc-body faq-body"><p>Python, Flask and PostgreSQL on the back end; JavaScript, React and Next.js on the front end; Flutter and Swift for mobile; TensorFlow and OpenCV for computer vision.</p></div>
+                    </details>
+                    <details class="acc-item reveal">
+                        <summary><span class="acc-title">Can you build a website for my business?</span><span class="acc-icon" aria-hidden="true"></span></summary>
+                        <div class="acc-body faq-body"><p>Yes. I've built sites for <a href="/work/smt-trans/">SMT Trans</a> and <a href="/work/chavous-transportation/">Chavous Transportation</a> — from the public pages to the quote forms and client intake behind them.</p></div>
+                    </details>
+                    <details class="acc-item reveal">
+                        <summary><span class="acc-title">Can you automate our internal paperwork?</span><span class="acc-icon" aria-hidden="true"></span></summary>
+                        <div class="acc-body faq-body"><p>That's what the <a href="/work/smt-trans-tms/">SMT Trans TMS</a> does: central records, scheduled reminders and validation pipelines that cut manual admin work by 60%.</p></div>
+                    </details>
+                    <details class="acc-item reveal">
+                        <summary><span class="acc-title">Where can I see your full background?</span><span class="acc-icon" aria-hidden="true"></span></summary>
+                        <div class="acc-body faq-body"><p>Download my <a href="assets/resume/Laziz-Alimov-Resume.pdf" target="_blank" rel="noopener">résumé (PDF)</a> or find me on <a href="https://linkedin.com/in/lazizjonalimov/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p></div>
+                    </details>
+                </div>
             </div>
         </div>
     </section>
