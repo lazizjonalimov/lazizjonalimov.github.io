@@ -12,7 +12,7 @@ const cases = require('./case-studies');
 
 const ROOT = path.join(__dirname, '..');
 const SITE_URL = 'https://lazizjonalimov.github.io';
-const CSS_VERSION = 10;
+const CSS_VERSION = 9;
 
 const read = (rel) => fs.readFileSync(path.join(ROOT, rel), 'utf8').trim();
 const indent = (s, n = 4) => s.split('\n').map((l) => (l ? ' '.repeat(n) + l : l)).join('\n');
@@ -162,12 +162,10 @@ function buildHome() {
         'components/partials/navigation.html',
         'components/sections/hero.html',
         'components/sections/about.html',
-        'components/sections/partners.html',
         'components/sections/projects.html',
         'components/sections/skills.html',
         'components/sections/experience.html',
         'components/sections/github.html',
-        'components/sections/faq.html',
         'components/sections/contact.html',
         'components/partials/footer.html',
     ];
