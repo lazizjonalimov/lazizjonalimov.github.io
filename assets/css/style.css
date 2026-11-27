@@ -983,3 +983,45 @@ a.mono-handle:hover { color: var(--accent); }
     .stack-card:not(.flat) .sc-rows > div:nth-child(2) { display: none; }
     .stack-card:not(.flat) .viz-knc .phone { width: 150px; }
 }
+
+/* ---------- frosted, semi-transparent header bar + contact button ---------- */
+:root { --glass: rgba(26,26,26,.55); --glass-line: rgba(255,255,255,.10); --glass-pill: rgba(255,255,255,.08); }
+[data-theme="light"] { --glass: rgba(255,255,255,.58); --glass-line: rgba(255,255,255,.65); --glass-pill: rgba(0,0,0,.05); }
+.header-bar, .header-cta {
+    background: var(--glass);
+    -webkit-backdrop-filter: blur(16px) saturate(1.6);
+            backdrop-filter: blur(16px) saturate(1.6);
+    border: 1px solid var(--glass-line);
+    box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 10px 30px rgba(0,0,0,.06);
+}
+.header-bar .icon-btn { background: var(--glass-pill); }
+.site-nav a:hover { background: var(--glass-pill); }
+.site-header.scrolled .header-bar, .site-header.scrolled .header-cta { box-shadow: 0 1px 2px rgba(0,0,0,.05), 0 14px 36px rgba(0,0,0,.10); }
+@media (max-width: 860px) {
+    .site-nav {
+        background: var(--glass);
+        -webkit-backdrop-filter: blur(18px) saturate(1.6);
+                backdrop-filter: blur(18px) saturate(1.6);
+        border: 1px solid var(--glass-line);
+    }
+}
+/* browsers without blur support: keep it solid so text stays readable */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .header-bar, .header-cta, .site-nav { background: var(--surface); }
+}
+
+/* header over dark sections: dark glass, light text */
+.site-header.on-dark { --glass: rgba(22,22,22,.55); --glass-line: rgba(255,255,255,.12); --glass-pill: rgba(255,255,255,.10); }
+.site-header.on-dark .header-bar, .site-header.on-dark .header-cta,
+.site-header.on-dark .site-nav a, .site-header.on-dark .icon-btn { color: #fff; }
+.site-header.on-dark .header-status { color: rgba(255,255,255,.65); border-color: rgba(255,255,255,.15); }
+.site-header.on-dark .site-nav a.active { color: var(--accent); }
+[data-theme="light"] .site-header.on-dark .logo-light { display: none; }
+[data-theme="light"] .site-header.on-dark .logo-dark { display: block; }
+.header-bar, .header-cta, .site-nav a, .icon-btn, .header-status { transition: background-color .3s, color .3s, border-color .3s, box-shadow .3s; }
+
+/* phone menu: mostly opaque so links stay easy to read */
+@media (max-width: 860px) {
+    .site-nav { background: color-mix(in srgb, var(--surface) 97%, transparent); }
+    .site-header.on-dark .site-nav { background: rgba(22,22,22,.94); }
+}

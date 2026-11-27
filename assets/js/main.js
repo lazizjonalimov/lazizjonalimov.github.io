@@ -217,6 +217,21 @@
     }
 
 
+
+    // ---- Header switches to dark glass while it sits over a dark section ----
+    var hdr = document.querySelector('.site-header');
+    var darkZones = document.querySelectorAll('.work-section, .contact, .site-footer, .cta-band');
+    if (hdr && darkZones.length) {
+        var checkDark = function () {
+            var y = 40, onDark = false;
+            darkZones.forEach(function (z) { var r = z.getBoundingClientRect(); if (r.top <= y && r.bottom >= y) onDark = true; });
+            hdr.classList.toggle('on-dark', onDark);
+        };
+        window.addEventListener('scroll', function () { requestAnimationFrame(checkDark); }, { passive: true });
+        window.addEventListener('resize', checkDark);
+        checkDark();
+    }
+
     // ---- Phones: dots + counter for swipeable rows ----
     function setupSwipe(row) {
         var items = Array.prototype.filter.call(row.children, function (c) { return !c.classList.contains('gh-fallback'); });
