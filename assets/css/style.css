@@ -823,7 +823,7 @@ a.mono-handle:hover { color: var(--accent); }
 .hero-word {
     position: relative; z-index: 0;
     margin: 64px 0 0; text-align: center; user-select: none; pointer-events: none;
-    font-size: clamp(76px, 17vw, 270px); line-height: .8; font-weight: 800; letter-spacing: -0.055em;
+    font-size: clamp(80px, 21vw, 300px); line-height: .8; font-weight: 800; letter-spacing: -0.05em;
     background: linear-gradient(180deg, var(--text) 0%, color-mix(in srgb, var(--text) 35%, transparent) 55%, transparent 92%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
 }
