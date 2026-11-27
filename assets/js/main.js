@@ -216,6 +216,34 @@
         tocLinks.forEach(function (a) { var t = document.getElementById(a.getAttribute('href').slice(1)); if (t) tocIO.observe(t); });
     }
 
+
+    // ---- Phones: dots + counter for swipeable rows ----
+    function setupSwipe(row) {
+        var items = Array.prototype.filter.call(row.children, function (c) { return !c.classList.contains('gh-fallback'); });
+        var old = row.nextElementSibling;
+        if (old && old.classList.contains('swipe-dots')) old.remove();
+        if (items.length < 2) return;
+        var bar = document.createElement('div');
+        bar.className = 'swipe-dots';
+        bar.setAttribute('aria-hidden', 'true');
+        var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+        bar.innerHTML = '<span class="sd-count"></span><span class="sd-dots">' +
+            items.map(function () { return '<span></span>'; }).join('') + '</span><span class="sd-hint">Swipe →</span>';
+        row.parentNode.insertBefore(bar, row.nextSibling);
+        var dots = bar.querySelectorAll('.sd-dots span');
+        var count = bar.querySelector('.sd-count');
+        function update() {
+            var step = items[1].offsetLeft - items[0].offsetLeft || 1;
+            var i = Math.max(0, Math.min(items.length - 1, Math.round(row.scrollLeft / step)));
+            dots.forEach(function (d, k) { d.classList.toggle('on', k === i); });
+            count.textContent = pad(i + 1) + ' / ' + pad(items.length);
+        }
+        row.addEventListener('scroll', function () { requestAnimationFrame(update); }, { passive: true });
+        update();
+    }
+    document.querySelectorAll('[data-swipe]').forEach(setupSwipe);
+    window.__setupSwipe = setupSwipe;
+
     // ---- Latest GitHub repositories (live, public API) ----
     var ghBox = document.getElementById('ghRepos');
     if (ghBox && window.fetch) {
@@ -242,6 +270,7 @@
                         '<span>Updated ' + ago(r.pushed_at) + '</span>' +
                         (r.stargazers_count ? '<span>★ ' + r.stargazers_count + '</span>' : '') + '</p></a>';
                 }).join('');
+                if (window.__setupSwipe) window.__setupSwipe(ghBox);
             })
             .catch(function () {
                 ghBox.innerHTML = '<p class="gh-fallback">GitHub is not responding right now — <a href="https://github.com/lazizjonalimov" target="_blank" rel="noopener noreferrer">see all repositories on GitHub</a>.</p>';

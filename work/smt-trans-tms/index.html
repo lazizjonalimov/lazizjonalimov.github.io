@@ -16,6 +16,16 @@
                 sessionStorage.setItem('pl', '1');
                 root.classList.add('preloading');
                 setTimeout(function () { root.classList.remove('preloading'); }, 3300);
+                // After a refresh the loader replays, so start from the top of the
+                // page instead of the restored scroll position or #section.
+                if (reloaded) {
+                    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+                    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+                    var toTop = function () { window.scrollTo(0, 0); };
+                    toTop();
+                    document.addEventListener('DOMContentLoaded', toTop);
+                    window.addEventListener('load', toTop);
+                }
             }
         } catch (e) {}
         try {
@@ -81,7 +91,7 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="/assets/css/style.css?v=13">
+    <link rel="stylesheet" href="/assets/css/style.css?v=15">
 </head>
 <body>
     <!-- Preloader: shown once per visit (see the script in <head>) -->
@@ -225,7 +235,7 @@
                 <a class="mono-handle" href="/#projects">All work →</a>
             </div>
             <h2 class="section-title center reveal">Explore more projects</h2>
-            <div class="more-grid">
+            <div class="more-grid" data-swipe>
                 <article class="stack-card flat">
                     <div class="sc-info">
                         <div class="sc-top">

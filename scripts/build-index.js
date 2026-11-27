@@ -12,7 +12,7 @@ const cases = require('./case-studies');
 
 const ROOT = path.join(__dirname, '..');
 const SITE_URL = 'https://lazizjonalimov.github.io';
-const CSS_VERSION = 13;
+const CSS_VERSION = 15;
 
 const read = (rel) => fs.readFileSync(path.join(ROOT, rel), 'utf8').trim();
 const indent = (s, n = 4) => s.split('\n').map((l) => (l ? ' '.repeat(n) + l : l)).join('\n');
@@ -83,6 +83,16 @@ function head({ title, description, url, ogType = 'website', ogImage, jsonLd, so
                 sessionStorage.setItem('pl', '1');
                 root.classList.add('preloading');
                 setTimeout(function () { root.classList.remove('preloading'); }, 3300);
+                // After a refresh the loader replays, so start from the top of the
+                // page instead of the restored scroll position or #section.
+                if (reloaded) {
+                    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+                    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+                    var toTop = function () { window.scrollTo(0, 0); };
+                    toTop();
+                    document.addEventListener('DOMContentLoaded', toTop);
+                    window.addEventListener('load', toTop);
+                }
             }
         } catch (e) {}
         try {
@@ -289,7 +299,7 @@ ${indent(visual(c.visual), 8)}
             <a class="mono-handle" href="/#projects">All work →</a>
         </div>
         <h2 class="section-title center reveal">Explore more projects</h2>
-        <div class="more-grid">
+        <div class="more-grid" data-swipe>
 ${others.map((o) => indent(workCard(o, 0, { flat: true }), 12)).join('\n')}
         </div>
     </section>

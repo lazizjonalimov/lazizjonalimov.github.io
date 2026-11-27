@@ -16,6 +16,16 @@
                 sessionStorage.setItem('pl', '1');
                 root.classList.add('preloading');
                 setTimeout(function () { root.classList.remove('preloading'); }, 3300);
+                // After a refresh the loader replays, so start from the top of the
+                // page instead of the restored scroll position or #section.
+                if (reloaded) {
+                    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+                    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+                    var toTop = function () { window.scrollTo(0, 0); };
+                    toTop();
+                    document.addEventListener('DOMContentLoaded', toTop);
+                    window.addEventListener('load', toTop);
+                }
             }
         } catch (e) {}
         try {
@@ -114,7 +124,7 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="/assets/css/style.css?v=13">
+    <link rel="stylesheet" href="/assets/css/style.css?v=15">
 </head>
 <body>
     <!-- Preloader: shown once per visit (see the script in <head>) -->
@@ -237,7 +247,7 @@
                 <h2 class="section-title reveal">Four ways I make work easier</h2>
                 <p class="split-lead reveal">From the database to the screen people tap on — I build the whole path, then automate the parts nobody should do by hand.</p>
             </div>
-            <ol class="services">
+            <ol class="services" data-swipe>
                 <li class="service reveal">
                     <span class="service-num">01</span>
                     <div class="service-main">
@@ -290,7 +300,7 @@
                 <p class="work-lead reveal">Five case studies — the problem, what I built and what changed.</p>
             </div>
 
-            <div class="stack">
+            <div class="stack" data-swipe>
                 <article class="stack-card" style="--i:0">
                     <div class="sc-info">
                         <div class="sc-top">
@@ -642,7 +652,7 @@
                 <h2 class="section-title reveal">Recently pushed</h2>
                 <p class="split-lead reveal">Pulled live from GitHub each time the page loads.</p>
             </div>
-            <div class="gh-grid" id="ghRepos" aria-live="polite">
+            <div class="gh-grid" id="ghRepos" aria-live="polite" data-swipe>
                 <p class="gh-fallback">Loading repositories… If they don't appear, <a href="https://github.com/lazizjonalimov" target="_blank" rel="noopener noreferrer">see them on GitHub</a>.</p>
             </div>
         </div>
