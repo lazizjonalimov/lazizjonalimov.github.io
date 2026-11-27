@@ -952,3 +952,34 @@ a.mono-handle:hover { color: var(--accent); }
     .bento-card { padding: 18px; gap: 12px; }
     .pills li { font-size: 13px; padding: 5px 10px; }
 }
+
+/* ---------- Selected work: stacking cards on tablets and phones too ---------- */
+@media (max-width: 1024px) {
+    .stack-card {
+        position: sticky; top: calc(84px + var(--i, 0) * 12px);
+        box-shadow: 0 -16px 36px rgba(0,0,0,.45);
+    }
+    .stack-card.flat { position: static; box-shadow: none; }
+}
+@media (min-width: 641px) and (max-width: 1024px) {
+    .stack-card:not(.flat) { grid-template-columns: 1fr 1fr; }
+    .stack-card:not(.flat) .sc-media { aspect-ratio: auto; min-height: 320px; }
+}
+@media (max-width: 640px) {
+    .stack { gap: 18px; }
+    .stack-card:not(.flat) {
+        top: calc(72px + var(--i, 0) * 10px);
+        display: flex; flex-direction: column; padding: 8px;
+    }
+    .stack-card:not(.flat) .sc-media { order: -1; aspect-ratio: 16 / 9; min-height: 0; }
+    .stack-card:not(.flat) .sc-media .viz { min-height: 0; }
+    .stack-card:not(.flat) .sc-info { padding: 14px 10px 10px; gap: 12px; }
+    .stack-card:not(.flat) .sc-logo { font-size: 19px; }
+    .stack-card:not(.flat) .sc-sum {
+        font-size: 15px;
+        display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .stack-card:not(.flat) .sc-rows > div { padding: 8px 0; }
+    .stack-card:not(.flat) .sc-rows > div:nth-child(2) { display: none; }
+    .stack-card:not(.flat) .viz-knc .phone { width: 150px; }
+}
