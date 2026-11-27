@@ -5,7 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
     (function () {
-        document.documentElement.classList.add('js');
+        var root = document.documentElement;
+        root.classList.add('js');
+        try {
+            // Logo preloader: once per browser session, never with reduced motion.
+            if (!sessionStorage.getItem('pl') && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+                sessionStorage.setItem('pl', '1');
+                root.classList.add('preloading');
+                setTimeout(function () { root.classList.remove('preloading'); }, 3300);
+            }
+        } catch (e) {}
         try {
             // Light is the site's default look; dark mode only applies once
             // the visitor has explicitly chosen it via the toggle button.
@@ -69,9 +78,21 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="/assets/css/style.css?v=9">
+    <link rel="stylesheet" href="/assets/css/style.css?v=11">
 </head>
 <body>
+    <!-- Preloader: shown once per visit (see the script in <head>) -->
+    <div class="preloader" aria-hidden="true">
+        <div class="pl-block">
+            <span class="pl-corner c1">×</span><span class="pl-corner c2">×</span><span class="pl-corner c3">×</span><span class="pl-corner c4">×</span>
+            <svg class="pl-border" viewBox="0 0 300 300"><rect x="0.5" y="0.5" width="299" height="299" pathLength="1"/></svg>
+            <svg class="pl-logo" viewBox="-8 -8 640 555">
+                <path class="pl-l" pathLength="1" d="M0 0H77V362H398L367 438H0Z"/>
+                <path class="pl-a" pathLength="1" d="M355 0H445L624 438H540L400 98L226 539H142Z"/>
+            </svg>
+            <p class="pl-tag">Build · Automate · Ship</p>
+        </div>
+    </div>
     <a class="skip-link" href="#main">Skip to content</a>
     <!-- Header / navigation -->
     <div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>

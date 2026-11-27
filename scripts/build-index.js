@@ -12,7 +12,7 @@ const cases = require('./case-studies');
 
 const ROOT = path.join(__dirname, '..');
 const SITE_URL = 'https://lazizjonalimov.github.io';
-const CSS_VERSION = 9;
+const CSS_VERSION = 11;
 
 const read = (rel) => fs.readFileSync(path.join(ROOT, rel), 'utf8').trim();
 const indent = (s, n = 4) => s.split('\n').map((l) => (l ? ' '.repeat(n) + l : l)).join('\n');
@@ -72,7 +72,16 @@ function head({ title, description, url, ogType = 'website', ogImage, jsonLd, so
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
     (function () {
-        document.documentElement.classList.add('js');
+        var root = document.documentElement;
+        root.classList.add('js');
+        try {
+            // Logo preloader: once per browser session, never with reduced motion.
+            if (!sessionStorage.getItem('pl') && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+                sessionStorage.setItem('pl', '1');
+                root.classList.add('preloading');
+                setTimeout(function () { root.classList.remove('preloading'); }, 3300);
+            }
+        } catch (e) {}
         try {
             // Light is the site's default look; dark mode only applies once
             // the visitor has explicitly chosen it via the toggle button.
@@ -187,6 +196,7 @@ function buildHome() {
     }`],
     })}
 <body>
+${indent(read('components/partials/preloader.html'))}
     <a class="skip-link" href="#home">Skip to content</a>
 ${body}
 
@@ -307,6 +317,7 @@ ${others.map((o) => indent(workCard(o, 0, { flat: true }), 12)).join('\n')}
         jsonLd: [caseLd],
     })}
 <body>
+${indent(read('components/partials/preloader.html'))}
     <a class="skip-link" href="#main">Skip to content</a>
 ${indent(rootLinks(read('components/partials/navigation.html')))}
 

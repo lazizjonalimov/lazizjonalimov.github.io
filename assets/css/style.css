@@ -816,3 +816,70 @@ a.mono-handle:hover { color: var(--accent); }
 .case-content, .case-intro > * { min-width: 0; }
 .more-grid .sc-media { min-height: 0; width: 100%; }
 .more-grid .sc-media .viz { min-height: 0; }
+
+/* =========================================================
+   Big name + LA logo preloader
+   ========================================================= */
+.hero-word {
+    position: relative; z-index: 0;
+    margin: 64px 0 0; text-align: center; user-select: none; pointer-events: none;
+    font-size: clamp(76px, 17vw, 270px); line-height: .8; font-weight: 800; letter-spacing: -0.055em;
+    background: linear-gradient(180deg, var(--text) 0%, color-mix(in srgb, var(--text) 35%, transparent) 55%, transparent 92%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero-word + .hero-marquee { position: relative; z-index: 1; margin-top: -5.5vw; }
+
+/* preloader: hidden unless <html> has .preloading (set once per session) */
+.preloader { display: none; }
+.preloading body { overflow: hidden; }
+.preloading .preloader {
+    position: fixed; inset: 0; z-index: 300;
+    display: grid; place-items: center;
+    background: var(--bg);
+    animation: plOut .55s 2.65s ease forwards;
+}
+.pl-block { position: relative; width: 300px; height: 300px; display: grid; place-items: center; animation: plZoom .75s 2.45s cubic-bezier(.7,0,.3,1) forwards; }
+.pl-corner {
+    position: absolute; width: 14px; height: 14px; display: grid; place-items: center;
+    color: var(--accent); font-size: 14px; line-height: 1; opacity: 0;
+    animation: plCorner .6s .15s cubic-bezier(.2,.8,.2,1) forwards;
+}
+.c1 { left: -7px; top: -7px; --dx: 110px; --dy: 110px; }
+.c2 { right: -7px; top: -7px; --dx: -110px; --dy: 110px; }
+.c3 { right: -7px; bottom: -7px; --dx: -110px; --dy: -110px; }
+.c4 { left: -7px; bottom: -7px; --dx: 110px; --dy: -110px; }
+.pl-border { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.pl-border rect { fill: none; stroke: var(--muted); stroke-width: 1; stroke-dasharray: 1; stroke-dashoffset: 1; animation: plDraw 1s 1.25s cubic-bezier(.6,0,.4,1) forwards; vector-effect: non-scaling-stroke; }
+.pl-logo { width: 118px; height: auto; overflow: visible; }
+.pl-logo path {
+    fill: var(--text); fill-opacity: 0;
+    stroke: var(--text); stroke-width: 7; stroke-linejoin: miter;
+    stroke-dasharray: 1; stroke-dashoffset: 1;
+    animation: plDraw 1s cubic-bezier(.55,0,.35,1) forwards, plFill .5s 1.55s ease forwards;
+}
+.pl-l { animation-delay: .35s, 1.55s !important; }
+.pl-a { animation-delay: .6s, 1.7s !important; }
+.pl-tag {
+    position: absolute; bottom: 34px; left: 0; right: 0; text-align: center;
+    font-family: "Geist Mono", ui-monospace, monospace; font-size: 11px; text-transform: uppercase; letter-spacing: .04em;
+    color: var(--muted); opacity: 0; animation: plFade .5s 1.6s ease forwards;
+}
+@keyframes plCorner { from { opacity: 0; transform: translate(var(--dx), var(--dy)); } to { opacity: 1; transform: none; } }
+@keyframes plDraw { to { stroke-dashoffset: 0; } }
+@keyframes plFill { to { fill-opacity: 1; } }
+@keyframes plFade { to { opacity: 1; } }
+@keyframes plZoom { to { transform: scale(4); opacity: 0; } }
+@keyframes plOut { to { opacity: 0; visibility: hidden; } }
+
+/* hold the hero's entrance until the loader zooms away */
+.preloading .hero .reveal { transition-delay: 2.6s; }
+.preloading .hero .w > span { transition-delay: calc(2.6s + var(--i) * 45ms); }
+
+@media (max-width: 640px) {
+    .hero-word { margin-top: 44px; }
+    .hero-word + .hero-marquee { margin-top: -1vw; }
+    .pl-block { width: 240px; height: 240px; }
+    .c1 { --dx: 90px; --dy: 90px; } .c2 { --dx: -90px; --dy: 90px; } .c3 { --dx: -90px; --dy: -90px; } .c4 { --dx: 90px; --dy: -90px; }
+    .pl-logo { width: 96px; }
+    .pl-tag { bottom: 26px; }
+}
