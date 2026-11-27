@@ -75,8 +75,11 @@ function head({ title, description, url, ogType = 'website', ogImage, jsonLd, so
         var root = document.documentElement;
         root.classList.add('js');
         try {
-            // Logo preloader: once per browser session, never with reduced motion.
-            if (!sessionStorage.getItem('pl') && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+            // Logo preloader: on the first page of a visit and on every refresh,
+            // but not when moving between pages; never with reduced motion.
+            var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+            var reloaded = nav ? nav.type === 'reload' : (performance.navigation && performance.navigation.type === 1);
+            if ((reloaded || !sessionStorage.getItem('pl')) && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) {
                 sessionStorage.setItem('pl', '1');
                 root.classList.add('preloading');
                 setTimeout(function () { root.classList.remove('preloading'); }, 3300);
